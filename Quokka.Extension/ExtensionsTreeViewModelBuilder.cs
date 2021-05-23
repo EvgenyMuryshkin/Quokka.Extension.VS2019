@@ -14,6 +14,11 @@ namespace Quokka.Extension
         public string Project;
         public string Class;
         public string Method;
+
+        public override string ToString()
+        {
+            return $"{Project}: {Class}.{Method}";
+        }
     }
 
     public class ExtensionsTreeViewModelBuilder

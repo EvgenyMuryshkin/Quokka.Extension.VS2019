@@ -21,6 +21,7 @@ namespace Quokka.Extension.VS2019
             {
                 try
                 {
+                    await SetRunningAsync(true);
                     await ExecuteAsync(parameter);
                 }
                 finally
