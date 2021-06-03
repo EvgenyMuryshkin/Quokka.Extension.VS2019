@@ -61,6 +61,7 @@ namespace Quokka.Extension.VS2019
             SetupOutputWindow();
             await Quokka.Extension.VS2019.InvokeExtensionMethodCommand.InitializeAsync(this);
             await Quokka.Extension.VS2019.RerunExtensionMethodCommand.InitializeAsync(this);
+            //new DynamicMenu(this);
         }
         #endregion
 

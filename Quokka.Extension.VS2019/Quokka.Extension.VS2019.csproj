@@ -47,6 +47,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="CommandViewModel.cs" />
+    <Compile Include="DynamicItemMenuCommand.cs" />
     <Compile Include="ExtensionMethodInvocationCommandViewModel.cs" />
     <Compile Include="ExtensionsTree.xaml.cs">
       <DependentUpon>ExtensionsTree.xaml</DependentUpon>
@@ -58,6 +59,31 @@
     <Compile Include="RerunExtensionMethodCommand.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="LICENSE">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Resources\AntDesignIcons.png" />
+    <Content Include="Resources\BootstrapIcons.png" />
+    <Content Include="Resources\BoxIcons.png" />
+    <Content Include="Resources\css_gg.png" />
+    <Content Include="Resources\Devicons.png" />
+    <Content Include="Resources\Feather.png" />
+    <Content Include="Resources\FlatColorIcons.png" />
+    <Content Include="Resources\FontAwesome.png" />
+    <Content Include="Resources\GameIcons.png" />
+    <Content Include="Resources\GithubOcticonsicons.png" />
+    <Content Include="Resources\Grommet_Icons.png" />
+    <Content Include="Resources\Heroicons.png" />
+    <Content Include="Resources\IcoMoonFree.png" />
+    <Content Include="Resources\Ionicons4.png" />
+    <Content Include="Resources\Ionicons5.png" />
+    <Content Include="Resources\MaterialDesignicons.png" />
+    <Content Include="Resources\RemixIcon.png" />
+    <Content Include="Resources\SimpleIcons.png" />
+    <Content Include="Resources\Typicons.png" />
+    <Content Include="Resources\VSCodeIcons.png" />
+    <Content Include="Resources\WeatherIcons.png" />
     <None Include="source.extension.vsixmanifest">
       <SubType>Designer</SubType>
     </None>
@@ -95,7 +121,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\InvokeExtensionMethodCommand.png" />
-    <Content Include="Resources\RerunExtensionMethodCommand.png" />
   </ItemGroup>
   <ItemGroup>
     <Page Include="ExtensionsTree.xaml">

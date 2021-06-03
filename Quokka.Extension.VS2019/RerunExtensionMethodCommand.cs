@@ -44,6 +44,7 @@ namespace Quokka.Extension.VS2019
             _commandService = commandService ?? throw new ArgumentNullException(nameof(commandService));
 
             var menuItem = new MenuCommand(this.Execute, menuCommandId);
+            menuItem.Visible = false;
             _commandService.AddCommand(menuItem);
         }
 

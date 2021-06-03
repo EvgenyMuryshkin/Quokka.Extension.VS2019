@@ -99,7 +99,14 @@ namespace Quokka.Extension.VS2019
         {
             ThreadHelper.ThrowIfNotOnUIThread();
 
-            var file = @"c:\code\qusoc\qusoc.sln";
+            var solution = package.GetService<IVsSolution, IVsSolution>();
+            solution.GetSolutionInfo(out var dir, out var file, out var opts);
+
+            if (file == null)
+                file = @"c:\code\qusoc\qusoc.sln";
+
+            if (!File.Exists(file))
+                return;
 
             var treeViewModel = new ExtensionsTreeViewModel() 
             { 
