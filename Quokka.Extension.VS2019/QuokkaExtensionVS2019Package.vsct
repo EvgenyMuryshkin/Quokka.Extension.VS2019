@@ -33,18 +33,54 @@
           <CommandName>Quokka FPGA</CommandName>
         </Strings>
       </Menu>
+      <Menu guid="guidQuokkaExtensionVS2019PackageCmdSet" id="MyMenuController" priority="0x1000" type="Menu">
+        <Parent guid="guidQuokkaExtensionVS2019PackageCmdSet" id="MyMenuGroup" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <ButtonText>Quokka FPGA</ButtonText>
+        </Strings>
+      </Menu>
+
+
+      <Menu guid="guidQuokkaExtensionVS2019PackageCmdSet" id="TestMenuController" priority="0x0100" type="MenuController">
+        <Parent guid="guidQuokkaExtensionVS2019PackageCmdSet" id="ToolbarTailGroup" />
+        <CommandFlag>IconAndText</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <CommandFlag>TextIsAnchorCommand</CommandFlag>
+        <Strings>
+          <ButtonText>Test Menu Controller</ButtonText>
+          <CommandName>Test Menu Controller</CommandName>
+        </Strings>
+      </Menu>
+      
+      
     </Menus>
     <!-- In this section you can define new menu groups. A menu group is a container for
          other menus or buttons (commands); from a visual point of view you can see the
          group as the part of a menu contained between two lines. The parent of a group
          must be a menu. -->
     <Groups>
-      <Group guid="guidQuokkaExtensionVS2019PackageCmdSet" id="ToolbarGroup" priority="0x0000">
-        <Parent guid="guidQuokkaExtensionVS2019PackageCmdSet" id="Toolbar" />
-      </Group>
       <Group guid="guidQuokkaExtensionVS2019PackageCmdSet" id="MyMenuGroup" priority="0x0600">
         <Parent guid="guidSHLMainMenu" id="IDM_VS_MENU_TOOLS" />
       </Group>
+      <Group guid="guidQuokkaExtensionVS2019PackageCmdSet" id="ToolbarGroup" priority="0x0000">
+        <Parent guid="guidQuokkaExtensionVS2019PackageCmdSet" id="Toolbar" />
+      </Group>
+      <Group guid="guidQuokkaExtensionVS2019PackageCmdSet" id="MyMenuControllerGroup" priority="0x4000">
+        <Parent guid="guidQuokkaExtensionVS2019PackageCmdSet" id="Toolbar" />
+      </Group>
+      <Group guid="guidQuokkaExtensionVS2019PackageCmdSet" id="ToolbarTailGroup" priority="0x8000">
+        <Parent guid="guidQuokkaExtensionVS2019PackageCmdSet" id="Toolbar" />
+      </Group>
+
+      <Group guid="guidQuokkaExtensionVS2019PackageCmdSet" id="MyToolsMenuControllerGroup" priority="0x4000">
+        <Parent guid="guidQuokkaExtensionVS2019PackageCmdSet" id="MyMenuController" />
+      </Group>
+
+      <Group guid="guidQuokkaExtensionVS2019PackageCmdSet" id="TestMenuControllerGroup" priority="0x000">
+        <Parent guid="guidQuokkaExtensionVS2019PackageCmdSet" id="TestMenuController" />
+      </Group>
+      
     </Groups>
     <!--Buttons section. -->
     <!--This section defines the elements the user can interact with, like a menu command or a button
@@ -57,6 +93,7 @@
               <CommandFlag>DefaultInvisible</CommandFlag>
               <CommandFlag>DynamicVisibility</CommandFlag>
           If you do not want an image next to your command, remove the Icon node /> -->
+      <!--
       <Button guid="guidQuokkaExtensionVS2019PackageCmdSet" id="InvokeExtensionMethodCommandId" priority="0x0100" type="Button">
         <Parent guid="guidQuokkaExtensionVS2019PackageCmdSet" id="MyMenuGroup" />
         <Icon guid="guid_VSCodeIcons" id="VscAccount" />
@@ -71,6 +108,7 @@
           <ButtonText>Rerun Extension Method 2</ButtonText>
         </Strings>
       </Button>
+      -->
       <Button guid="guidQuokkaExtensionVS2019PackageCmdSet" id="InvokeExtensionMethodCommandId" priority="0x0100" type="Button">
         <Parent guid="guidQuokkaExtensionVS2019PackageCmdSet" id="ToolbarGroup" />
         <Icon guid="guid_VSCodeIcons" id="VscAccount" />
@@ -78,25 +116,74 @@
           <ButtonText>Invoke Extension Method 3</ButtonText>
         </Strings>
       </Button>
-      <Button guid="guidQuokkaExtensionVS2019PackageCmdSet" id="cmdidRerunExtensionMethodCommand" priority="0x0101" type="Button">
-        <Parent guid="guidQuokkaExtensionVS2019PackageCmdSet" id="ToolbarGroup" />
+      
+      <Button guid="guidQuokkaExtensionVS2019PackageCmdSet" id="cmdidRerunExtensionMethodCommand" priority="0x8001" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2019PackageCmdSet" id="ToolbarTailGroup" />
         <Icon guid="guid_VSCodeIcons" id="VscAdd" />
         <Strings>
           <ButtonText>Rerun Extension Method 4</ButtonText>
         </Strings>
       </Button>
-<!--
-      <Button guid="guidQuokkaExtensionVS2019PackageCmdSet" id="cmdidMyDynamicStartCommand" priority="0x1000" >
-        <Parent guid="guidQuokkaExtensionVS2019PackageCmdSet" id="MyMenuGroup" />
+      
+      <Button guid="guidQuokkaExtensionVS2019PackageCmdSet" id="cmdidCancelRunMethodCommand" priority="0x8002" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2019PackageCmdSet" id="ToolbarTailGroup" />
+        <Icon guid="guidImages" id="bmpPicX" />
+        <Strings>
+          <ButtonText>Cancel Run</ButtonText>
+        </Strings>
+      </Button>
+
+     
+      <Button guid="guidQuokkaExtensionVS2019PackageCmdSet" id="cmdidMyDynamicStartCommand" priority="0x1000" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2019PackageCmdSet" id="MyMenuControllerGroup" />
         <CommandFlag>DynamicItemStart</CommandFlag>
         <CommandFlag>DynamicVisibility</CommandFlag>
         <CommandFlag>TextChanges</CommandFlag>
-        <!- - This text does not appear. - ->
+        <Icon guid="guid_VSCodeIcons" id="VscArchive" />
+        <!-- This text does not appear. -->
         <Strings>
           <ButtonText>Project</ButtonText>
         </Strings>
       </Button>
-      -->
+
+
+
+      <Button guid="guidQuokkaExtensionVS2019PackageCmdSet" id="testCommand" priority="0x8002" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2019PackageCmdSet" id="MyToolsMenuControllerGroup" />
+        <Icon guid="guidImages" id="bmpPicX" />
+        <Strings>
+          <ButtonText>Cancel Run 1</ButtonText>
+        </Strings>
+      </Button>
+
+      <Button guid="guidQuokkaExtensionVS2019PackageCmdSet" id="cmdidMCItem1" priority="0x0000" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2019PackageCmdSet" id="TestMenuControllerGroup" />
+        <Icon guid="guidImages" id="bmpPic1" />
+        <CommandFlag>IconAndText</CommandFlag>
+        <Strings>
+          <ButtonText>MC Item 1</ButtonText>
+          <CommandName>MC Item 1</CommandName>
+        </Strings>
+      </Button>
+      <Button guid="guidQuokkaExtensionVS2019PackageCmdSet" id="cmdidMCItem2" priority="0x0100" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2019PackageCmdSet" id="TestMenuControllerGroup" />
+        <Icon guid="guidImages" id="bmpPic2" />
+        <CommandFlag>IconAndText</CommandFlag>
+        <Strings>
+          <ButtonText>MC Item 2</ButtonText>
+          <CommandName>MC Item 2</CommandName>
+        </Strings>
+      </Button>
+      <Button guid="guidQuokkaExtensionVS2019PackageCmdSet" id="cmdidMCItem3" priority="0x0200" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2019PackageCmdSet" id="TestMenuControllerGroup" />
+        <Icon guid="guidImages" id="bmpPicSearch" />
+        <CommandFlag>IconAndText</CommandFlag>
+        <Strings>
+          <ButtonText>MC Item 3</ButtonText>
+          <CommandName>MC Item 3</CommandName>
+        </Strings>
+      </Button>
+      
     </Buttons>
     <!--The bitmaps section is used to define the bitmaps that are used for the commands.-->
     <Bitmaps>
@@ -138,8 +225,19 @@
       <IDSymbol name="InvokeExtensionMethodCommandId" value="0x0100" />
       <IDSymbol name="Toolbar" value="0x1000" />
       <IDSymbol name="ToolbarGroup" value="0x1050" />
-      <IDSymbol name="cmdidRerunExtensionMethodCommand" value="4177" />
+      <IDSymbol name="ToolbarTailGroup" value="0x1051"/>
+      <IDSymbol name="cmdidCancelRunMethodCommand" value="0x1200" />
+      <IDSymbol name="cmdidRerunExtensionMethodCommand" value="0x1201" />
+      <IDSymbol name="MyMenuController" value="0x1024" />
+      <IDSymbol name="MyMenuControllerGroup" value="0x1025" />
       <IDSymbol name="cmdidMyDynamicStartCommand" value="0x2000" />
+      <IDSymbol name="testCommand" value="0x3000" />
+      <IDSymbol name="MyToolsMenuControllerGroup" value="0x3001"/>
+      <IDSymbol name="TestMenuController" value="0x3002"/>
+      <IDSymbol name="TestMenuControllerGroup" value="0x3003"/>
+      <IDSymbol name="cmdidMCItem1" value="0x7001"/>
+      <IDSymbol name="cmdidMCItem2" value="0x7002"/>
+      <IDSymbol name="cmdidMCItem3" value="0x7003"/>
     </GuidSymbol>
     <GuidSymbol name="guidImages" value="{7f2b6e9c-3d29-404a-8518-b9382d65e071}">
       <IDSymbol name="bmpPic1" value="1" />

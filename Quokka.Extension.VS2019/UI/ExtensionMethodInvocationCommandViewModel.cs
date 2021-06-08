@@ -9,17 +9,17 @@ namespace Quokka.Extension.VS2019
 {
     class ExtensionMethodInvocationCommandViewModel : AsyncCommandViewModel
     {
-        private readonly QuokkaExtensionVS2019Package _package;
+        private readonly ExtensionInvocationService _invocationService;
         private readonly ExtensionMethodInvokeParams _invokeParams;
-        public ExtensionMethodInvocationCommandViewModel(QuokkaExtensionVS2019Package package, ExtensionMethodInvokeParams invokeParams)
+        public ExtensionMethodInvocationCommandViewModel(ExtensionInvocationService invocationService, ExtensionMethodInvokeParams invokeParams)
         {
-            _package = package;
+            _invocationService = invocationService;
             _invokeParams = invokeParams;
         }
 
         protected override async Task ExecuteAsync(object parameter)
         {
-            await _package.InvokeExtensionMethodAsync(_invokeParams);
+            await _invocationService.InvokeExtensionMethodAsync(_invokeParams);
         }
     }
 }

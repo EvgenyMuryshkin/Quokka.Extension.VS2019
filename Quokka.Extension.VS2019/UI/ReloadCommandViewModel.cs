@@ -2,9 +2,11 @@
 {
     class ReloadCommandViewModel : CommandViewModel
     {
+        private readonly ExtensionInvocationService _invocationService;
         private readonly ExtensionsTreeViewModel _viewModel;
-        public ReloadCommandViewModel(ExtensionsTreeViewModel viewModel)
+        public ReloadCommandViewModel(ExtensionInvocationService invocationService, ExtensionsTreeViewModel viewModel)
         {
+            _invocationService = invocationService;
             _viewModel = viewModel;
         }
 
@@ -14,7 +16,7 @@
                 _viewModel,
                 (invokeParams) =>
                 {
-                    return new ExtensionMethodInvocationCommandViewModel(QuokkaExtensionVS2019Package.Instance, invokeParams);
+                    return new ExtensionMethodInvocationCommandViewModel(_invocationService, invokeParams);
                 });
         }
     }

@@ -10,7 +10,7 @@ namespace Quokka.Extension.VS2019
 {
     class DynamicMenu
     {
-        public const string guidDynamicMenuPackageCmdSet = "d9ff7f11-8ffd-4154-9fb2-2d1857864b98";  // get the GUID from the .vsct file
+        public const string guidDynamicMenuPackageCmdSet = "4bb7016f-f3ce-4305-91c2-2493253e2325";  // get the GUID from the .vsct file
         public const uint cmdidMyCommand = 0x2000;
 
         private DTE2 dte2;
@@ -39,18 +39,26 @@ namespace Quokka.Extension.VS2019
             {
                 // Add the DynamicItemMenuCommand for the expansion of the root item into N items at run time.
                 CommandID dynamicItemRootId = new CommandID(new Guid(guidDynamicMenuPackageCmdSet), (int)cmdidMyCommand);
-                DynamicItemMenuCommand dynamicMenuCommand = new DynamicItemMenuCommand(dynamicItemRootId,
+                DynamicItemMenuCommand dynamicMenuCommand = new DynamicItemMenuCommand(
+                    dynamicItemRootId,
                     IsValidDynamicItem,
                     OnInvokedDynamicItem,
-                    OnBeforeQueryStatusDynamicItem);
+                    OnBeforeQueryStatusDynamicItem)
+                {
+                    Visible = false
+                };
                 commandService.AddCommand(dynamicMenuCommand);
             }
 
             dte2 = (DTE2)(this.ServiceProvider.GetServiceAsync(typeof(DTE)).Result);
         }
 
+        static int maxCount = 4;
         private void OnInvokedDynamicItem(object sender, EventArgs args)
         {
+            maxCount++;
+            return;
+
             DynamicItemMenuCommand invokedCommand = (DynamicItemMenuCommand)sender;
             // If the command is already checked, we don't need to do anything
             if (invokedCommand.Checked)
@@ -82,14 +90,16 @@ namespace Quokka.Extension.VS2019
             // The index is set to 1 rather than 0 because the Solution.Projects collection is 1-based.
             int indexForDisplay = (isRootItem ? 1 : (matchedCommand.MatchedCommandId - (int)cmdidMyCommand) + 1);
 
-            matchedCommand.Text = dte2.Solution.Projects.Item(indexForDisplay).Name;
-
+            matchedCommand.Text = "Dynamic " +  indexForDisplay.ToString(); //dte2.Solution.Projects.Item(indexForDisplay).Name;
+            /*
             Array startupProjects = (Array)dte2.Solution.SolutionBuild.StartupProjects;
             string startupProject = System.IO.Path.GetFileNameWithoutExtension((string)startupProjects.GetValue(0));
 
             // Check the command if it isn't checked already selected
             matchedCommand.Checked = (matchedCommand.Text == startupProject);
+            */
 
+            matchedCommand.Checked = false;
             // Clear the ID because we are done with this item.
             matchedCommand.MatchedCommandId = 0;
         }
@@ -99,7 +109,7 @@ namespace Quokka.Extension.VS2019
             // The match is valid if the command ID is >= the id of our root dynamic start item
             // and the command ID minus the ID of our root dynamic start item
             // is less than or equal to the number of projects in the solution.
-            return (commandId >= (int)cmdidMyCommand) && ((commandId - (int)cmdidMyCommand) < dte2.Solution.Projects.Count);
+            return (commandId >= (int)cmdidMyCommand) && ((commandId - (int)cmdidMyCommand) < maxCount/*dte2.Solution.Projects.Count*/);
         }
     }
 
@@ -107,7 +117,11 @@ namespace Quokka.Extension.VS2019
     {
         private Predicate<int> matches;
 
-        public DynamicItemMenuCommand(CommandID rootId, Predicate<int> matches, EventHandler invokeHandler, EventHandler beforeQueryStatusHandler)
+        public DynamicItemMenuCommand(
+            CommandID rootId, 
+            Predicate<int> matches, 
+            EventHandler invokeHandler, 
+            EventHandler beforeQueryStatusHandler)
             : base(invokeHandler, null /*changeHandler*/, beforeQueryStatusHandler, rootId)
         {
             if (matches == null)

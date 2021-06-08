@@ -46,17 +46,26 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="CommandViewModel.cs" />
+    <Compile Include="Commands\CancelRunMethodCommand.cs" />
+    <Compile Include="Scaffolding\AsyncExtensionCommand.cs" />
+    <Compile Include="Scaffolding\ExtensionBaseCommand.cs" />
+    <Compile Include="Scaffolding\ExtensionCommand.cs" />
+    <Compile Include="Scaffolding\ExtensionPart.cs" />
+    <Compile Include="Scaffolding\ExtensionPartDeps.cs" />
+    <Compile Include="Scaffolding\IExtensionPart.cs" />
+    <Compile Include="UI\CommandViewModel.cs" />
     <Compile Include="DynamicItemMenuCommand.cs" />
-    <Compile Include="ExtensionMethodInvocationCommandViewModel.cs" />
-    <Compile Include="ExtensionsTree.xaml.cs">
+    <Compile Include="UI\ExtensionMethodInvocationCommandViewModel.cs" />
+    <Compile Include="UI\ExtensionsTree.xaml.cs">
       <DependentUpon>ExtensionsTree.xaml</DependentUpon>
     </Compile>
-    <Compile Include="InvokeExtensionMethodCommand.cs" />
+    <Compile Include="guidQuokkaExtensionVS2019PackageIds.cs" />
+    <Compile Include="Commands\InvokeExtensionMethodCommand.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Quokka.Extension.VS2019Package.cs" />
-    <Compile Include="ReloadCommandViewModel.cs" />
-    <Compile Include="RerunExtensionMethodCommand.cs" />
+    <Compile Include="Parts\QuokkaOutputWindowExtensionPart.cs" />
+    <Compile Include="UI\ReloadCommandViewModel.cs" />
+    <Compile Include="Commands\RerunExtensionMethodCommand.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="LICENSE">
@@ -103,6 +112,9 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Autofac">
+      <Version>6.2.0</Version>
+    </PackageReference>
     <PackageReference Include="Microsoft.CodeAnalysis.CSharp">
       <Version>3.9.0</Version>
     </PackageReference>
@@ -113,6 +125,9 @@
       <Version>16.9.31025.104</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.VSSDK.BuildTools" Version="16.9.2017" />
+    <PackageReference Include="VSSDK.ExtensionManager">
+      <Version>11.0.0</Version>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <VSCTCompile Include="QuokkaExtensionVS2019Package.vsct">
@@ -123,7 +138,7 @@
     <Content Include="Resources\InvokeExtensionMethodCommand.png" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="ExtensionsTree.xaml">
+    <Page Include="UI\ExtensionsTree.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -133,6 +148,9 @@
       <Project>{10e6c984-e48c-40ab-a5f8-2fce8501f849}</Project>
       <Name>Quokka.Extension</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(VSToolsPath)\VSSDK\Microsoft.VsSDK.targets" Condition="'$(VSToolsPath)' != ''" />
