@@ -1,37 +1,29 @@
 ﻿using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
-using System;
+using Quokka.Extension.Interop;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Windows.Input;
 using System.Xml.Linq;
 
 namespace Quokka.Extension
 {
-    public class ExtensionMethodInvokeParams
+    public class ExtensionsDiscoveryService
     {
-        public string Project;
-        public string Class;
-        public string Method;
+        public List<ExtensionMethodInfo> Extensions = new List<ExtensionMethodInfo>();
 
-        public override string ToString()
+        public void Reload(string solutionPath)
         {
-            return $"{Project}: {Class}.{Method}";
-        }
-    }
+            Extensions.Clear();
 
-    public class ExtensionsTreeViewModelBuilder
-    {
-        public static void PopulateViewModel(ExtensionsTreeViewModel treeViewModel, Func<ExtensionMethodInvokeParams, ICommand> commandFactory)
-        {
-            var path = treeViewModel.SolutionPath;
-            if (File.Exists(path))
-                path = Path.GetDirectoryName(path);
+            if (File.Exists(solutionPath))
+                solutionPath = Path.GetDirectoryName(solutionPath);
 
-            treeViewModel.Projects.Clear();
+            if (!Directory.Exists(solutionPath))
+                return;
 
-            var projFiles = Directory.EnumerateFiles(path, "*.csproj", SearchOption.AllDirectories);
+            var projFiles = Directory.EnumerateFiles(solutionPath, "*.csproj", SearchOption.AllDirectories);
 
             foreach (var proj in projFiles)
             {
@@ -43,11 +35,6 @@ namespace Quokka.Extension
 
                 if (refs.Any())
                 {
-                    var projectViewModel = new ExtensionProjectViewModel()
-                    {
-                        Path = proj
-                    };
-
                     var sources = Directory.EnumerateFiles(Path.GetDirectoryName(proj), "*.cs", SearchOption.AllDirectories);
 
                     foreach (var source in sources)
@@ -62,10 +49,7 @@ namespace Quokka.Extension
 
                         foreach (var classDeclaration in classDeclarations)
                         {
-                            var classViewModel = new ExtensionClassViewModel()
-                            {
-                                Name = classDeclaration.Identifier.ToString()
-                            };
+                            var className = classDeclaration.Identifier.ToString();
 
                             var methodDeclarations = classDeclaration
                                 .DescendantNodes(n => true)
@@ -74,28 +58,18 @@ namespace Quokka.Extension
 
                             foreach (var methodDeclaration in methodDeclarations)
                             {
-                                var invokeParams = new ExtensionMethodInvokeParams() 
-                                { 
-                                    Project = proj, 
-                                    Class = classViewModel.Name,
-                                    Method = methodDeclaration.Identifier.ToString()
-                                };
-
-                                var methodViewModel = new ExtensionMethodViewModel()
+                                var invokeParams = new ExtensionMethodInfo()
                                 {
-                                    Name = invokeParams.Method,
-                                    InvokeCommand = commandFactory?.Invoke(invokeParams)
+                                    Project = proj,
+                                    Class = className,
+                                    Method = methodDeclaration.Identifier.ToString(),
+                                    Icon = VSCodeIcons.VscChecklist
                                 };
 
-                                classViewModel.Methods.Add(methodViewModel);
+                                Extensions.Add(invokeParams);
                             }
-
-                            projectViewModel.Classes.Add(classViewModel);
                         }
-
                     }
-
-                    treeViewModel.Projects.Add(projectViewModel);
                 }
             }
         }

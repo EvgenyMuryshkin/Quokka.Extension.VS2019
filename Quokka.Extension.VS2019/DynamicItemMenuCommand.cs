@@ -10,13 +10,14 @@ namespace Quokka.Extension.VS2019
 {
     class DynamicMenu
     {
-        public const string guidDynamicMenuPackageCmdSet = "4bb7016f-f3ce-4305-91c2-2493253e2325";  // get the GUID from the .vsct file
-        public const uint cmdidMyCommand = 0x2000;
+        private readonly uint _cmdidMyDynamicStartCommand;
+        private int _maxCount;
 
         private DTE2 dte2;
         private int rootItemId = 0;
 
         private readonly AsyncPackage package;
+
         private Microsoft.VisualStudio.Shell.IAsyncServiceProvider ServiceProvider
         {
             get
@@ -25,8 +26,11 @@ namespace Quokka.Extension.VS2019
             }
         }
 
-        internal DynamicMenu(AsyncPackage package)
+        internal DynamicMenu(uint cmdidMyDynamicStartCommand, AsyncPackage package, int count)
         {
+            _cmdidMyDynamicStartCommand = cmdidMyDynamicStartCommand;
+            _maxCount = count;
+
             if (package == null)
             {
                 throw new ArgumentNullException(nameof(package));
@@ -38,7 +42,7 @@ namespace Quokka.Extension.VS2019
             if (commandService != null)
             {
                 // Add the DynamicItemMenuCommand for the expansion of the root item into N items at run time.
-                CommandID dynamicItemRootId = new CommandID(new Guid(guidDynamicMenuPackageCmdSet), (int)cmdidMyCommand);
+                CommandID dynamicItemRootId = new CommandID(guidQuokkaExtensionVS2019PackageIds.guidQuokkaExtensionVS2019PackageCmdSet, (int)_cmdidMyDynamicStartCommand);
                 DynamicItemMenuCommand dynamicMenuCommand = new DynamicItemMenuCommand(
                     dynamicItemRootId,
                     IsValidDynamicItem,
@@ -53,10 +57,9 @@ namespace Quokka.Extension.VS2019
             dte2 = (DTE2)(this.ServiceProvider.GetServiceAsync(typeof(DTE)).Result);
         }
 
-        static int maxCount = 4;
         private void OnInvokedDynamicItem(object sender, EventArgs args)
         {
-            maxCount++;
+            _maxCount++;
             return;
 
             DynamicItemMenuCommand invokedCommand = (DynamicItemMenuCommand)sender;
@@ -80,7 +83,7 @@ namespace Quokka.Extension.VS2019
         {
             DynamicItemMenuCommand matchedCommand = (DynamicItemMenuCommand)sender;
             matchedCommand.Enabled = true;
-            matchedCommand.Visible = true;
+            matchedCommand.Visible = _maxCount != 0;
 
             // Find out whether the command ID is 0, which is the ID of the root item.
             // If it is the root item, it matches the constructed DynamicItemMenuCommand,
@@ -88,7 +91,7 @@ namespace Quokka.Extension.VS2019
             bool isRootItem = (matchedCommand.MatchedCommandId == 0);
 
             // The index is set to 1 rather than 0 because the Solution.Projects collection is 1-based.
-            int indexForDisplay = (isRootItem ? 1 : (matchedCommand.MatchedCommandId - (int)cmdidMyCommand) + 1);
+            int indexForDisplay = (isRootItem ? 1 : (matchedCommand.MatchedCommandId - (int)_cmdidMyDynamicStartCommand) + 1);
 
             matchedCommand.Text = "Dynamic " +  indexForDisplay.ToString(); //dte2.Solution.Projects.Item(indexForDisplay).Name;
             /*
@@ -109,7 +112,7 @@ namespace Quokka.Extension.VS2019
             // The match is valid if the command ID is >= the id of our root dynamic start item
             // and the command ID minus the ID of our root dynamic start item
             // is less than or equal to the number of projects in the solution.
-            return (commandId >= (int)cmdidMyCommand) && ((commandId - (int)cmdidMyCommand) < maxCount/*dte2.Solution.Projects.Count*/);
+            return (commandId >= (int)_cmdidMyDynamicStartCommand) && ((commandId - (int)_cmdidMyDynamicStartCommand) < _maxCount/*dte2.Solution.Projects.Count*/);
         }
     }
 
@@ -124,12 +127,7 @@ namespace Quokka.Extension.VS2019
             EventHandler beforeQueryStatusHandler)
             : base(invokeHandler, null /*changeHandler*/, beforeQueryStatusHandler, rootId)
         {
-            if (matches == null)
-            {
-                throw new ArgumentNullException("matches");
-            }
-
-            this.matches = matches;
+            this.matches = matches ?? throw new ArgumentNullException(nameof(matches));
         }
 
         public override bool DynamicItemMatch(int cmdId)

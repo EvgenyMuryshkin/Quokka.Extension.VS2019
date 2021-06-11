@@ -2,7 +2,7 @@
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 
-namespace Quokka.Extension
+namespace Quokka.Extension.VS2019
 {
     public class ExtensionsTreeViewModel : ViewModel
     {

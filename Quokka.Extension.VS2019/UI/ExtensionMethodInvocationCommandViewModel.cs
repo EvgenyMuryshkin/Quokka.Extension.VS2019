@@ -10,8 +10,8 @@ namespace Quokka.Extension.VS2019
     class ExtensionMethodInvocationCommandViewModel : AsyncCommandViewModel
     {
         private readonly ExtensionInvocationService _invocationService;
-        private readonly ExtensionMethodInvokeParams _invokeParams;
-        public ExtensionMethodInvocationCommandViewModel(ExtensionInvocationService invocationService, ExtensionMethodInvokeParams invokeParams)
+        private readonly ExtensionMethodInfo _invokeParams;
+        public ExtensionMethodInvocationCommandViewModel(ExtensionInvocationService invocationService, ExtensionMethodInfo invokeParams)
         {
             _invocationService = invocationService;
             _invokeParams = invokeParams;

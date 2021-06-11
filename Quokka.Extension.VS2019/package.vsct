@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CommandTable xmlns="http://schemas.microsoft.com/VisualStudio/2005-10-18/CommandTable" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <Extern href="stdidcmd.h" />
+  <Extern href="vsshlids.h" />
+  <Symbols>
+    <!-- This is the package guid. -->
+    <GuidSymbol name="guidQuokkaExtensionVS2019Package" value="{d9ff7f11-8ffd-4154-9fb2-2d1857864b98}" />
+    <!-- This is the guid used to group the menu commands together -->
+    <GuidSymbol name="guidQuokkaExtensionVS2019PackageCmdSet" value="{4bb7016f-f3ce-4305-91c2-2493253e2325}">
+      <IDSymbol name="MyMenuGroup" value="0x1020" />
+      <IDSymbol name="InvokeExtensionMethodCommandId" value="0x0100" />
+      <IDSymbol name="DynamicMenuController" value="0x0103" />
+      <IDSymbol name="DynamicMenuControllerGroup" value="0x0104"/>
+
+      <IDSymbol name="Toolbar" value="0x1000" />
+      <IDSymbol name="ToolbarLeadingGroup" value="0x1050" />
+      <IDSymbol name="ToolbarDynamicGroup" value="0x1051"/>
+      <IDSymbol name="ToolbarTailGroup" value="0x1052"/>
+      <IDSymbol name="cmdidCancelRunMethodCommand" value="0x1200" />
+      <IDSymbol name="cmdidRerunExtensionMethodCommand" value="0x1201" />
+      <IDSymbol name="cmdidExploreCommand" value="0x1202" />
+      <IDSymbol name="MyMenuController" value="0x1024" />
+      <IDSymbol name="MyMenuControllerGroup" value="0x1025" />
+      <IDSymbol name="cmdidMyDynamicStartCommand1" value="0x2001" />
+      <IDSymbol name="cmdidMyDynamicStartCommand2" value="0x3001" />
+      <IDSymbol name="cmdidMyDynamicStartCommand3" value="0x4001" />
+    </GuidSymbol>
+  </Symbols>
+</CommandTable>

@@ -1,6 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 
-namespace Quokka.Extension
+namespace Quokka.Extension.VS2019
 {
     public class ExtensionClassViewModel : ViewModel
     {
