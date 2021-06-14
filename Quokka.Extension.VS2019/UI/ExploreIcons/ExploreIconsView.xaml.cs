@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Quokka.Extension.VS2019.UI
+namespace Quokka.Extension.VS2019.UI.ExploreIcons
 {
     /// <summary>
     /// Interaction logic for ExploreIcons.xaml
     /// </summary>
-    public partial class ExploreIcons : UserControl
+    public partial class ExploreIconsView : UserControl
     {
-        public ExploreIcons()
+        public ExploreIconsView()
         {
             // keep reference to interactivity assembly
             var anchor = typeof(System.Windows.Interactivity.Behavior);

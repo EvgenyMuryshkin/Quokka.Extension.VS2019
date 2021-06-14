@@ -3,6 +3,8 @@ using Autofac.Features.ResolveAnything;
 using Microsoft.VisualStudio.ExtensionManager;
 using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.Shell.Interop;
+using Quokka.Extension.Interface;
+using Quokka.Extension.Services;
 using System;
 using System.Runtime.InteropServices;
 using System.Threading;
@@ -33,7 +35,7 @@ namespace Quokka.Extension.VS2019
     [ProvideMenuResource("Menus.ctmenu", 1)]
     [ProvideAutoLoad(UIContextGuids80.SolutionExists, PackageAutoLoadFlags.BackgroundLoad)]
     [ProvideAutoLoad(UIContextGuids80.NoSolution, PackageAutoLoadFlags.BackgroundLoad)]
-    public sealed class QuokkaExtensionVS2019Package : AsyncPackage, IExtensionLogger
+    public sealed class QuokkaExtensionVS2019Package : AsyncPackage, IExceptionHandler, IJoinableTaskFactory
     {
         public static QuokkaExtensionVS2019Package Instance;
         private IContainer _container;
@@ -44,13 +46,28 @@ namespace Quokka.Extension.VS2019
         {
             var builder = new ContainerBuilder();
             builder.RegisterSource(new AnyConcreteTypeNotAlreadyRegisteredSource());
-            builder.RegisterType<ExtensionInvocationService>().SingleInstance();
-            builder.RegisterInstance<AsyncPackage>(Instance);
-            builder.RegisterInstance<IServiceProvider>(Instance);
+
+            // singletons
+            builder.RegisterInstance<AsyncPackage>(Instance)
+                .AsSelf()
+                .As<AsyncPackage>()
+                .As<IExceptionHandler>()
+                .As<IServiceProvider>()
+                .As<IJoinableTaskFactory>()
+                ;
+
             builder.RegisterType<QuokkaOutputWindowExtensionPart>()
                 .SingleInstance()
                 .AsSelf()
-                .As<IExtensionLogger>();
+                .As<IExtensionLogger>()
+                ;
+
+            builder.RegisterType<ExtensionsCacheService>().AsImplementedInterfaces().SingleInstance();
+            builder.RegisterType<ExtensionInvocationService>().AsImplementedInterfaces().SingleInstance();
+            builder.RegisterType<InvocationCacheService>().AsImplementedInterfaces().SingleInstance();
+
+            // transient
+            builder.RegisterType<ExtensionsDiscoveryService>().AsImplementedInterfaces();
 
             _container = builder.Build();
         }
@@ -65,7 +82,6 @@ namespace Quokka.Extension.VS2019
         protected override async Task InitializeAsync(CancellationToken cancellationToken, IProgress<ServiceProgressData> progress)
         {
             Instance = this;
-            ConfigureContainer();
 
             // When initialized asynchronously, the current thread may be a background thread at this point.
             // Do any initialization that requires the UI thread after switching to the UI thread.
@@ -82,6 +98,8 @@ namespace Quokka.Extension.VS2019
 
             try
             {
+                ConfigureContainer();
+
                 foreach (var commandType in commands)
                 {
                     var instance = _container.Resolve(commandType) as IExtensionPart;
@@ -90,9 +108,16 @@ namespace Quokka.Extension.VS2019
                     await instance.InitializeAsync();
                 }
 
-                new DynamicMenu(guidQuokkaExtensionVS2019PackageIds.cmdidMyDynamicStartCommand1, this, 0);
+                new DynamicMenu(guidQuokkaExtensionVS2019PackageIds.cmdidMyDynamicStart_Translate, this, 1);
+                new DynamicMenu(guidQuokkaExtensionVS2019PackageIds.cmdidMyDynamicStart_BitStream, this, 2);
+                new DynamicMenu(guidQuokkaExtensionVS2019PackageIds.cmdidMyDynamicStart_Program, this, 3);
+
+                new DynamicMenu(guidQuokkaExtensionVS2019PackageIds.cmdidMyDynamicStartCommand1, this, 4);
                 new DynamicMenu(guidQuokkaExtensionVS2019PackageIds.cmdidMyDynamicStartCommand2, this, 0);
                 new DynamicMenu(guidQuokkaExtensionVS2019PackageIds.cmdidMyDynamicStartCommand3, this, 0);
+
+                var ecs = _container.Resolve<IExtensionsCacheService>();
+                ecs.Reload(@"c:\code\qusoc\qusoc.sln");
 
                 CompleteInitialization();
             }
@@ -123,5 +148,37 @@ namespace Quokka.Extension.VS2019
 
         public void Write(string message) => QuokkaPane?.OutputStringThreadSafe(message);
         public void WriteLine(string message) => Write($"{message}{Environment.NewLine}");
+
+        public async Task OnException(string title,Exception ex)
+        {
+            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
+
+            VsShellUtilities.ShowMessageBox(
+                this,
+                ex.Message,
+                $"{title}. See Quokka output window for details",
+                OLEMSGICON.OLEMSGICON_CRITICAL,
+                OLEMSGBUTTON.OLEMSGBUTTON_OK,
+                OLEMSGDEFBUTTON.OLEMSGDEFBUTTON_FIRST);
+
+            WriteLine(title);
+            WriteLine(ex.Message);
+            WriteLine(ex.StackTrace);
+        }
+
+        public async Task Run(Func<Task> asyncMethod)
+        {
+            await ThreadHelper.JoinableTaskFactory.Run(async () =>
+            {
+                await asyncMethod();
+                return Task.CompletedTask;
+            });
+        }
+
+        public async Task SwitchToMainThreadAsync(CancellationToken cancellationToken = default)
+        {
+            // how will that work...
+            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
+        }
     }
 }

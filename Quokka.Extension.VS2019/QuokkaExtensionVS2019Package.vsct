@@ -36,8 +36,41 @@
           <CommandName>Quokka FPGA</CommandName>
         </Strings>
       </Menu>
+      
+      <Menu guid="guidQuokkaExtensionVS2019PackageCmdSet" id="DynamicMenuController_Translate" priority="0x9000" type="MenuController">
+        <Parent guid="guidQuokkaExtensionVS2019PackageCmdSet" id="ToolbarDynamicGroup" />
+        <CommandFlag>IconIsMoniker</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <CommandFlag>TextIsAnchorCommand</CommandFlag>
+        <Strings>
+          <ButtonText>Translate</ButtonText>
+          <CommandName>Translate</CommandName>
+        </Strings>
+      </Menu>
 
-      <Menu guid="guidQuokkaExtensionVS2019PackageCmdSet" id="DynamicMenuController" priority="0x9000" type="MenuController">
+      <Menu guid="guidQuokkaExtensionVS2019PackageCmdSet" id="DynamicMenuController_BitStream" priority="0x9001" type="MenuController">
+        <Parent guid="guidQuokkaExtensionVS2019PackageCmdSet" id="ToolbarDynamicGroup" />
+        <CommandFlag>IconIsMoniker</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <CommandFlag>TextIsAnchorCommand</CommandFlag>
+        <Strings>
+          <ButtonText>BitStream</ButtonText>
+          <CommandName>BitStream</CommandName>
+        </Strings>
+      </Menu>
+
+      <Menu guid="guidQuokkaExtensionVS2019PackageCmdSet" id="DynamicMenuController_Program" priority="0x9002" type="MenuController">
+        <Parent guid="guidQuokkaExtensionVS2019PackageCmdSet" id="ToolbarDynamicGroup" />
+        <CommandFlag>IconIsMoniker</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <CommandFlag>TextIsAnchorCommand</CommandFlag>
+        <Strings>
+          <ButtonText>Program</ButtonText>
+          <CommandName>Program</CommandName>
+        </Strings>
+      </Menu>
+      
+      <Menu guid="guidQuokkaExtensionVS2019PackageCmdSet" id="DynamicMenuController" priority="0x9003" type="MenuController">
         <Parent guid="guidQuokkaExtensionVS2019PackageCmdSet" id="ToolbarDynamicGroup" />
         <CommandFlag>IconAndText</CommandFlag>
         <CommandFlag>TextChanges</CommandFlag>
@@ -83,7 +116,19 @@
         <Parent guid="guidQuokkaExtensionVS2019PackageCmdSet" id="Toolbar" />
       </Group>
 
-      <Group guid="guidQuokkaExtensionVS2019PackageCmdSet" id="DynamicMenuControllerGroup" priority="0x0602">
+      <Group guid="guidQuokkaExtensionVS2019PackageCmdSet" id="DynamicMenuControllerGroup_Translate" priority="0x0602">
+        <Parent guid="guidQuokkaExtensionVS2019PackageCmdSet" id="DynamicMenuController_Translate"/>
+      </Group>
+
+      <Group guid="guidQuokkaExtensionVS2019PackageCmdSet" id="DynamicMenuControllerGroup_BitStream" priority="0x0603">
+        <Parent guid="guidQuokkaExtensionVS2019PackageCmdSet" id="DynamicMenuController_BitStream"/>
+      </Group>
+
+      <Group guid="guidQuokkaExtensionVS2019PackageCmdSet" id="DynamicMenuControllerGroup_Program" priority="0x0604">
+        <Parent guid="guidQuokkaExtensionVS2019PackageCmdSet" id="DynamicMenuController_Program"/>
+      </Group>
+      
+      <Group guid="guidQuokkaExtensionVS2019PackageCmdSet" id="DynamicMenuControllerGroup" priority="0x0700">
         <Parent guid="guidQuokkaExtensionVS2019PackageCmdSet" id="DynamicMenuController"/>
       </Group>
 
@@ -116,15 +161,39 @@
         </Strings>
       </Button>
               
-      <Button guid="guidQuokkaExtensionVS2019PackageCmdSet" id="cmdidMyDynamicStartCommand1" priority="0x1000" type="Button">
-        <Parent guid="guidQuokkaExtensionVS2019PackageCmdSet" id="DynamicMenuControllerGroup" />
-        <Icon guid="guid_VSCodeIcons_0_254" id="VscActivateBreakpoints" />
+      <Button guid="guidQuokkaExtensionVS2019PackageCmdSet" id="cmdidMyDynamicStart_Translate" priority="0x1000" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2019PackageCmdSet" id="DynamicMenuControllerGroup_Translate" />
+        <Icon guid="guid_RemixIcon_2040_2294" id="RiAliensFill" />
         <CommandFlag>DynamicItemStart</CommandFlag>
         <CommandFlag>DynamicVisibility</CommandFlag>
         <CommandFlag>DefaultInvisible</CommandFlag>
         <CommandFlag>TextChanges</CommandFlag>
         <Strings>
-          <ButtonText>D1</ButtonText>
+          <ButtonText>Translate</ButtonText>
+        </Strings>
+      </Button>
+
+      <Button guid="guidQuokkaExtensionVS2019PackageCmdSet" id="cmdidMyDynamicStart_BitStream" priority="0x1001" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2019PackageCmdSet" id="DynamicMenuControllerGroup_BitStream" />
+        <Icon guid="guid_SimpleIcons_510_764" id="SiLaunchpad" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>BitStream</ButtonText>
+        </Strings>
+      </Button>
+
+      <Button guid="guidQuokkaExtensionVS2019PackageCmdSet" id="cmdidMyDynamicStart_Program" priority="0x1002" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2019PackageCmdSet" id="DynamicMenuControllerGroup_Program" />
+        <Icon guid="guid_Ionicons5_510_764" id="IoHardwareChipSharp" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>Program</ButtonText>
         </Strings>
       </Button>
       
@@ -154,7 +223,7 @@
 
       <Button guid="guidQuokkaExtensionVS2019PackageCmdSet" id="cmdidRerunExtensionMethodCommand" priority="0x8001" type="Button">
         <Parent guid="guidQuokkaExtensionVS2019PackageCmdSet" id="ToolbarTailGroup" />
-        <Icon guid="guid_VSCodeIcons_0_254" id="VscAdd" />
+        <Icon guid="guid_MaterialDesignicons_255_509" id="MdReplay" />
         <Strings>
           <ButtonText>Rerun Extension Method</ButtonText>
         </Strings>

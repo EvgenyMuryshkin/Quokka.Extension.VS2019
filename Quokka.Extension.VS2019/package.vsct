@@ -11,6 +11,14 @@
       <IDSymbol name="InvokeExtensionMethodCommandId" value="0x0100" />
       <IDSymbol name="DynamicMenuController" value="0x0103" />
       <IDSymbol name="DynamicMenuControllerGroup" value="0x0104"/>
+      <IDSymbol name="DynamicMenuController_Translate" value="0x0105"/>
+      <IDSymbol name="DynamicMenuControllerGroup_Translate" value="0x0106"/>
+      
+      <IDSymbol name="DynamicMenuController_BitStream" value="0x0107"/>
+      <IDSymbol name="DynamicMenuControllerGroup_BitStream" value="0x0108"/>
+
+      <IDSymbol name="DynamicMenuController_Program" value="0x0109"/>
+      <IDSymbol name="DynamicMenuControllerGroup_Program" value="0x010A"/>
 
       <IDSymbol name="Toolbar" value="0x1000" />
       <IDSymbol name="ToolbarLeadingGroup" value="0x1050" />
@@ -21,9 +29,14 @@
       <IDSymbol name="cmdidExploreCommand" value="0x1202" />
       <IDSymbol name="MyMenuController" value="0x1024" />
       <IDSymbol name="MyMenuControllerGroup" value="0x1025" />
-      <IDSymbol name="cmdidMyDynamicStartCommand1" value="0x2001" />
-      <IDSymbol name="cmdidMyDynamicStartCommand2" value="0x3001" />
-      <IDSymbol name="cmdidMyDynamicStartCommand3" value="0x4001" />
+      
+      <IDSymbol name="cmdidMyDynamicStart_Translate" value="0x2000" />
+      <IDSymbol name="cmdidMyDynamicStart_BitStream" value="0x3000" />
+      <IDSymbol name="cmdidMyDynamicStart_Program" value="0x4000" />
+
+      <IDSymbol name="cmdidMyDynamicStartCommand1" value="0x10000" />
+      <IDSymbol name="cmdidMyDynamicStartCommand2" value="0x11000" />
+      <IDSymbol name="cmdidMyDynamicStartCommand3" value="0x12000" />
     </GuidSymbol>
   </Symbols>
 </CommandTable>

@@ -1,31 +1,24 @@
-﻿using Microsoft.CodeAnalysis;
-using Microsoft.CodeAnalysis.CSharp;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
-using Microsoft.Internal.VisualStudio.PlatformUI;
+﻿using Microsoft.Internal.VisualStudio.PlatformUI;
 using Microsoft.VisualStudio.PlatformUI;
 using Microsoft.VisualStudio.Shell;
-using Microsoft.VisualStudio.Shell.Interop;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel.Design;
-using System.Globalization;
 using System.IO;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
-using System.Xml.Linq;
-using Task = System.Threading.Tasks.Task;
 
 namespace Quokka.Extension.VS2019
 {
     internal class InvokeExtensionMethodCommand : ExtensionCommand
     {
-        private readonly ExtensionInvocationService _invocationService;
+        private readonly Func<ExtensionsTreeViewModel> _viewModelFactory;
+        private readonly ReloadCommandViewModel.Factory _reloadCommandViewModelFactory;
 
-        public InvokeExtensionMethodCommand(ExtensionPartDeps deps, ExtensionInvocationService invocationService)
+        public InvokeExtensionMethodCommand(
+            ExtensionDeps deps,
+            Func<ExtensionsTreeViewModel> viewModelFactory,
+            ReloadCommandViewModel.Factory reloadCommandViewModelFactory)
             : base(deps, guidQuokkaExtensionVS2019PackageIds.cmdidInvokeExtensionMethodCommandId)
         {
-            _invocationService = invocationService;
+            _viewModelFactory = viewModelFactory;
+            _reloadCommandViewModelFactory = reloadCommandViewModelFactory;
         }
 
         protected override void OnExecute()
@@ -40,12 +33,10 @@ namespace Quokka.Extension.VS2019
             if (!File.Exists(file))
                 return;
 
-            var treeViewModel = new ExtensionsTreeViewModel()
-            {
-                SolutionPath = file,
-            };
-            treeViewModel.ReloadCommand = new ReloadCommandViewModel(_invocationService, treeViewModel);
-            treeViewModel.ReloadCommand.Execute(null);
+            var treeViewModel = _viewModelFactory();
+            treeViewModel.Init(file);
+
+            treeViewModel.ReloadCommand = _reloadCommandViewModelFactory(treeViewModel);
 
             var content = new ExtensionsTree()
             {

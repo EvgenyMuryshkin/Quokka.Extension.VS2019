@@ -1,4 +1,4 @@
-﻿namespace Quokka.Extension
+﻿namespace Quokka.Extension.Interface
 {
     public interface IExtensionLogger
     {

@@ -1,35 +1,37 @@
-﻿using Microsoft.VisualStudio.Shell;
-using Microsoft.VisualStudio.Shell.Interop;
+﻿using Quokka.Extension.Interface;
+using Quokka.Extension.Services;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
-using Task = System.Threading.Tasks.Task;
+using System.Threading.Tasks;
 
-
-namespace Quokka.Extension.VS2019
+namespace Quokka.Extension.Services
 {
-    class ExtensionInvocationService
+    public class ExtensionInvocationService : IExtensionInvocationService
     {
+        private readonly IInvocationCacheService _invocationCache;
+        private readonly IExceptionHandler _exceptionHandler;
         private readonly IExtensionLogger _logger;
-        private readonly IServiceProvider _serviceProvider;
-        public ExtensionInvocationService(IExtensionLogger logger, IServiceProvider serviceProvider)
-        {
-            _logger = logger;
-            _serviceProvider = serviceProvider;
-        }
 
-        List<ExtensionMethodInfo> invokeHistory = new List<ExtensionMethodInfo>();
+        public ExtensionInvocationService(IExceptionHandler exceptionHandler, IExtensionLogger logger, IInvocationCacheService invocationCache)
+        {
+            _exceptionHandler = exceptionHandler;
+            _logger = logger;
+            _invocationCache = invocationCache;
+        }
 
         public async Task RerunExtensionMethodAsync()
         {
-            if (invokeHistory.Count == 0)
+            var peek = _invocationCache.Peek();
+
+            if (peek == null)
             {
                 _logger.WriteLine($"Run history is empty");
                 return;
             }
 
-            await InvokeExtensionMethodAsync(invokeHistory[0], false);
+            await InvokeExtensionMethodAsync(peek, false);
         }
 
         public async Task InvokeExtensionMethodAsync(ExtensionMethodInfo _invokeParams, bool pushToMRU = true)
@@ -41,8 +43,7 @@ namespace Quokka.Extension.VS2019
             {
                 if (pushToMRU)
                 {
-                    invokeHistory.RemoveAll(p => p.ToString() == _invokeParams.ToString());
-                    invokeHistory.Insert(0, _invokeParams);
+                    _invocationCache.Push(_invokeParams);
                 }
 
                 var invoke = $"{_invokeParams.Class}.{_invokeParams.Method}";
@@ -85,21 +86,9 @@ namespace Quokka.Extension.VS2019
             }
             catch (Exception ex)
             {
-                await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
-
                 var title = $"{_invokeParams.Class}.{_invokeParams.Method} failed";
 
-                VsShellUtilities.ShowMessageBox(
-                    _serviceProvider,
-                    ex.Message,
-                    $"{title}. See Quokka output window for details",
-                    OLEMSGICON.OLEMSGICON_CRITICAL,
-                    OLEMSGBUTTON.OLEMSGBUTTON_OK,
-                    OLEMSGDEFBUTTON.OLEMSGDEFBUTTON_FIRST);
-
-                _logger.WriteLine(title);
-                _logger.WriteLine(ex.Message);
-                _logger.WriteLine(ex.StackTrace);
+                await _exceptionHandler.OnException(title, ex);
             }
         }
     }

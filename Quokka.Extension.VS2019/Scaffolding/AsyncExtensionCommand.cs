@@ -6,7 +6,7 @@ namespace Quokka.Extension.VS2019
 {
     internal abstract class AsyncExtensionCommand : ExtensionBaseCommand
     {
-        protected AsyncExtensionCommand(ExtensionPartDeps deps, int commandId) : base(deps, commandId)
+        protected AsyncExtensionCommand(ExtensionDeps deps, int commandId) : base(deps, commandId)
         {
         }
 

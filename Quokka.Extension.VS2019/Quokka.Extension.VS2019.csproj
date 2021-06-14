@@ -48,19 +48,19 @@
   <ItemGroup>
     <Compile Include="Commands\CancelRunMethodCommand.cs" />
     <Compile Include="Commands\ExploreCommand.cs" />
-    <Compile Include="Services\ExtensionInvocationService.cs" />
     <Compile Include="Scaffolding\AsyncExtensionCommand.cs" />
     <Compile Include="Scaffolding\ExtensionBaseCommand.cs" />
     <Compile Include="Scaffolding\ExtensionCommand.cs" />
     <Compile Include="Scaffolding\ExtensionPart.cs" />
-    <Compile Include="Scaffolding\ExtensionPartDeps.cs" />
+    <Compile Include="Scaffolding\ExtensionDeps.cs" />
     <Compile Include="Scaffolding\IExtensionPart.cs" />
+    <Compile Include="UI\AsyncCommandViewModel.cs" />
     <Compile Include="UI\CommandViewModel.cs" />
     <Compile Include="DynamicItemMenuCommand.cs" />
-    <Compile Include="UI\ExploreIcons.xaml.cs">
-      <DependentUpon>ExploreIcons.xaml</DependentUpon>
+    <Compile Include="UI\ExploreIcons\ExploreIconsView.xaml.cs">
+      <DependentUpon>ExploreIconsView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UI\ExploreIconsViewModel.cs" />
+    <Compile Include="UI\ExploreIcons\ExploreIconsViewModel.cs" />
     <Compile Include="UI\ExtensionClassViewModel.cs" />
     <Compile Include="UI\ExtensionMethodInvocationCommandViewModel.cs" />
     <Compile Include="UI\ExtensionMethodViewModel.cs" />
@@ -79,12 +79,64 @@
     <Compile Include="Commands\RerunExtensionMethodCommand.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Resources\InvokeExtensionMethodCommand.png" />
+    <EmbeddedResource Include="Resources\AntDesignIcons_0_254.png" />
+    <EmbeddedResource Include="Resources\AntDesignIcons_255_509.png" />
+    <EmbeddedResource Include="Resources\AntDesignIcons_510_764.png" />
+    <EmbeddedResource Include="Resources\AntDesignIcons_765_1019.png" />
+    <EmbeddedResource Include="Resources\BootstrapIcons_0_254.png" />
+    <EmbeddedResource Include="Resources\BootstrapIcons_255_509.png" />
+    <EmbeddedResource Include="Resources\BootstrapIcons_510_764.png" />
+    <EmbeddedResource Include="Resources\BoxIcons_0_254.png" />
+    <EmbeddedResource Include="Resources\BoxIcons_255_509.png" />
+    <EmbeddedResource Include="Resources\BoxIcons_510_764.png" />
+    <EmbeddedResource Include="Resources\css_gg_0_254.png" />
+    <EmbeddedResource Include="Resources\css_gg_255_509.png" />
+    <EmbeddedResource Include="Resources\css_gg_510_764.png" />
+    <EmbeddedResource Include="Resources\Devicons_0_254.png" />
+    <EmbeddedResource Include="Resources\Feather_0_254.png" />
+    <EmbeddedResource Include="Resources\Feather_255_509.png" />
+    <EmbeddedResource Include="Resources\FlatColorIcons_0_254.png" />
+    <EmbeddedResource Include="Resources\FlatColorIcons_255_509.png" />
+    <EmbeddedResource Include="Resources\FontAwesome_0_254.png" />
+    <EmbeddedResource Include="Resources\FontAwesome_1020_1274.png" />
+    <EmbeddedResource Include="Resources\FontAwesome_1275_1529.png" />
+    <EmbeddedResource Include="Resources\FontAwesome_1530_1784.png" />
+    <EmbeddedResource Include="Resources\FontAwesome_255_509.png" />
+    <EmbeddedResource Include="Resources\FontAwesome_510_764.png" />
+    <EmbeddedResource Include="Resources\FontAwesome_765_1019.png" />
+    <EmbeddedResource Include="Resources\GameIcons_0_254.png" />
+    <EmbeddedResource Include="Resources\GameIcons_1020_1274.png" />
+    <EmbeddedResource Include="Resources\GameIcons_1275_1529.png" />
+    <EmbeddedResource Include="Resources\GameIcons_1530_1784.png" />
+    <EmbeddedResource Include="Resources\GameIcons_1785_2039.png" />
+    <EmbeddedResource Include="Resources\GameIcons_2040_2294.png" />
+    <EmbeddedResource Include="Resources\GameIcons_2295_2549.png" />
+    <EmbeddedResource Include="Resources\GameIcons_2550_2804.png" />
+    <EmbeddedResource Include="Resources\GameIcons_255_509.png" />
+    <EmbeddedResource Include="Resources\GameIcons_2805_3059.png" />
+    <EmbeddedResource Include="Resources\GameIcons_3060_3314.png" />
+    <EmbeddedResource Include="Resources\GameIcons_3315_3569.png" />
+    <EmbeddedResource Include="Resources\GameIcons_3570_3824.png" />
+    <EmbeddedResource Include="Resources\GameIcons_510_764.png" />
+    <EmbeddedResource Include="Resources\GameIcons_765_1019.png" />
+    <EmbeddedResource Include="Resources\GithubOcticonsicons_0_254.png" />
+    <EmbeddedResource Include="Resources\Grommet_Icons_0_254.png" />
+    <EmbeddedResource Include="Resources\Grommet_Icons_255_509.png" />
+    <EmbeddedResource Include="Resources\Grommet_Icons_510_764.png" />
+    <EmbeddedResource Include="Resources\Heroicons_0_254.png" />
+    <EmbeddedResource Include="Resources\Heroicons_255_509.png" />
+    <EmbeddedResource Include="Resources\IcoMoonFree_0_254.png" />
+    <EmbeddedResource Include="Resources\IcoMoonFree_255_509.png" />
     <EmbeddedResource Include="Resources\Ionicons4_0_254.png" />
     <EmbeddedResource Include="Resources\Ionicons4_255_509.png" />
     <EmbeddedResource Include="Resources\Ionicons4_510_764.png" />
     <EmbeddedResource Include="Resources\Ionicons5_0_254.png" />
+    <EmbeddedResource Include="Resources\Ionicons5_1020_1274.png" />
+    <EmbeddedResource Include="Resources\Ionicons5_1275_1529.png" />
     <EmbeddedResource Include="Resources\Ionicons5_255_509.png" />
     <EmbeddedResource Include="Resources\Ionicons5_510_764.png" />
+    <EmbeddedResource Include="Resources\Ionicons5_765_1019.png" />
     <EmbeddedResource Include="Resources\MaterialDesignicons_0_254.png" />
     <EmbeddedResource Include="Resources\MaterialDesignicons_255_509.png" />
     <EmbeddedResource Include="Resources\MaterialDesignicons_510_764.png" />
@@ -100,6 +152,7 @@
     <EmbeddedResource Include="Resources\RemixIcon_765_1019.png" />
     <EmbeddedResource Include="Resources\SimpleIcons_0_254.png" />
     <EmbeddedResource Include="Resources\SimpleIcons_1020_1274.png" />
+    <EmbeddedResource Include="Resources\SimpleIcons_1275_1529.png" />
     <EmbeddedResource Include="Resources\SimpleIcons_255_509.png" />
     <EmbeddedResource Include="Resources\SimpleIcons_510_764.png" />
     <EmbeddedResource Include="Resources\SimpleIcons_765_1019.png" />
@@ -151,7 +204,7 @@
       <Version>1.1.31</Version>
     </PackageReference>
     <PackageReference Include="Quokka.Extension.Interop">
-      <Version>1.0.1.17</Version>
+      <Version>1.0.1.27</Version>
     </PackageReference>
     <PackageReference Include="System.Windows.Interactivity.WPF">
       <Version>2.0.20525</Version>
@@ -166,55 +219,7 @@
     </VSCTCompile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\AntDesignIcons_0_254.png" />
-    <EmbeddedResource Include="Resources\AntDesignIcons_255_509.png" />
-    <EmbeddedResource Include="Resources\AntDesignIcons_510_764.png" />
-    <EmbeddedResource Include="Resources\AntDesignIcons_765_1019.png" />
-    <EmbeddedResource Include="Resources\BootstrapIcons_0_254.png" />
-    <EmbeddedResource Include="Resources\BoxIcons_0_254.png" />
-    <EmbeddedResource Include="Resources\BoxIcons_255_509.png" />
-    <EmbeddedResource Include="Resources\BoxIcons_510_764.png" />
-    <EmbeddedResource Include="Resources\css_gg_0_254.png" />
-    <EmbeddedResource Include="Resources\css_gg_255_509.png" />
-    <EmbeddedResource Include="Resources\css_gg_510_764.png" />
-    <EmbeddedResource Include="Resources\Devicons_0_254.png" />
-    <EmbeddedResource Include="Resources\Feather_0_254.png" />
-    <EmbeddedResource Include="Resources\Feather_255_509.png" />
-    <EmbeddedResource Include="Resources\FlatColorIcons_0_254.png" />
-    <EmbeddedResource Include="Resources\FlatColorIcons_255_509.png" />
-    <EmbeddedResource Include="Resources\FontAwesome_0_254.png" />
-    <EmbeddedResource Include="Resources\FontAwesome_1020_1274.png" />
-    <EmbeddedResource Include="Resources\FontAwesome_1275_1529.png" />
-    <EmbeddedResource Include="Resources\FontAwesome_1530_1784.png" />
-    <EmbeddedResource Include="Resources\FontAwesome_255_509.png" />
-    <EmbeddedResource Include="Resources\FontAwesome_510_764.png" />
-    <EmbeddedResource Include="Resources\FontAwesome_765_1019.png" />
-    <EmbeddedResource Include="Resources\GameIcons_0_254.png" />
-    <EmbeddedResource Include="Resources\GameIcons_1020_1274.png" />
-    <EmbeddedResource Include="Resources\GameIcons_1275_1529.png" />
-    <EmbeddedResource Include="Resources\GameIcons_1530_1784.png" />
-    <EmbeddedResource Include="Resources\GameIcons_1785_2039.png" />
-    <EmbeddedResource Include="Resources\GameIcons_2040_2294.png" />
-    <EmbeddedResource Include="Resources\GameIcons_2295_2549.png" />
-    <EmbeddedResource Include="Resources\GameIcons_2550_2804.png" />
-    <EmbeddedResource Include="Resources\GameIcons_255_509.png" />
-    <EmbeddedResource Include="Resources\GameIcons_2805_3059.png" />
-    <EmbeddedResource Include="Resources\GameIcons_3060_3314.png" />
-    <EmbeddedResource Include="Resources\GameIcons_3315_3569.png" />
-    <EmbeddedResource Include="Resources\GameIcons_3570_3824.png" />
-    <EmbeddedResource Include="Resources\GameIcons_510_764.png" />
-    <EmbeddedResource Include="Resources\GameIcons_765_1019.png" />
-    <EmbeddedResource Include="Resources\GithubOcticonsicons_0_254.png" />
-    <EmbeddedResource Include="Resources\Grommet_Icons_0_254.png" />
-    <EmbeddedResource Include="Resources\Grommet_Icons_255_509.png" />
-    <EmbeddedResource Include="Resources\Grommet_Icons_510_764.png" />
-    <EmbeddedResource Include="Resources\Heroicons_0_254.png" />
-    <EmbeddedResource Include="Resources\IcoMoonFree_0_254.png" />
-    <EmbeddedResource Include="Resources\IcoMoonFree_255_509.png" />
-    <EmbeddedResource Include="Resources\InvokeExtensionMethodCommand.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Page Include="UI\ExploreIcons.xaml">
+    <Page Include="UI\ExploreIcons\ExploreIconsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -229,7 +234,9 @@
       <Name>Quokka.Extension</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Services\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(VSToolsPath)\VSSDK\Microsoft.VsSDK.targets" Condition="'$(VSToolsPath)' != ''" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

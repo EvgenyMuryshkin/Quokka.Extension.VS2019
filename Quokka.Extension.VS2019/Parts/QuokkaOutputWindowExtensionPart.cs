@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.Shell.Interop;
+using Quokka.Extension.Interface;
 using System;
 using Task = System.Threading.Tasks.Task;
 

@@ -1,17 +1,20 @@
-﻿using Microsoft.VisualStudio.Shell;
-using Microsoft.VisualStudio.Shell.Interop;
-using System;
-using System.Diagnostics;
-using System.IO;
-using Task = System.Threading.Tasks.Task;
+﻿using Quokka.Extension.Interface;
+using Quokka.Extension.Services;
+using System.Threading.Tasks;
 
 namespace Quokka.Extension.VS2019
 {
-    class ExtensionMethodInvocationCommandViewModel : AsyncCommandViewModel
+    public class ExtensionMethodInvocationCommandViewModel : AsyncCommandViewModel
     {
-        private readonly ExtensionInvocationService _invocationService;
+        private readonly IExtensionInvocationService _invocationService;
         private readonly ExtensionMethodInfo _invokeParams;
-        public ExtensionMethodInvocationCommandViewModel(ExtensionInvocationService invocationService, ExtensionMethodInfo invokeParams)
+
+        public delegate ExtensionMethodInvocationCommandViewModel Factory(ExtensionMethodInfo invokeParams);
+
+        public ExtensionMethodInvocationCommandViewModel(
+            ExtensionDeps deps, 
+            IExtensionInvocationService invocationService, 
+            ExtensionMethodInfo invokeParams) : base(deps)
         {
             _invocationService = invocationService;
             _invokeParams = invokeParams;

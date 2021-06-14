@@ -1,23 +1,21 @@
-﻿namespace Quokka.Extension.VS2019
+﻿using Quokka.Extension.Interface;
+
+namespace Quokka.Extension.VS2019
 {
-    class ReloadCommandViewModel : CommandViewModel
+    public class ReloadCommandViewModel : CommandViewModel
     {
-        private readonly ExtensionInvocationService _invocationService;
         private readonly ExtensionsTreeViewModel _viewModel;
-        public ReloadCommandViewModel(ExtensionInvocationService invocationService, ExtensionsTreeViewModel viewModel)
+
+        public delegate ReloadCommandViewModel Factory(ExtensionsTreeViewModel viewModel);
+
+        public ReloadCommandViewModel(ExtensionDeps deps, ExtensionsTreeViewModel viewModel) : base(deps)
         {
-            _invocationService = invocationService;
             _viewModel = viewModel;
         }
 
         public override void Execute(object parameter)
         {
-            ExtensionsTreeViewModelBuilder.PopulateViewModel(
-                _viewModel,
-                (invokeParams) =>
-                {
-                    return new ExtensionMethodInvocationCommandViewModel(_invocationService, invokeParams);
-                });
+            _viewModel.Reload();
         }
     }
 }

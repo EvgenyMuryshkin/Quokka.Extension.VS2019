@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.Shell.Interop;
+using Quokka.Extension.Interface;
 using System;
 using System.ComponentModel.Design;
 using Task = System.Threading.Tasks.Task;
@@ -8,7 +9,7 @@ namespace Quokka.Extension.VS2019
 {
     internal abstract class ExtensionPart : IExtensionPart
     {
-        private ExtensionPartDeps _deps;
+        private ExtensionDeps _deps;
 
         protected IExtensionLogger _logger => _deps.Logger;
         protected AsyncPackage _serviceProvider => _deps.ServiceProvider;
@@ -17,7 +18,7 @@ namespace Quokka.Extension.VS2019
         protected OleMenuCommandService CommandService => _serviceProvider.GetService<IMenuCommandService, OleMenuCommandService>();
         protected IVsOutputWindow OutputWindow => _serviceProvider.GetService<SVsOutputWindow, IVsOutputWindow>();
 
-        public ExtensionPart(ExtensionPartDeps deps)
+        public ExtensionPart(ExtensionDeps deps)
         {
             _deps = deps;
         }

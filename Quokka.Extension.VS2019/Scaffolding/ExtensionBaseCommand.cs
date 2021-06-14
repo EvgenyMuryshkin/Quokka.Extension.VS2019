@@ -9,7 +9,7 @@ namespace Quokka.Extension.VS2019
         protected readonly int _commandId;
         protected CommandID MenuCommandId => new CommandID(guidQuokkaExtensionVS2019PackageIds.guidQuokkaExtensionVS2019PackageCmdSet, _commandId);
 
-        protected ExtensionBaseCommand(ExtensionPartDeps deps, int commandId) : base(deps)
+        protected ExtensionBaseCommand(ExtensionDeps deps, int commandId) : base(deps)
         {
             _commandId = commandId;
         }

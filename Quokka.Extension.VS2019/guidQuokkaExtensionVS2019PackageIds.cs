@@ -13,8 +13,13 @@ namespace Quokka.Extension.VS2019
         public const int cmdidExploreCommand = 0x1202;
         public const int cmdidInvokeExtensionMethodCommandId = 0x100;
 
-        public const uint cmdidMyDynamicStartCommand1 = 0x2001;
-        public const uint cmdidMyDynamicStartCommand2 = 0x3001;
-        public const uint cmdidMyDynamicStartCommand3 = 0x4001;
+        public const uint cmdidMyDynamicStart_Translate = 0x2000;
+        public const uint cmdidMyDynamicStart_BitStream = 0x3000;
+        public const uint cmdidMyDynamicStart_Program = 0x4000;
+
+
+        public const uint cmdidMyDynamicStartCommand1 = 0x10000;
+        public const uint cmdidMyDynamicStartCommand2 = 0x11000;
+        public const uint cmdidMyDynamicStartCommand3 = 0x12000;
     }
 }

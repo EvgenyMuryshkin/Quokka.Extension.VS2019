@@ -1,6 +1,6 @@
 ﻿using Quokka.Extension.Interop;
 
-namespace Quokka.Extension
+namespace Quokka.Extension.Services
 {
     public class ExtensionMethodInfo
     {

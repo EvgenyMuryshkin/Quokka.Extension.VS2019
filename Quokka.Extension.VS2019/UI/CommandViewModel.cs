@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.Shell;
+using Quokka.Extension.Interface;
 using System;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -6,37 +7,16 @@ using Task = System.Threading.Tasks.Task;
 
 namespace Quokka.Extension.VS2019
 {
-    public abstract class AsyncCommandViewModel : CommandViewModel
-    {
-        protected abstract Task ExecuteAsync(object parameter);
-
-        public override void Execute(object parameter)
-        {
-            if (Running)
-                return;
-
-            Running = true;
-
-            Task.Factory.StartNew(async () =>
-            {
-                try
-                {
-                    await SetRunningAsync(true);
-                    await ExecuteAsync(parameter);
-                }
-                finally
-                {
-                    await SetRunningAsync(false);
-                }
-            });
-        }
-    }
-
     public abstract class CommandViewModel : ICommand
     {
-        public CommandViewModel()
-        {
+        private readonly ExtensionDeps _deps;
+        protected IExtensionLogger Logger => _deps.Logger;
+        protected AsyncPackage ServiceProvider => _deps.ServiceProvider;
+        protected IJoinableTaskFactory TaskFactory => _deps.TaskFactory;
 
+        public CommandViewModel(ExtensionDeps deps)
+        {
+            _deps = deps;
         }
 
         public event EventHandler CanExecuteChanged;

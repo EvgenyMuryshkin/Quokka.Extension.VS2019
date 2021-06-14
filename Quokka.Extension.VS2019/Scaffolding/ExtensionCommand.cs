@@ -4,7 +4,7 @@ namespace Quokka.Extension.VS2019
 {
     internal abstract class ExtensionCommand : ExtensionBaseCommand
     {
-        protected ExtensionCommand(ExtensionPartDeps deps, int commandId) : base(deps, commandId)
+        protected ExtensionCommand(ExtensionDeps deps, int commandId) : base(deps, commandId)
         {
         }
 

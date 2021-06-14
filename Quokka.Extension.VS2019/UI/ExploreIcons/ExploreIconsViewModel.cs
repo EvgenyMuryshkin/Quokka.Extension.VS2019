@@ -12,7 +12,7 @@ using System.Reflection;
 using System.Windows.Input;
 using System.Windows.Media.Imaging;
 
-namespace Quokka.Extension.VS2019
+namespace Quokka.Extension.VS2019.UI.ExploreIcons
 {
     public class ExploreIconViewModel : ViewModel
     {
@@ -170,8 +170,11 @@ namespace Extensions
                         break;
                 }
 
-                SearchSummary = $"Showing {Icons.Count} of {ExtensionCatalogue.TotalIconsCount}";
+                if (Icons.Count >= 100)
+                    break;
             }
+
+            SearchSummary = $"Showing {Icons.Count} of {ExtensionCatalogue.TotalIconsCount}";
         }
     }
 }

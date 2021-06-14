@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Quokka.Extension.Interface;
+using Quokka.Extension.Services;
+using System;
 using System.IO;
 using System.Linq;
 using System.Windows.Input;
@@ -7,10 +9,15 @@ namespace Quokka.Extension.VS2019
 {
     public class ExtensionsTreeViewModelBuilder
     {
-        public static void PopulateViewModel(ExtensionsTreeViewModel treeViewModel, Func<ExtensionMethodInfo, ICommand> commandFactory)
+        private readonly IExtensionsDiscoveryService _eds;
+        public ExtensionsTreeViewModelBuilder(IExtensionsDiscoveryService eds)
         {
-            var svc = new ExtensionsDiscoveryService();
-            svc.Reload(treeViewModel.SolutionPath);
+            _eds = eds;
+        }
+
+        public void PopulateViewModel(ExtensionsTreeViewModel treeViewModel, Func<ExtensionMethodInfo, ICommand> commandFactory)
+        {
+            var extensions = _eds.LoadFromDirectory(treeViewModel.SolutionPath);
 
             var path = treeViewModel.SolutionPath;
             if (File.Exists(path))
@@ -18,7 +25,7 @@ namespace Quokka.Extension.VS2019
 
             treeViewModel.Projects.Clear();
 
-            foreach (var proj in svc.Extensions.GroupBy(p => p.Project))
+            foreach (var proj in extensions.GroupBy(p => p.Project))
             {
                 var projectViewModel = new ExtensionProjectViewModel()
                 {
