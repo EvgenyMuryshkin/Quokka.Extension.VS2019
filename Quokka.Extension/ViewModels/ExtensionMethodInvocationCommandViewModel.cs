@@ -1,8 +1,9 @@
 ﻿using Quokka.Extension.Interface;
+using Quokka.Extension.Scaffolding;
 using Quokka.Extension.Services;
 using System.Threading.Tasks;
 
-namespace Quokka.Extension.VS2019
+namespace Quokka.Extension.ViewModels
 {
     public class ExtensionMethodInvocationCommandViewModel : AsyncCommandViewModel
     {

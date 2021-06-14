@@ -1,6 +1,6 @@
-﻿using Task = System.Threading.Tasks.Task;
+﻿using System.Threading.Tasks;
 
-namespace Quokka.Extension.VS2019
+namespace Quokka.Extension.Scaffolding
 {
     public abstract class AsyncCommandViewModel : CommandViewModel
     {

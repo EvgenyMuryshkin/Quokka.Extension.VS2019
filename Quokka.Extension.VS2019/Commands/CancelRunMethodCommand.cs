@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using Quokka.Extension.Scaffolding;
+using System.Threading.Tasks;
 
 namespace Quokka.Extension.VS2019
 {

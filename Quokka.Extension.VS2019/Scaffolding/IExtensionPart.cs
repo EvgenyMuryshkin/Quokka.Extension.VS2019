@@ -1,4 +1,4 @@
-﻿using Task = System.Threading.Tasks.Task;
+﻿using System.Threading.Tasks;
 
 namespace Quokka.Extension.VS2019
 {

@@ -1,11 +1,12 @@
 ﻿using Quokka.Extension.Interface;
 using Quokka.Extension.Services;
+using Quokka.Extension.ViewModels;
 using System;
 using System.IO;
 using System.Linq;
 using System.Windows.Input;
 
-namespace Quokka.Extension.VS2019
+namespace Quokka.Extension.Services
 {
     public class ExtensionsTreeViewModelBuilder
     {

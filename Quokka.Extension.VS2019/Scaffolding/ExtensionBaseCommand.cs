@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Quokka.Extension.Scaffolding;
+using System;
 using System.ComponentModel.Design;
 using Task = System.Threading.Tasks.Task;
 

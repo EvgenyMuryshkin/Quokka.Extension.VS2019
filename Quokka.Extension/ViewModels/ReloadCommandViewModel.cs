@@ -1,6 +1,6 @@
-﻿using Quokka.Extension.Interface;
+﻿using Quokka.Extension.Scaffolding;
 
-namespace Quokka.Extension.VS2019
+namespace Quokka.Extension.ViewModels
 {
     public class ReloadCommandViewModel : CommandViewModel
     {

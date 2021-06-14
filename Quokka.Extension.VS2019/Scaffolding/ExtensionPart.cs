@@ -1,6 +1,7 @@
 ﻿using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.Shell.Interop;
 using Quokka.Extension.Interface;
+using Quokka.Extension.Scaffolding;
 using System;
 using System.ComponentModel.Design;
 using Task = System.Threading.Tasks.Task;
@@ -12,7 +13,7 @@ namespace Quokka.Extension.VS2019
         private ExtensionDeps _deps;
 
         protected IExtensionLogger _logger => _deps.Logger;
-        protected AsyncPackage _serviceProvider => _deps.ServiceProvider;
+        protected IServiceProvider _serviceProvider => _deps.ServiceProvider;
 
         protected IVsSolution Solution => _serviceProvider.GetService<IVsSolution, IVsSolution>();
         protected OleMenuCommandService CommandService => _serviceProvider.GetService<IMenuCommandService, OleMenuCommandService>();
@@ -27,8 +28,8 @@ namespace Quokka.Extension.VS2019
 
         public virtual async Task InitializeAsync()
         {
-            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync(_serviceProvider.DisposalToken);
-             await OnInitializeAsync();
+            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
+            await OnInitializeAsync();
         }
 
         protected void Write(string message) => _logger.Write(message);

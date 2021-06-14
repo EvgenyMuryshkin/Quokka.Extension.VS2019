@@ -1,6 +1,7 @@
-﻿using System.Windows.Input;
+﻿using Quokka.Extension.Scaffolding;
+using System.Windows.Input;
 
-namespace Quokka.Extension.VS2019
+namespace Quokka.Extension.ViewModels
 {
     public class ExtensionMethodViewModel : ViewModel
     {

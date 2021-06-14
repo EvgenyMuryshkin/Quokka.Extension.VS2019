@@ -59,13 +59,13 @@ namespace Quokka.Extension.VS2019
 
         private void OnInvokedDynamicItem(object sender, EventArgs args)
         {
-            _maxCount++;
-            return;
-
             DynamicItemMenuCommand invokedCommand = (DynamicItemMenuCommand)sender;
             // If the command is already checked, we don't need to do anything
             if (invokedCommand.Checked)
                 return;
+
+            _maxCount++;
+            return;
 
             // Find the project that corresponds to the command text and set it as the startup project
             var projects = dte2.Solution.Projects;

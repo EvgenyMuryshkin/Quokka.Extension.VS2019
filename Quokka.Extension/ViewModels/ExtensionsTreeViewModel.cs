@@ -1,13 +1,14 @@
 ﻿using Quokka.Extension.Interface;
+using Quokka.Extension.Scaffolding;
+using Quokka.Extension.Services;
 using System;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 
-namespace Quokka.Extension.VS2019
+namespace Quokka.Extension.ViewModels
 {
     public class ExtensionsTreeViewModel : ViewModel
     {
-        private readonly IExtensionInvocationService _invocationService;
         private readonly IExtensionsCacheService _ecs;
         private readonly ExtensionsTreeViewModelBuilder _viewModelBuilder;
         private readonly ExtensionMethodInvocationCommandViewModel.Factory _extensionMethodInvocationCommandViewModelFactory;
@@ -37,12 +38,10 @@ namespace Quokka.Extension.VS2019
         }
 
         public ExtensionsTreeViewModel(
-            IExtensionInvocationService invocationService, 
             IExtensionsCacheService ecs, 
             ExtensionsTreeViewModelBuilder viewModelBuilder,
             ExtensionMethodInvocationCommandViewModel.Factory extensionMethodInvocationCommandViewModelFactory)
         {
-            _invocationService = invocationService;
             _ecs = ecs;
             _viewModelBuilder = viewModelBuilder;
             _extensionMethodInvocationCommandViewModelFactory = extensionMethodInvocationCommandViewModelFactory;

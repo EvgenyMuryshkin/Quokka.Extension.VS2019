@@ -4,10 +4,12 @@ using Microsoft.VisualStudio.ExtensionManager;
 using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.Shell.Interop;
 using Quokka.Extension.Interface;
+using Quokka.Extension.Scaffolding;
 using Quokka.Extension.Services;
 using System;
 using System.Runtime.InteropServices;
 using System.Threading;
+using System.Threading.Tasks;
 using Task = System.Threading.Tasks.Task;
 
 
@@ -166,19 +168,16 @@ namespace Quokka.Extension.VS2019
             WriteLine(ex.StackTrace);
         }
 
-        public async Task Run(Func<Task> asyncMethod)
+        public T Run<T>(Func<Task<T>> asyncMethod)
         {
-            await ThreadHelper.JoinableTaskFactory.Run(async () =>
-            {
-                await asyncMethod();
-                return Task.CompletedTask;
-            });
+            return ThreadHelper.JoinableTaskFactory.Run(asyncMethod);
         }
 
-        public async Task SwitchToMainThreadAsync(CancellationToken cancellationToken = default)
+        public MainThreadAwaitableWrapper SwitchToMainThreadAsync(CancellationToken cancellationToken = default)
         {
-            // how will that work...
-            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
+#pragma warning disable VSTHRD004 // Await SwitchToMainThreadAsync
+            return new MainThreadAwaitableWrapper(ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync(cancellationToken).GetAwaiter());
+#pragma warning restore VSTHRD004 // Await SwitchToMainThreadAsync
         }
     }
 }

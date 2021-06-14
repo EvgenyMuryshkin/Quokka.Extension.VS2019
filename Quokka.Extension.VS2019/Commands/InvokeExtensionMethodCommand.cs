@@ -1,6 +1,8 @@
 ﻿using Microsoft.Internal.VisualStudio.PlatformUI;
 using Microsoft.VisualStudio.PlatformUI;
 using Microsoft.VisualStudio.Shell;
+using Quokka.Extension.Scaffolding;
+using Quokka.Extension.ViewModels;
 using System;
 using System.IO;
 

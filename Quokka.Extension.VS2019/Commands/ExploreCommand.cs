@@ -1,6 +1,7 @@
 ﻿using Microsoft.Internal.VisualStudio.PlatformUI;
 using Microsoft.VisualStudio.PlatformUI;
 using Microsoft.VisualStudio.Shell;
+using Quokka.Extension.Scaffolding;
 using Quokka.Extension.VS2019.UI.ExploreIcons;
 
 namespace Quokka.Extension.VS2019

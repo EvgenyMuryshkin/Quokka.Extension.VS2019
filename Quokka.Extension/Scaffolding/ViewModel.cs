@@ -3,7 +3,7 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
 
-namespace Quokka.Extension
+namespace Quokka.Extension.Scaffolding
 {
     public class ViewModel : INotifyPropertyChanged
     {

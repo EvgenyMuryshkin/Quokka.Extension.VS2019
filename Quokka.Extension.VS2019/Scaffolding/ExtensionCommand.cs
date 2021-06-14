@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Quokka.Extension.Scaffolding;
+using System;
 
 namespace Quokka.Extension.VS2019
 {

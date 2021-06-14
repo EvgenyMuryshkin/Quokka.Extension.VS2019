@@ -1,17 +1,15 @@
-﻿using Microsoft.VisualStudio.Shell;
-using Quokka.Extension.Interface;
+﻿using Quokka.Extension.Interface;
 using System;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using Task = System.Threading.Tasks.Task;
 
-namespace Quokka.Extension.VS2019
+namespace Quokka.Extension.Scaffolding
 {
     public abstract class CommandViewModel : ICommand
     {
         private readonly ExtensionDeps _deps;
         protected IExtensionLogger Logger => _deps.Logger;
-        protected AsyncPackage ServiceProvider => _deps.ServiceProvider;
+        protected IServiceProvider ServiceProvider => _deps.ServiceProvider;
         protected IJoinableTaskFactory TaskFactory => _deps.TaskFactory;
 
         public CommandViewModel(ExtensionDeps deps)
@@ -33,9 +31,9 @@ namespace Quokka.Extension.VS2019
         }
         protected async Task SetRunningAsync(bool running)
         {
-            await ThreadHelper.JoinableTaskFactory.Run(async () =>
+            await TaskFactory.Run(async () =>
             {
-                await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
+                await TaskFactory.SwitchToMainThreadAsync();
                 Running = running;
                 return Task.CompletedTask;
             });

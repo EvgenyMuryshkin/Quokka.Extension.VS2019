@@ -1,6 +1,7 @@
-﻿using System.Collections.ObjectModel;
+﻿using Quokka.Extension.Scaffolding;
+using System.Collections.ObjectModel;
 
-namespace Quokka.Extension.VS2019
+namespace Quokka.Extension.ViewModels
 {
     public class ExtensionProjectViewModel : ViewModel
     {
