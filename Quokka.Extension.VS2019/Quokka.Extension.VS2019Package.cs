@@ -4,6 +4,7 @@ using Microsoft.VisualStudio.ExtensionManager;
 using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.Shell.Interop;
 using Quokka.Extension.Interface;
+using Quokka.Extension.Interop;
 using Quokka.Extension.Scaffolding;
 using Quokka.Extension.Services;
 using System;
@@ -110,16 +111,24 @@ namespace Quokka.Extension.VS2019
                     await instance.InitializeAsync();
                 }
 
+                var ecs = _container.Resolve<IExtensionsCacheService>();
+                ecs.Reload(@"c:\code\qusoc\qusoc.sln");
+
+
+                var dynFactory = _container.Resolve<DynamicExtensionMethodsMenuService.Factory>();
+
+                dynFactory(guidQuokkaExtensionVS2019PackageIds.cmdidMyDynamicStart_Translate, TopLevelIcon.Translate);
+                dynFactory(guidQuokkaExtensionVS2019PackageIds.cmdidMyDynamicStart_BitStream, TopLevelIcon.BitStream);
+                dynFactory(guidQuokkaExtensionVS2019PackageIds.cmdidMyDynamicStart_Program, TopLevelIcon.Program);
+                /*
                 new DynamicMenu(guidQuokkaExtensionVS2019PackageIds.cmdidMyDynamicStart_Translate, this, 1);
                 new DynamicMenu(guidQuokkaExtensionVS2019PackageIds.cmdidMyDynamicStart_BitStream, this, 2);
                 new DynamicMenu(guidQuokkaExtensionVS2019PackageIds.cmdidMyDynamicStart_Program, this, 3);
+                */
 
                 new DynamicMenu(guidQuokkaExtensionVS2019PackageIds.cmdidMyDynamicStartCommand1, this, 4);
                 new DynamicMenu(guidQuokkaExtensionVS2019PackageIds.cmdidMyDynamicStartCommand2, this, 0);
                 new DynamicMenu(guidQuokkaExtensionVS2019PackageIds.cmdidMyDynamicStartCommand3, this, 0);
-
-                var ecs = _container.Resolve<IExtensionsCacheService>();
-                ecs.Reload(@"c:\code\qusoc\qusoc.sln");
 
                 CompleteInitialization();
             }

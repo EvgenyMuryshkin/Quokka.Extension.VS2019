@@ -224,6 +224,7 @@
       <Button guid="guidQuokkaExtensionVS2019PackageCmdSet" id="cmdidRerunExtensionMethodCommand" priority="0x8001" type="Button">
         <Parent guid="guidQuokkaExtensionVS2019PackageCmdSet" id="ToolbarTailGroup" />
         <Icon guid="guid_MaterialDesignicons_255_509" id="MdReplay" />
+        <CommandFlag>DefaultDisabled</CommandFlag>
         <Strings>
           <ButtonText>Rerun Extension Method</ButtonText>
         </Strings>
@@ -232,6 +233,7 @@
       <Button guid="guidQuokkaExtensionVS2019PackageCmdSet" id="cmdidCancelRunMethodCommand" priority="0x8002" type="Button">
         <Parent guid="guidQuokkaExtensionVS2019PackageCmdSet" id="ToolbarTailGroup" />
         <Icon guid="guidImages" id="bmpPicX" />
+        <CommandFlag>DefaultDisabled</CommandFlag>
         <Strings>
           <ButtonText>Cancel Run</ButtonText>
         </Strings>

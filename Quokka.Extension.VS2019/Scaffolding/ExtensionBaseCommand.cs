@@ -15,9 +15,17 @@ namespace Quokka.Extension.VS2019
             _commandId = commandId;
         }
 
+        protected MenuCommand GetCommand => CommandService.FindCommand(MenuCommandId);
+
+        protected virtual void OnCommandCreated(MenuCommand command)
+        {
+
+        }
+
         protected override Task OnInitializeAsync()
         {
             var menuItem = new MenuCommand(Execute, MenuCommandId);
+            OnCommandCreated(menuItem);
             CommandService.AddCommand(menuItem);
             return Task.CompletedTask;
         }

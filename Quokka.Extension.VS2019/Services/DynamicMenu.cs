@@ -1,5 +1,4 @@
 ﻿using Microsoft.VisualStudio.Shell;
-using Microsoft.VisualStudio.Shell.Interop;
 using System;
 using System.ComponentModel.Design;
 
@@ -113,37 +112,6 @@ namespace Quokka.Extension.VS2019
             // and the command ID minus the ID of our root dynamic start item
             // is less than or equal to the number of projects in the solution.
             return (commandId >= (int)_cmdidMyDynamicStartCommand) && ((commandId - (int)_cmdidMyDynamicStartCommand) < _maxCount/*dte2.Solution.Projects.Count*/);
-        }
-    }
-
-    class DynamicItemMenuCommand : OleMenuCommand
-    {
-        private Predicate<int> matches;
-
-        public DynamicItemMenuCommand(
-            CommandID rootId, 
-            Predicate<int> matches, 
-            EventHandler invokeHandler, 
-            EventHandler beforeQueryStatusHandler)
-            : base(invokeHandler, null /*changeHandler*/, beforeQueryStatusHandler, rootId)
-        {
-            this.matches = matches ?? throw new ArgumentNullException(nameof(matches));
-        }
-
-        public override bool DynamicItemMatch(int cmdId)
-        {
-            // Call the supplied predicate to test whether the given cmdId is a match.
-            // If it is, store the command id in MatchedCommandid
-            // for use by any BeforeQueryStatus handlers, and then return that it is a match.
-            // Otherwise clear any previously stored matched cmdId and return that it is not a match.
-            if (this.matches(cmdId))
-            {
-                this.MatchedCommandId = cmdId;
-                return true;
-            }
-
-            this.MatchedCommandId = 0;
-            return false;
         }
     }
 }

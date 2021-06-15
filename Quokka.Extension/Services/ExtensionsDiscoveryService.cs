@@ -14,15 +14,28 @@ namespace Quokka.Extension.Services
     public class ExtensionsDiscoveryService : IExtensionsDiscoveryService
     {
         private readonly IExtensionLogger _logger;
+        private readonly Dictionary<string, Type> _iconsSet;
 
         public ExtensionsDiscoveryService(IExtensionLogger logger)
         {
             _logger = logger;
+            _iconsSet = ExtensionCatalogue.IconTypes.ToDictionary(t => t.Name);
+            _iconsSet[typeof(TopLevelIcon).Name] = typeof(TopLevelIcon);
         }
 
         AttributeSyntax ExtensionMethodAttribute(SyntaxList<AttributeListSyntax> list)
         {
             return list.SelectMany(al => al.Attributes).Where(a => a.Name.ToString() == "ExtensionMethod").SingleOrDefault();
+        }
+
+        AttributeArgumentSyntax AttributeInit(AttributeSyntax m, string name)
+        {
+            return m
+                .ArgumentList
+                .Arguments
+                .OfType<AttributeArgumentSyntax>()
+                .Where(a => a.NameColon?.Name.ToString() == name)
+                .SingleOrDefault();
         }
 
         (Type, int) FetchIcon(AttributeSyntax m)
@@ -32,12 +45,7 @@ namespace Quokka.Extension.Services
             if (m == null || m.ArgumentList == null)
                 return defaultIcon;
 
-            var iconSyntax = m
-                .ArgumentList
-                .Arguments
-                .OfType<AttributeArgumentSyntax>()
-                .Where(a => a.NameColon?.Name.ToString() == "icon")
-                .SingleOrDefault();
+            var iconSyntax = AttributeInit(m, "icon");
 
             if (iconSyntax != null)
             {
@@ -48,8 +56,7 @@ namespace Quokka.Extension.Services
                         var accessor = maes.DescendantNodes(n => true).OfType<IdentifierNameSyntax>().Select(t => t.ToString()).ToList();
                         if (accessor.Count() == 2)
                         {
-                            var iconType = ExtensionCatalogue.IconTypes.SingleOrDefault(t => t.Name == accessor[0]);
-                            if (iconType != null)
+                            if (_iconsSet.TryGetValue(accessor[0], out var iconType))
                             {
                                 var enumNames = Enum.GetNames(iconType).ToList();
                                 var enumValues = Enum.GetValues(iconType);

@@ -21,6 +21,30 @@ namespace Quokka.Extension.Services
             _invocationCache = invocationCache;
         }
 
+        public event EventHandler InvocationEvent;
+
+        Process _runningProcess;
+        Process RunningProcess
+        {
+            get => _runningProcess;
+            set
+            {
+                _runningProcess = value;
+                InvocationEvent?.Invoke(this, new EventArgs());
+            }
+        }
+
+        public bool IsRunning => _runningProcess != null;
+
+        public void CancelRun()
+        {
+            var proc = RunningProcess;
+            if (proc == null || proc.HasExited)
+                return;
+
+            proc.Kill();
+        }
+
         public async Task RerunExtensionMethodAsync()
         {
             var peek = _invocationCache.Peek();
@@ -39,6 +63,10 @@ namespace Quokka.Extension.Services
             if (_invokeParams == null)
                 return;
 
+            // limit to single method run for now
+            if (RunningProcess != null)
+                return;
+
             try
             {
                 if (pushToMRU)
@@ -50,7 +78,7 @@ namespace Quokka.Extension.Services
 
                 _logger.WriteLine($"{invoke} started");
 
-                var proc = Process.Start(new ProcessStartInfo()
+                RunningProcess = Process.Start(new ProcessStartInfo()
                 {
                     FileName = @"dotnet",
                     Arguments = $"run -- {invoke}",
@@ -61,27 +89,27 @@ namespace Quokka.Extension.Services
                     RedirectStandardError = true
                 });
 
-                proc.BeginOutputReadLine();
-                proc.OutputDataReceived += (s, a) =>
+                RunningProcess.BeginOutputReadLine();
+                RunningProcess.OutputDataReceived += (s, a) =>
                 {
                     _logger.WriteLine(a.Data);
                 };
 
-                proc.BeginErrorReadLine();
-                proc.ErrorDataReceived += (s, a) =>
+                RunningProcess.BeginErrorReadLine();
+                RunningProcess.ErrorDataReceived += (s, a) =>
                 {
                     _logger.WriteLine(a.Data);
                 };
 
-                proc.WaitForExit();
+                RunningProcess.WaitForExit();
 
-                if (proc.ExitCode == 0)
+                if (RunningProcess.ExitCode == 0)
                 {
                     _logger.WriteLine($"{invoke} finished");
                 }
                 else
                 {
-                    _logger.WriteLine($"{invoke} failed with code: {proc.ExitCode}");
+                    _logger.WriteLine($"{invoke} failed with code: {RunningProcess.ExitCode}");
                 }
             }
             catch (Exception ex)
@@ -89,6 +117,10 @@ namespace Quokka.Extension.Services
                 var title = $"{_invokeParams.Class}.{_invokeParams.Method} failed";
 
                 await _exceptionHandler.OnException(title, ex);
+            }
+            finally
+            {
+                RunningProcess = null;
             }
         }
     }
