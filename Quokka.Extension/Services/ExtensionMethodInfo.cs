@@ -8,6 +8,9 @@ namespace Quokka.Extension.Services
         public string Class;
         public string Method;
         public ExtensionMethodIcon Icon;
+        public string Title;
+
+        public string DisplayTitle => Title ?? $"{Class}.{Method}";
 
         public override string ToString()
         {

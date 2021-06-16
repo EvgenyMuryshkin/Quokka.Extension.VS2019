@@ -48,6 +48,9 @@
   <ItemGroup>
     <Compile Include="Commands\CancelRunMethodCommand.cs" />
     <Compile Include="Commands\ExploreCommand.cs" />
+    <Compile Include="Commands\TopLevelBitStreamCommand.cs" />
+    <Compile Include="Commands\TopLevelProgramCommand.cs" />
+    <Compile Include="Commands\TopLevelTranslateCommand.cs" />
     <Compile Include="Scaffolding\AsyncExtensionCommand.cs" />
     <Compile Include="Scaffolding\DynamicItemMenuCommand.cs" />
     <Compile Include="Scaffolding\ExtensionBaseCommand.cs" />

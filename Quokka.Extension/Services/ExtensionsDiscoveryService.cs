@@ -74,6 +74,24 @@ namespace Quokka.Extension.Services
             return defaultIcon;
         }
 
+        string FetchTitle(AttributeSyntax m)
+        {
+            if (m == null || m.ArgumentList == null)
+                return null;
+
+            var titleSyntax = AttributeInit(m, "title");
+            if (titleSyntax != null)
+            {
+                switch (titleSyntax.Expression)
+                {
+                    case LiteralExpressionSyntax l:
+                        return l.Token.Value?.ToString();
+                }
+            }
+
+            return null;
+        }
+
         public List<ExtensionMethodInfo> LoadFromDirectory(string solutionPath)
         {
             var extensions = new List<ExtensionMethodInfo>();
@@ -127,7 +145,8 @@ namespace Quokka.Extension.Services
                                     Project = proj,
                                     Class = className,
                                     Method = methodDeclaration.Identifier.ToString(),
-                                    Icon = new ExtensionMethodIcon(iconType, iconValue)
+                                    Icon = new ExtensionMethodIcon(iconType, iconValue),
+                                    Title = FetchTitle(methodAttr)
                                 };
 
                                 extensions.Add(invokeParams);

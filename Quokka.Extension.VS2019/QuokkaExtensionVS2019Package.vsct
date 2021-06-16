@@ -148,6 +148,7 @@
       <Button guid="guidQuokkaExtensionVS2019PackageCmdSet" id="InvokeExtensionMethodCommandId" priority="0x0100" type="Button">
         <Parent guid="guidQuokkaExtensionVS2019PackageCmdSet" id="ToolbarLeadingGroup" />
         <Icon guid="guid_VSCodeIcons_0_254" id="VscAccount" />
+        <CommandFlag>DefaultDisabled</CommandFlag>
         <Strings>
           <ButtonText>Invoke Extension Method</ButtonText>
         </Strings>
@@ -156,6 +157,7 @@
       <Button guid="guidQuokkaExtensionVS2019PackageCmdSet" id="cmdidExploreCommand" priority="0x0001" type="Button">
         <Parent guid="guidQuokkaExtensionVS2019PackageCmdSet" id="DynamicMenuControllerGroup" />
         <Icon guid="guidImages" id="bmpPicSearch" />
+        <CommandFlag>DefaultDisabled</CommandFlag>
         <Strings>
           <ButtonText>Explore</ButtonText>
         </Strings>

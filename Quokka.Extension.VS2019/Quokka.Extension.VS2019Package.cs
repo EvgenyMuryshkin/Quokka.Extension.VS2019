@@ -96,12 +96,18 @@ namespace Quokka.Extension.VS2019
                 typeof(InvokeExtensionMethodCommand),
                 typeof(RerunExtensionMethodCommand),
                 typeof(CancelRunMethodCommand),
-                typeof(ExploreCommand)
+                typeof(ExploreCommand),
+                typeof(TopLevelTranslateCommand),
+                typeof(TopLevelBitStreamCommand),
+                typeof(TopLevelProgramCommand),
             };
 
             try
             {
                 ConfigureContainer();
+
+                var ecs = _container.Resolve<IExtensionsCacheService>();
+                ecs.Reload(@"c:\code\qusoc\qusoc.sln");
 
                 foreach (var commandType in commands)
                 {
@@ -111,24 +117,13 @@ namespace Quokka.Extension.VS2019
                     await instance.InitializeAsync();
                 }
 
-                var ecs = _container.Resolve<IExtensionsCacheService>();
-                ecs.Reload(@"c:\code\qusoc\qusoc.sln");
-
 
                 var dynFactory = _container.Resolve<DynamicExtensionMethodsMenuService.Factory>();
 
-                dynFactory(guidQuokkaExtensionVS2019PackageIds.cmdidMyDynamicStart_Translate, TopLevelIcon.Translate);
-                dynFactory(guidQuokkaExtensionVS2019PackageIds.cmdidMyDynamicStart_BitStream, TopLevelIcon.BitStream);
-                dynFactory(guidQuokkaExtensionVS2019PackageIds.cmdidMyDynamicStart_Program, TopLevelIcon.Program);
-                /*
-                new DynamicMenu(guidQuokkaExtensionVS2019PackageIds.cmdidMyDynamicStart_Translate, this, 1);
-                new DynamicMenu(guidQuokkaExtensionVS2019PackageIds.cmdidMyDynamicStart_BitStream, this, 2);
-                new DynamicMenu(guidQuokkaExtensionVS2019PackageIds.cmdidMyDynamicStart_Program, this, 3);
-                */
+                //new DynamicMenu(guidQuokkaExtensionVS2019PackageIds.cmdidMyDynamicStartCommand2, this, 3);
+                //new DynamicMenu(guidQuokkaExtensionVS2019PackageIds.cmdidMyDynamicStartCommand3, this, 2);
 
-                new DynamicMenu(guidQuokkaExtensionVS2019PackageIds.cmdidMyDynamicStartCommand1, this, 4);
-                new DynamicMenu(guidQuokkaExtensionVS2019PackageIds.cmdidMyDynamicStartCommand2, this, 0);
-                new DynamicMenu(guidQuokkaExtensionVS2019PackageIds.cmdidMyDynamicStartCommand3, this, 0);
+                await dynFactory(guidQuokkaExtensionVS2019PackageIds.cmdidMyDynamicStartCommand3, AntDesignIcons.AiFillAndroid).InitializeAsync();
 
                 CompleteInitialization();
             }

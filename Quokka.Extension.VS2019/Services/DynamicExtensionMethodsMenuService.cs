@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace Quokka.Extension.VS2019
 {
-    public class DynamicExtensionMethodsMenuService : ExtensionService
+    public class DynamicExtensionMethodsMenuService : ExtensionService, IExtensionPart
     {
         private readonly IExtensionsCacheService _extensionsCacheService;
         private readonly IExtensionInvocationService _invocationService;
@@ -37,7 +37,10 @@ namespace Quokka.Extension.VS2019
             _extensionsCacheService = extensionsCacheService;
             _cmdidMyDynamicStartCommand = cmdidMyDynamicStartCommand;
             _icon = icon;
+        }
 
+        public Task InitializeAsync()
+        {
             _matchingMethods = _extensionsCacheService.ExtensionsForIcon(_icon);
 
             OleMenuCommandService commandService = ServiceProvider.GetService(typeof(IMenuCommandService)) as OleMenuCommandService;
@@ -55,6 +58,8 @@ namespace Quokka.Extension.VS2019
                 };
                 commandService.AddCommand(dynamicMenuCommand);
             }
+
+            return Task.CompletedTask;
         }
 
         private void OnInvokedDynamicItem(object sender, EventArgs args)
@@ -82,7 +87,7 @@ namespace Quokka.Extension.VS2019
             if (extensionMethodIndex >= 0 && extensionMethodIndex < _maxCount)
             {
                 var extensionMethod = _matchingMethods[extensionMethodIndex];
-                matchedCommand.Text = $"{extensionMethod.Class}.{extensionMethod.Method}";
+                matchedCommand.Text = extensionMethod.DisplayTitle;
             }
 
             matchedCommand.Checked = false;
@@ -95,7 +100,7 @@ namespace Quokka.Extension.VS2019
             // The match is valid if the command ID is >= the id of our root dynamic start item
             // and the command ID minus the ID of our root dynamic start item
             // is less than or equal to the number of projects in the solution.
-            var isValid =  (commandId >= (int)_cmdidMyDynamicStartCommand) && ((commandId - (int)_cmdidMyDynamicStartCommand) < _maxCount/*dte2.Solution.Projects.Count*/);
+            var isValid = (commandId >= (int)_cmdidMyDynamicStartCommand) && ((commandId - (int)_cmdidMyDynamicStartCommand) < _maxCount/*dte2.Solution.Projects.Count*/);
 
             return isValid;
         }
