@@ -10,7 +10,7 @@ namespace Quokka.Extension.VS2019
             ExtensionDeps deps,
             IExtensionInvocationService invocationService,
             IExtensionsCacheService extensionsCacheService
-            ) : base(deps, invocationService, extensionsCacheService, guidQuokkaExtensionVS2019PackageIds.cmdidMyDynamicStart_Translate, TopLevelIcon.Translate)
+            ) : base(deps, invocationService, extensionsCacheService, guidQuokkaExtensionVS2019PackageIds.guidQuokkaExtensionVS2019PackageCmdSet, guidQuokkaExtensionVS2019PackageIds.cmdidMyDynamicStart_Translate, TopLevelIcon.Translate)
         {
         }
     }

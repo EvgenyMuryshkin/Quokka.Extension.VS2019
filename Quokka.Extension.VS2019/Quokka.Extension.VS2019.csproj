@@ -51,6 +51,7 @@
     <Compile Include="Commands\TopLevelBitStreamCommand.cs" />
     <Compile Include="Commands\TopLevelProgramCommand.cs" />
     <Compile Include="Commands\TopLevelTranslateCommand.cs" />
+    <Compile Include="DynamicCommandsSet.cs" />
     <Compile Include="Scaffolding\AsyncExtensionCommand.cs" />
     <Compile Include="Scaffolding\DynamicItemMenuCommand.cs" />
     <Compile Include="Scaffolding\ExtensionBaseCommand.cs" />
@@ -58,7 +59,6 @@
     <Compile Include="Scaffolding\ExtensionPart.cs" />
     <Compile Include="Scaffolding\IExtensionPart.cs" />
     <Compile Include="Services\DynamicExtensionMethodsMenuService.cs" />
-    <Compile Include="Services\DynamicMenu.cs" />
     <Compile Include="UI\ExploreIcons\ExploreIconsView.xaml.cs">
       <DependentUpon>ExploreIconsView.xaml</DependentUpon>
     </Compile>

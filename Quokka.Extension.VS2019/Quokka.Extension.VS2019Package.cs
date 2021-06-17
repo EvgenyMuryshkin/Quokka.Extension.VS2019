@@ -8,6 +8,7 @@ using Quokka.Extension.Interop;
 using Quokka.Extension.Scaffolding;
 using Quokka.Extension.Services;
 using System;
+using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Threading;
 using System.Threading.Tasks;
@@ -84,6 +85,9 @@ namespace Quokka.Extension.VS2019
         /// <returns>A task representing the async work of package initialization, or an already completed task if there is none. Do not return null from this method.</returns>
         protected override async Task InitializeAsync(CancellationToken cancellationToken, IProgress<ServiceProgressData> progress)
         {
+            var stopwatch = new Stopwatch();
+            stopwatch.Start();
+
             Instance = this;
 
             // When initialized asynchronously, the current thread may be a background thread at this point.
@@ -122,10 +126,24 @@ namespace Quokka.Extension.VS2019
 
                 //new DynamicMenu(guidQuokkaExtensionVS2019PackageIds.cmdidMyDynamicStartCommand2, this, 3);
                 //new DynamicMenu(guidQuokkaExtensionVS2019PackageIds.cmdidMyDynamicStartCommand3, this, 2);
+                /*
+                await dynFactory(
+                    guidQuokkaExtensionVS2019PackageIds.guidQuokkaExtensionVS2019PackageCmdSet,
+                    guidQuokkaExtensionVS2019PackageIds.cmdidMyDynamicStartCommand3, 
+                    AntDesignIcons.AiFillAndroid).InitializeAsync();
+                */
+                await dynFactory(
+                    guidDynamicCommandsSet.SetId,
+                    guidDynamicCommandsSet.AntDesignIcons_AiFillAndroid,
+                    AntDesignIcons.AiFillAndroid).InitializeAsync();
 
-                await dynFactory(guidQuokkaExtensionVS2019PackageIds.cmdidMyDynamicStartCommand3, AntDesignIcons.AiFillAndroid).InitializeAsync();
+                await dynFactory(
+                    guidDynamicCommandsSet.SetId,
+                    guidDynamicCommandsSet.AntDesignIcons_AiFillApi,
+                    AntDesignIcons.AiFillApi).InitializeAsync();
 
-                CompleteInitialization();
+
+                CompleteInitialization(stopwatch.ElapsedMilliseconds);
             }
             catch (Exception ex)
             {
@@ -145,11 +163,11 @@ namespace Quokka.Extension.VS2019
         IVsOutputWindow OutputWindow => ServiceProvider.GetService<SVsOutputWindow, IVsOutputWindow>();
         IVsOutputWindowPane QuokkaPane { get; set; }
 
-        void CompleteInitialization()
+        void CompleteInitialization(long initTime)
         {
             OutputWindow.GetPane(ref guidQuokkaExtensionVS2019PackageIds.QuokkaOutputWindowId, out var quokkaPane);
             QuokkaPane = quokkaPane;
-            WriteLine("Quokka FPGA has initialized");
+            WriteLine($"Quokka FPGA has initialized in {initTime} ms");
         }
 
         public void Write(string message) => QuokkaPane?.OutputStringThreadSafe(message);
