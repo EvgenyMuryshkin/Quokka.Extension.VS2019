@@ -17,6 +17,7 @@
   <Extern href="vsshlids.h" />
   <Include href="symbols.vsct"/>
   <Include href="bitmaps.vsct"/>
+  <Include href="buttons.vsct"/>
   <!--The Commands section is where commands, menus, and menu groups are defined.
       This section uses a Guid to identify the package that provides the command defined inside it. -->
   <Commands package="guidQuokkaExtensionVS2019Package">
@@ -196,31 +197,6 @@
         <CommandFlag>TextChanges</CommandFlag>
         <Strings>
           <ButtonText>Program</ButtonText>
-        </Strings>
-      </Button>
-
-      <!-- dyn button -->
-      <Button guid="dynamicCommandIds" id="AntDesignIcons_AiFillAndroid" priority="0x2001" type="Button">
-        <Parent guid="guidQuokkaExtensionVS2019PackageCmdSet" id="DynamicMenuControllerGroup" />
-        <Icon guid="guid_AntDesignIcons_0_254" id="AiFillAndroid" />
-        <CommandFlag>DynamicItemStart</CommandFlag>
-        <CommandFlag>DynamicVisibility</CommandFlag>
-        <CommandFlag>DefaultInvisible</CommandFlag>
-        <CommandFlag>TextChanges</CommandFlag>
-        <Strings>
-          <ButtonText>AiFillAndroid</ButtonText>
-        </Strings>
-      </Button>
-      
-      <Button guid="dynamicCommandIds" id="AntDesignIcons_AiFillApi" priority="0x2002" type="Button">
-        <Parent guid="guidQuokkaExtensionVS2019PackageCmdSet" id="DynamicMenuControllerGroup" />
-        <Icon guid="guid_AntDesignIcons_0_254" id="AiFillApi" />
-        <CommandFlag>DynamicItemStart</CommandFlag>
-        <CommandFlag>DynamicVisibility</CommandFlag>
-        <CommandFlag>DefaultInvisible</CommandFlag>
-        <CommandFlag>TextChanges</CommandFlag>
-        <Strings>
-          <ButtonText>AiFillApi</ButtonText>
         </Strings>
       </Button>
       

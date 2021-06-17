@@ -10,7 +10,7 @@ using Task = System.Threading.Tasks.Task;
 
 namespace Quokka.Extension.VS2019
 {
-    public class DynamicExtensionMethodsMenuService : ExtensionService, IExtensionPart
+    public class DynamicItemMenuCommandFactory : ExtensionService, IExtensionPart
     {
         private readonly IExtensionsCacheService _extensionsCacheService;
         private readonly IExtensionInvocationService _invocationService;
@@ -19,9 +19,9 @@ namespace Quokka.Extension.VS2019
         private readonly uint _cmdidMyDynamicStartCommand;
         private readonly ExtensionMethodIcon _icon;
 
-        public delegate DynamicExtensionMethodsMenuService Factory(Guid commandsSetId, uint cmdidMyDynamicStartCommand, ExtensionMethodIcon icon);
+        public delegate DynamicItemMenuCommandFactory Factory(Guid commandsSetId, uint cmdidMyDynamicStartCommand, ExtensionMethodIcon icon);
 
-        public DynamicExtensionMethodsMenuService(
+        public DynamicItemMenuCommandFactory(
             ExtensionDeps deps,
             IExtensionInvocationService invocationService,
             IExtensionsCacheService extensionsCacheService,

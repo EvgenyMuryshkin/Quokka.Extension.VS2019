@@ -4,7 +4,7 @@ using Quokka.Extension.Scaffolding;
 
 namespace Quokka.Extension.VS2019
 {
-    internal class TopLevelBitStreamCommand : DynamicExtensionMethodsMenuService
+    internal class TopLevelBitStreamCommand : DynamicItemMenuCommandFactory
     {
         public TopLevelBitStreamCommand(
             ExtensionDeps deps,

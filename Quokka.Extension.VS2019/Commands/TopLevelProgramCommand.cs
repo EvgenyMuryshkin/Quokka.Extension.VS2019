@@ -4,7 +4,7 @@ using Quokka.Extension.Scaffolding;
 
 namespace Quokka.Extension.VS2019
 {
-    internal class TopLevelProgramCommand : DynamicExtensionMethodsMenuService
+    internal class TopLevelProgramCommand : DynamicItemMenuCommandFactory
     {
         public TopLevelProgramCommand(
             ExtensionDeps deps,

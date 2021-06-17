@@ -122,7 +122,7 @@ namespace Quokka.Extension.VS2019
                 }
 
 
-                var dynFactory = _container.Resolve<DynamicExtensionMethodsMenuService.Factory>();
+                var dynFactory = _container.Resolve<DynamicItemMenuCommandFactory.Factory>();
 
                 //new DynamicMenu(guidQuokkaExtensionVS2019PackageIds.cmdidMyDynamicStartCommand2, this, 3);
                 //new DynamicMenu(guidQuokkaExtensionVS2019PackageIds.cmdidMyDynamicStartCommand3, this, 2);

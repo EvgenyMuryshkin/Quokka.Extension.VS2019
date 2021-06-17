@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CommandTable xmlns="http://schemas.microsoft.com/VisualStudio/2005-10-18/CommandTable" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <Extern href="package.vsct" />
+  <Extern href="symbols.vsct" />
+  <Commands package="guidQuokkaExtensionVS2019Package">
+    <Buttons>
+      <Button guid="dynamicCommandIds" id="AntDesignIcons_AiFillAndroid" priority="0x2001" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2019PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_AntDesignIcons_0_254" id="AiFillAndroid" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>AiFillAndroid</ButtonText>
+        </Strings>
+      </Button>
+
+      <Button guid="dynamicCommandIds" id="AntDesignIcons_AiFillApi" priority="0x2002" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2019PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_AntDesignIcons_0_254" id="AiFillApi" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>AiFillApi</ButtonText>
+        </Strings>
+      </Button>
+    </Buttons>
+  </Commands>
+</CommandTable>
