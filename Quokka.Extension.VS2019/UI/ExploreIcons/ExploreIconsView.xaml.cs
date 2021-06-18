@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Quokka.Extension.Interface;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -28,7 +29,9 @@ namespace Quokka.Extension.VS2019.UI.ExploreIcons
                 throw new Exception();
 
             InitializeComponent();
-            DataContext = new ExploreIconsViewModel((a) => {
+            DataContext = new ExploreIconsViewModel(
+                QuokkaExtensionVS2019Package.Instance.Resolve<IExtensionIconResolver>(),
+                (a) => {
                 Dispatcher.BeginInvoke(a);
             });
             SearchField.Focus();

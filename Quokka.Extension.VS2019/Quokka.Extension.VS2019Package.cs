@@ -7,6 +7,7 @@ using Quokka.Extension.Interface;
 using Quokka.Extension.Interop;
 using Quokka.Extension.Scaffolding;
 using Quokka.Extension.Services;
+using Quokka.Extension.VS2019.Services;
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -44,6 +45,8 @@ namespace Quokka.Extension.VS2019
         public static QuokkaExtensionVS2019Package Instance;
         private IContainer _container;
 
+        public T Resolve<T>() => _container.Resolve<T>();
+
         #region Package Members
 
         void ConfigureContainer()
@@ -66,6 +69,8 @@ namespace Quokka.Extension.VS2019
                 .As<IExtensionLogger>()
                 ;
 
+            builder.RegisterType<ExtensionIconResolver>().AsImplementedInterfaces().SingleInstance();
+            builder.RegisterType<DynamicIconsCommandFactory>().SingleInstance();
             builder.RegisterType<ExtensionsCacheService>().AsImplementedInterfaces().SingleInstance();
             builder.RegisterType<ExtensionInvocationService>().AsImplementedInterfaces().SingleInstance();
             builder.RegisterType<InvocationCacheService>().AsImplementedInterfaces().SingleInstance();
@@ -104,6 +109,7 @@ namespace Quokka.Extension.VS2019
                 typeof(TopLevelTranslateCommand),
                 typeof(TopLevelBitStreamCommand),
                 typeof(TopLevelProgramCommand),
+                typeof(DynamicIconsCommandFactory)
             };
 
             try
@@ -132,6 +138,8 @@ namespace Quokka.Extension.VS2019
                     guidQuokkaExtensionVS2019PackageIds.cmdidMyDynamicStartCommand3, 
                     AntDesignIcons.AiFillAndroid).InitializeAsync();
                 */
+
+                /*
                 await dynFactory(
                     guidDynamicCommandsSet.SetId,
                     guidDynamicCommandsSet.AntDesignIcons_AiFillAndroid,
@@ -141,7 +149,7 @@ namespace Quokka.Extension.VS2019
                     guidDynamicCommandsSet.SetId,
                     guidDynamicCommandsSet.AntDesignIcons_AiFillApi,
                     AntDesignIcons.AiFillApi).InitializeAsync();
-
+                */
 
                 CompleteInitialization(stopwatch.ElapsedMilliseconds);
             }

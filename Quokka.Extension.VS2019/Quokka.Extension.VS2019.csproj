@@ -53,12 +53,15 @@
     <Compile Include="Commands\TopLevelTranslateCommand.cs" />
     <Compile Include="DynamicCommandsSet.cs" />
     <Compile Include="Scaffolding\AsyncExtensionCommand.cs" />
+    <Compile Include="Scaffolding\DynamicItemInfo.cs" />
     <Compile Include="Scaffolding\DynamicItemMenuCommand.cs" />
+    <Compile Include="Scaffolding\DynamicIconsCommandFactory.cs" />
     <Compile Include="Scaffolding\ExtensionBaseCommand.cs" />
     <Compile Include="Scaffolding\ExtensionCommand.cs" />
     <Compile Include="Scaffolding\ExtensionPart.cs" />
     <Compile Include="Scaffolding\IExtensionPart.cs" />
     <Compile Include="Scaffolding\DynamicItemMenuCommandFactory.cs" />
+    <Compile Include="Services\ExtensionIconResolver.cs" />
     <Compile Include="UI\ExploreIcons\ExploreIconsView.xaml.cs">
       <DependentUpon>ExploreIconsView.xaml</DependentUpon>
     </Compile>
@@ -230,9 +233,7 @@
       <Name>Quokka.Extension</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Services\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(VSToolsPath)\VSSDK\Microsoft.VsSDK.targets" Condition="'$(VSToolsPath)' != ''" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

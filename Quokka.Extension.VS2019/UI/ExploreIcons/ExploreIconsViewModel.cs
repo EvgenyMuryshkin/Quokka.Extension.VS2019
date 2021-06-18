@@ -1,4 +1,5 @@
-﻿using Quokka.Extension.Interop;
+﻿using Quokka.Extension.Interface;
+using Quokka.Extension.Interop;
 using Quokka.Extension.Scaffolding;
 using System;
 using System.Collections.ObjectModel;
@@ -18,12 +19,13 @@ namespace Quokka.Extension.VS2019.UI.ExploreIcons
     public class ExploreIconViewModel : ViewModel
     {
         public string Name { get; set; }
-        public BitmapImage ImageSource { get; set; }
+        public object ImageSource { get; set; }
         public ICommand OnClickCommand { get; set; }
     }
 
     public class ExploreIconsViewModel : ViewModel
     {
+        readonly IExtensionIconResolver _extensionIconResolver;
         Subject<string> _searchTermSubject = new Subject<string>();
         Action<Action> _invokeOnUIThread;
 
@@ -63,8 +65,9 @@ namespace Quokka.Extension.VS2019.UI.ExploreIcons
         }
 
         public ICommand SearchCommand { get; set; }
-        public ExploreIconsViewModel(Action<Action> invokeOnUIThread)
+        public ExploreIconsViewModel(IExtensionIconResolver extensionIconResolver, Action<Action> invokeOnUIThread)
         {
+            _extensionIconResolver = extensionIconResolver;
             _invokeOnUIThread = invokeOnUIThread;
             _searchTermSubject
                 .ObserveOn(Scheduler.CurrentThread)
@@ -73,21 +76,6 @@ namespace Quokka.Extension.VS2019.UI.ExploreIcons
 
             SearchCommand = new Command(() => Search(SearchTerm));
             Search("");
-        }
-
-        private BitmapImage BitmapToImageSource(Bitmap bitmap)
-        {
-            using (MemoryStream memory = new MemoryStream())
-            {
-                bitmap.Save(memory, ImageFormat.Png);
-                memory.Position = 0;
-                BitmapImage bitmapimage = new BitmapImage();
-                bitmapimage.BeginInit();
-                bitmapimage.StreamSource = memory;
-                bitmapimage.CacheOption = BitmapCacheOption.OnLoad;
-                bitmapimage.EndInit();
-                return bitmapimage;
-            }
         }
 
         void OnIconSelected(Type iconType, int icon)
@@ -134,38 +122,10 @@ namespace Extensions
                     var iconViewModel = new ExploreIconViewModel()
                     {
                         Name = $"{iconsType.Name}.{pair.Name}",
+                        ImageSource = _extensionIconResolver.Resolve(new ExtensionMethodIcon(iconsType, pair.Value)),
                         OnClickCommand = new Command(() => OnIconSelected(pair.Type, pair.Value))
                     };
 
-                    var iconIndex = pair.Value;
-                    var collectionName = iconsType.Name;
-
-
-                    var maxPerCollection = 255;
-                    var partIndex = iconIndex / 255;
-                    var iconPosition = iconIndex % 255;
-                    var startIndex = partIndex * maxPerCollection;
-
-                    var collectionPartName = $"{iconsType.Name}_{startIndex}_{startIndex + maxPerCollection - 1}";
-                    var resourceName = resources.Single(r => r.Contains(collectionPartName));
-
-                    var pngStream = assembly.GetManifestResourceStream(resourceName);
-                    using (var image = new Bitmap(pngStream))
-                    {
-                        using (var icon = new Bitmap(16, 16))
-                        {
-                            for (var row = 0; row < 16; row++)
-                            {
-                                for (var col = 0; col < 16; col++)
-                                {
-                                    icon.SetPixel(col, row, image.GetPixel(iconPosition * 16 + col, row));
-                                }
-                            }
-
-                            iconViewModel.ImageSource = BitmapToImageSource(icon);
-                        }
-                    }
-                    
                     Icons.Add(iconViewModel);
                     if (Icons.Count >= 100)
                         break;

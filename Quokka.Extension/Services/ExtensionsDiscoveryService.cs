@@ -40,7 +40,7 @@ namespace Quokka.Extension.Services
 
         (Type, int) FetchIcon(AttributeSyntax m)
         {
-            var defaultIcon = (typeof(VSCodeIcons), (int)VSCodeIcons.VscChecklist);
+            var defaultIcon = (typeof(Grommet_Icons), (int)Grommet_Icons.GrTools);
 
             if (m == null || m.ArgumentList == null)
                 return defaultIcon;

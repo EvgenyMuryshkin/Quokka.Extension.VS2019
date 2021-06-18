@@ -1,5 +1,4 @@
 ﻿using Quokka.Extension.Interface;
-using Quokka.Extension.Services;
 using Quokka.Extension.ViewModels;
 using System;
 using System.IO;
@@ -10,9 +9,11 @@ namespace Quokka.Extension.Services
 {
     public class ExtensionsTreeViewModelBuilder
     {
+        private readonly IExtensionIconResolver _extensionIconResolver;
         private readonly IExtensionsDiscoveryService _eds;
-        public ExtensionsTreeViewModelBuilder(IExtensionsDiscoveryService eds)
+        public ExtensionsTreeViewModelBuilder(IExtensionIconResolver extensionIconResolver, IExtensionsDiscoveryService eds)
         {
+            _extensionIconResolver = extensionIconResolver;
             _eds = eds;
         }
 
@@ -24,37 +25,33 @@ namespace Quokka.Extension.Services
             if (File.Exists(path))
                 path = Path.GetDirectoryName(path);
 
-            treeViewModel.Projects.Clear();
+            treeViewModel.Roots.Clear();
 
-            foreach (var proj in extensions.GroupBy(p => p.Project))
+            var projectsGroup = extensions.GroupBy(p => p.Project);
+            foreach (var p in projectsGroup)
             {
-                var projectViewModel = new ExtensionProjectViewModel()
-                {
-                    Path = proj.Key
-                };
+                var pItem = new TreeItemViewModel() { Name = p.Key, IsExpanded = projectsGroup.Count() == 1 };
 
-                foreach (var classGroup in proj.GroupBy(c => c.Class))
+                var classesGroup = p.GroupBy(c => c.Class);
+                foreach (var c in classesGroup)
                 {
-                    var classViewModel = new ExtensionClassViewModel()
-                    {
-                        Name = classGroup.Key
-                    };
+                    var cItem = new TreeItemViewModel() { Name = c.Key, IsExpanded = classesGroup.Count() == 1 };
 
-                    foreach (var method in classGroup)
+                    foreach (var m in c)
                     {
-                        var methodViewModel = new ExtensionMethodViewModel()
+                        var mItem = new TreeItemViewModel()
                         {
-                            Name = method.Method,
-                            InvokeCommand = commandFactory?.Invoke(method)
+                            Name = m.Method,
+                            ImageSource = _extensionIconResolver.Resolve(m.Icon),
+                            MouseDoubleClickCommand = commandFactory?.Invoke(m)
                         };
-
-                        classViewModel.Methods.Add(methodViewModel);
+                        cItem.Children.Add(mItem);
                     }
 
-                    projectViewModel.Classes.Add(classViewModel);
+                    pItem.Children.Add(cItem);
                 }
 
-                treeViewModel.Projects.Add(projectViewModel);
+                treeViewModel.Roots.Add(pItem);
             }
         }
     }

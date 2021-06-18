@@ -14,7 +14,7 @@ namespace Quokka.Extension.VS2019
     {
         private readonly IExtensionInvocationService _invocationService;
         private readonly CommandID _commandId;
-        private readonly uint _cmdidMyDynamicStartCommand;
+        private readonly int _cmdidMyDynamicStartCommand;
         List<ExtensionMethodInfo> _matchingMethods = new List<ExtensionMethodInfo>();
         private int _maxCount => _matchingMethods.Count;
 
@@ -22,7 +22,7 @@ namespace Quokka.Extension.VS2019
         public DynamicItemMenuCommand(
             IExtensionInvocationService invocationService,
             CommandID rootId, 
-            uint cmdidMyDynamicStartCommand,
+            int cmdidMyDynamicStartCommand,
             List<ExtensionMethodInfo> matchingMethods,
             EventHandler invokeHandler, 
             EventHandler beforeQueryStatusHandler)
@@ -79,7 +79,7 @@ namespace Quokka.Extension.VS2019
             // The match is valid if the command ID is >= the id of our root dynamic start item
             // and the command ID minus the ID of our root dynamic start item
             // is less than or equal to the number of projects in the solution.
-            var isValid = (commandId >= (int)_cmdidMyDynamicStartCommand) && ((commandId - (int)_cmdidMyDynamicStartCommand) < _maxCount/*dte2.Solution.Projects.Count*/);
+            var isValid = (commandId >= _cmdidMyDynamicStartCommand) && ((commandId - _cmdidMyDynamicStartCommand) < _maxCount/*dte2.Solution.Projects.Count*/);
 
             return isValid;
         }

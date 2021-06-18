@@ -3,6 +3,7 @@ using Quokka.Extension.Scaffolding;
 using Quokka.Extension.Services;
 using System;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Windows.Input;
 
 namespace Quokka.Extension.ViewModels
@@ -24,7 +25,7 @@ namespace Quokka.Extension.ViewModels
             }
         }
 
-        public ObservableCollection<ExtensionProjectViewModel> Projects { get; private set; } = new ObservableCollection<ExtensionProjectViewModel>();
+        public ObservableCollection<TreeItemViewModel> Roots { get; private set; } = new ObservableCollection<TreeItemViewModel>();
 
         ICommand _reload;
         public ICommand ReloadCommand
