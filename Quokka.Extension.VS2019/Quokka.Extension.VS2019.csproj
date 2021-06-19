@@ -61,6 +61,7 @@
     <Compile Include="Scaffolding\ExtensionPart.cs" />
     <Compile Include="Scaffolding\IExtensionPart.cs" />
     <Compile Include="Scaffolding\DynamicItemMenuCommandFactory.cs" />
+    <Compile Include="Scaffolding\PathTools.cs" />
     <Compile Include="Services\ExtensionIconResolver.cs" />
     <Compile Include="UI\ExploreIcons\ExploreIconsView.xaml.cs">
       <DependentUpon>ExploreIconsView.xaml</DependentUpon>

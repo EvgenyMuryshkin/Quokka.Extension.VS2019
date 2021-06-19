@@ -7,6 +7,7 @@ using Quokka.Extension.Interface;
 using Quokka.Extension.Interop;
 using Quokka.Extension.Scaffolding;
 using Quokka.Extension.Services;
+using Quokka.Extension.VS2019.Scaffolding;
 using Quokka.Extension.VS2019.Services;
 using System;
 using System.Diagnostics;
@@ -117,7 +118,9 @@ namespace Quokka.Extension.VS2019
                 ConfigureContainer();
 
                 var ecs = _container.Resolve<IExtensionsCacheService>();
-                ecs.Reload(@"c:\code\qusoc\qusoc.sln");
+
+                var testPath = PathTools.SolutionLocation();
+                ecs.Reload(testPath);
 
                 foreach (var commandType in commands)
                 {
@@ -126,30 +129,6 @@ namespace Quokka.Extension.VS2019
 
                     await instance.InitializeAsync();
                 }
-
-
-                var dynFactory = _container.Resolve<DynamicItemMenuCommandFactory.Factory>();
-
-                //new DynamicMenu(guidQuokkaExtensionVS2019PackageIds.cmdidMyDynamicStartCommand2, this, 3);
-                //new DynamicMenu(guidQuokkaExtensionVS2019PackageIds.cmdidMyDynamicStartCommand3, this, 2);
-                /*
-                await dynFactory(
-                    guidQuokkaExtensionVS2019PackageIds.guidQuokkaExtensionVS2019PackageCmdSet,
-                    guidQuokkaExtensionVS2019PackageIds.cmdidMyDynamicStartCommand3, 
-                    AntDesignIcons.AiFillAndroid).InitializeAsync();
-                */
-
-                /*
-                await dynFactory(
-                    guidDynamicCommandsSet.SetId,
-                    guidDynamicCommandsSet.AntDesignIcons_AiFillAndroid,
-                    AntDesignIcons.AiFillAndroid).InitializeAsync();
-
-                await dynFactory(
-                    guidDynamicCommandsSet.SetId,
-                    guidDynamicCommandsSet.AntDesignIcons_AiFillApi,
-                    AntDesignIcons.AiFillApi).InitializeAsync();
-                */
 
                 CompleteInitialization(stopwatch.ElapsedMilliseconds);
             }

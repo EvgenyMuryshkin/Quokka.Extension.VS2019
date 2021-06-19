@@ -19,8 +19,6 @@ namespace Quokka.Extension.VS2019
         private readonly int _cmdidMyDynamicStartCommand;
         private readonly ExtensionMethodIcon _icon;
 
-        public delegate DynamicItemMenuCommandFactory Factory(Guid commandsSetId, uint cmdidMyDynamicStartCommand, ExtensionMethodIcon icon);
-
         public DynamicItemMenuCommandFactory(
             ExtensionDeps deps,
             IExtensionInvocationService invocationService,
