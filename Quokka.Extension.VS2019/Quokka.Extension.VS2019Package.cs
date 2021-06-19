@@ -7,6 +7,7 @@ using Quokka.Extension.Interface;
 using Quokka.Extension.Interop;
 using Quokka.Extension.Scaffolding;
 using Quokka.Extension.Services;
+using Quokka.Extension.VS2019.Scaffolding;
 using Quokka.Extension.VS2019.Services;
 using System;
 using System.Diagnostics;
@@ -117,7 +118,10 @@ namespace Quokka.Extension.VS2019
                 ConfigureContainer();
 
                 var ecs = _container.Resolve<IExtensionsCacheService>();
-                ecs.Reload(@"c:\code\qusoc\qusoc.sln");
+
+                //var testPath = PathTools.SolutionLocation();
+                var testPath = @"c:\code\qusoc\qusoc.sln";
+                ecs.Reload(testPath);
 
                 foreach (var commandType in commands)
                 {
