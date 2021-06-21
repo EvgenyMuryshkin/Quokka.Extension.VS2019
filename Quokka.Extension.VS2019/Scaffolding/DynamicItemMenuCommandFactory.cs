@@ -33,15 +33,20 @@ namespace Quokka.Extension.VS2019
             _commandsSetId = commandsSetId;
             _cmdidMyDynamicStartCommand = cmdidMyDynamicStartCommand;
             _icon = icon;
+
+            ExtensionNotificationService.OnSolutionChanged += (s, a) =>
+            {
+                Reload();
+            };
         }
 
-        public Task InitializeAsync()
+        void Reload()
         {
             OleMenuCommandService commandService = ServiceProvider.GetService(typeof(IMenuCommandService)) as OleMenuCommandService;
             if (commandService == null)
             {
                 Logger.WriteLine("OleMenuCommandService was not resolved");
-                return Task.CompletedTask;
+                return;
             }
 
             // Add the DynamicItemMenuCommand for the expansion of the root item into N items at run time.
@@ -67,10 +72,15 @@ namespace Quokka.Extension.VS2019
                 };
                 commandService.AddCommand(dynamicMenuCommand);
             }
+        }
 
+        public Task InitializeAsync()
+        {
+            Reload();
             return Task.CompletedTask;
         }
 
+        
         private void OnInvokedDynamicItem(object sender, EventArgs args)
         {
             DynamicItemMenuCommand invokedCommand = (DynamicItemMenuCommand)sender;

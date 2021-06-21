@@ -1,6 +1,4 @@
-﻿using Microsoft.VisualStudio.PlatformUI;
-using Quokka.Extension.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,20 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Quokka.Extension.VS2019
+namespace Quokka.Extension.VS2019.UI
 {
     /// <summary>
-    /// Interaction logic for ExtensionMethodsTree.xaml
+    /// Interaction logic for ThemedTextBlock.xaml
     /// </summary>
-    public partial class ExtensionsTree : UserControl
+    public partial class ThemedTextBlock : TextBlock
     {
-        public ExtensionsTree()
+        public ThemedTextBlock()
         {
             InitializeComponent();
-            if (QuokkaExtensionVS2019Package.Instance == null)
-                return;
-
-            DataContext = QuokkaExtensionVS2019Package.Instance.Resolve<ExtensionsTreeViewModel>();
         }
     }
 }

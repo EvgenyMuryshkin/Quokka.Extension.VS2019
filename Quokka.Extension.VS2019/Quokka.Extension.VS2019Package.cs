@@ -41,7 +41,8 @@ namespace Quokka.Extension.VS2019
     [ProvideMenuResource("Menus.ctmenu", 1)]
     [ProvideAutoLoad(UIContextGuids80.SolutionExists, PackageAutoLoadFlags.BackgroundLoad)]
     [ProvideAutoLoad(UIContextGuids80.NoSolution, PackageAutoLoadFlags.BackgroundLoad)]
-    public sealed class QuokkaExtensionVS2019Package : AsyncPackage, IExceptionHandler, IJoinableTaskFactory
+    [ProvideToolWindow(typeof(Quokka.Extension.VS2019.QuokkaExplorer))]
+    public sealed class QuokkaExtensionVS2019Package : AsyncPackage, IExceptionHandler, IJoinableTaskFactory, IExtensionPackage
     {
         public static QuokkaExtensionVS2019Package Instance;
         private IContainer _container;
@@ -62,6 +63,7 @@ namespace Quokka.Extension.VS2019
                 .As<IExceptionHandler>()
                 .As<IServiceProvider>()
                 .As<IJoinableTaskFactory>()
+                .As<IExtensionPackage>()
                 ;
 
             builder.RegisterType<QuokkaOutputWindowExtensionPart>()
@@ -70,6 +72,8 @@ namespace Quokka.Extension.VS2019
                 .As<IExtensionLogger>()
                 ;
 
+            builder.RegisterType<ExtensionNotificationService>().AsImplementedInterfaces().SingleInstance();
+            builder.RegisterType<NotificationsSourceService>().SingleInstance();
             builder.RegisterType<ExtensionIconResolver>().AsImplementedInterfaces().SingleInstance();
             builder.RegisterType<DynamicIconsCommandFactory>().SingleInstance();
             builder.RegisterType<ExtensionsCacheService>().AsImplementedInterfaces().SingleInstance();
@@ -102,25 +106,24 @@ namespace Quokka.Extension.VS2019
 
             var commands = new[]
             {
+                typeof(NotificationsSourceService),
                 typeof(QuokkaOutputWindowExtensionPart),
-                typeof(InvokeExtensionMethodCommand),
+                typeof(ShowQuokkaExplorerCommand),
+                typeof(QuokkaExplorerMenuCommand),
                 typeof(RerunExtensionMethodCommand),
                 typeof(CancelRunMethodCommand),
                 typeof(ExploreCommand),
+                typeof(ReloadCommand),
                 typeof(TopLevelTranslateCommand),
                 typeof(TopLevelBitStreamCommand),
                 typeof(TopLevelProgramCommand),
-                typeof(DynamicIconsCommandFactory)
+                typeof(TopLevelGenericCommand),
+                //typeof(DynamicIconsCommandFactory)
             };
 
             try
             {
                 ConfigureContainer();
-
-                var ecs = _container.Resolve<IExtensionsCacheService>();
-
-                var testPath = PathTools.SolutionLocation();
-                ecs.Reload(testPath);
 
                 foreach (var commandType in commands)
                 {
@@ -182,11 +185,21 @@ namespace Quokka.Extension.VS2019
             return ThreadHelper.JoinableTaskFactory.Run(asyncMethod);
         }
 
+        public Task RunAsync(Func<Task> asyncMethod)
+        {
+            return ThreadHelper.JoinableTaskFactory.RunAsync(asyncMethod).Task;
+        }
+
         public MainThreadAwaitableWrapper SwitchToMainThreadAsync(CancellationToken cancellationToken = default)
         {
 #pragma warning disable VSTHRD004 // Await SwitchToMainThreadAsync
             return new MainThreadAwaitableWrapper(ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync(cancellationToken).GetAwaiter());
 #pragma warning restore VSTHRD004 // Await SwitchToMainThreadAsync
+        }
+
+        public Task ShowToolWindowAsync(Type toolWindowType, int id, bool create)
+        {
+            return ShowToolWindowAsync(toolWindowType, id, create, DisposalToken);
         }
     }
 }

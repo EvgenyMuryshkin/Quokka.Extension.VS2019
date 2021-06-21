@@ -9,6 +9,7 @@ namespace Quokka.Extension.Scaffolding
         protected IExtensionLogger Logger => _deps.Logger;
         protected IServiceProvider ServiceProvider => _deps.ServiceProvider;
         protected IJoinableTaskFactory TaskFactory => _deps.TaskFactory;
+        protected IExtensionNotificationService ExtensionNotificationService => _deps.ExtensionNotificationService;
 
         public ExtensionService(ExtensionDeps deps)
         {

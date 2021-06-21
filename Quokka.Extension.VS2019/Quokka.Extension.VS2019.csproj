@@ -48,10 +48,17 @@
   <ItemGroup>
     <Compile Include="Commands\CancelRunMethodCommand.cs" />
     <Compile Include="Commands\ExploreCommand.cs" />
+    <Compile Include="Commands\ReloadCommand.cs" />
     <Compile Include="Commands\TopLevelBitStreamCommand.cs" />
     <Compile Include="Commands\TopLevelProgramCommand.cs" />
+    <Compile Include="Commands\TopLevelGenericCommand.cs" />
     <Compile Include="Commands\TopLevelTranslateCommand.cs" />
     <Compile Include="DynamicCommandsSet.cs" />
+    <Compile Include="QuokkaExplorer.cs" />
+    <Compile Include="Commands\QuokkaExplorerMenuCommand.cs" />
+    <Compile Include="QuokkaExplorerControl.xaml.cs">
+      <DependentUpon>QuokkaExplorerControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Scaffolding\AsyncExtensionCommand.cs" />
     <Compile Include="Scaffolding\DynamicItemInfo.cs" />
     <Compile Include="Scaffolding\DynamicItemMenuCommand.cs" />
@@ -63,6 +70,7 @@
     <Compile Include="Scaffolding\DynamicItemMenuCommandFactory.cs" />
     <Compile Include="Scaffolding\PathTools.cs" />
     <Compile Include="Services\ExtensionIconResolver.cs" />
+    <Compile Include="Services\NotificationsSourceService.cs" />
     <Compile Include="UI\ExploreIcons\ExploreIconsView.xaml.cs">
       <DependentUpon>ExploreIconsView.xaml</DependentUpon>
     </Compile>
@@ -71,13 +79,17 @@
       <DependentUpon>ExtensionsTree.xaml</DependentUpon>
     </Compile>
     <Compile Include="guidQuokkaExtensionVS2019PackageIds.cs" />
-    <Compile Include="Commands\InvokeExtensionMethodCommand.cs" />
+    <Compile Include="Commands\ShowQuokkaExplorerCommand.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Quokka.Extension.VS2019Package.cs" />
     <Compile Include="Parts\QuokkaOutputWindowExtensionPart.cs" />
     <Compile Include="Commands\RerunExtensionMethodCommand.cs" />
+    <Compile Include="UI\ThemedTextBlock.xaml.cs">
+      <DependentUpon>ThemedTextBlock.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="links.txt" />
     <EmbeddedResource Include="Resources\InvokeExtensionMethodCommand.png" />
     <EmbeddedResource Include="Resources\AntDesignIcons_0_254.png" />
     <EmbeddedResource Include="Resources\AntDesignIcons_255_509.png" />
@@ -204,7 +216,7 @@
       <Version>1.1.31</Version>
     </PackageReference>
     <PackageReference Include="Quokka.Extension.Interop">
-      <Version>1.0.1.28</Version>
+      <Version>1.0.2.30</Version>
     </PackageReference>
     <PackageReference Include="System.Windows.Interactivity.WPF">
       <Version>2.0.20525</Version>
@@ -219,11 +231,19 @@
     </VSCTCompile>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="QuokkaExplorerControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UI\ExploreIcons\ExploreIconsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UI\ExtensionsTree.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\ThemedTextBlock.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

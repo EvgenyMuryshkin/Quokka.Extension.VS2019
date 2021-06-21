@@ -1,4 +1,6 @@
-﻿using Quokka.Extension.Interface;
+﻿using Microsoft.VisualStudio.PlatformUI;
+using Microsoft.VisualStudio.Shell;
+using Quokka.Extension.Interface;
 using Quokka.Extension.Interop;
 using System;
 using System.Collections.Generic;
@@ -39,11 +41,13 @@ namespace Quokka.Extension.VS2019.Services
                     case TopLevelIcon.Translate: return RemixIcon.RiAliensFill;
                     case TopLevelIcon.BitStream: return SimpleIcons.SiLaunchpad;
                     case TopLevelIcon.Program: return Ionicons5.IoHardwareChipSharp;
+                    case TopLevelIcon.Generic: return Grommet_Icons.GrTools;
                 }
             }
 
             return extensionIcon;
         }
+
 
         public object Resolve(ExtensionMethodIcon extensionIcon)
         {
@@ -72,7 +76,14 @@ namespace Quokka.Extension.VS2019.Services
                     {
                         for (var col = 0; col < 16; col++)
                         {
-                            icon.SetPixel(col, row, image.GetPixel(iconPosition * 16 + col, row));
+                            var key = EnvironmentColors.ToolWindowTextBrushKey;
+                            var color = VSColorTheme.GetThemedColor(key);
+                            var isBright = color.GetBrightness() > 0.5;
+
+                            var pixel = image.GetPixel(iconPosition * 16 + col, row);
+                            var inverted = Color.FromArgb(pixel.ToArgb() ^ 0xFFFFFF);
+
+                            icon.SetPixel(col, row, isBright ? inverted : pixel);
                         }
                     }
 

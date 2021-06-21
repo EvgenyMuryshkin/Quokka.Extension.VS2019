@@ -110,32 +110,33 @@ namespace Extensions
             var resources = assembly.GetManifestResourceNames();
 
             searchTerm = searchTerm.ToLower();
-            foreach (var iconsType in ExtensionCatalogue.IconTypes)
+
+            var matchingIcons = ExtensionCatalogue.IconTypes.SelectMany(iconsType =>
             {
                 var names = Enum.GetNames(iconsType);
                 var values = Enum.GetValues(iconsType).OfType<object>().Select(v => (int)v);
 
-                var pairs = names.Zip(values, (n,v) => new { Type = iconsType, Name = n, Search = $"{iconsType.Name}.{n}".ToLower(), Value = v });
+                var pairs = names.Zip(values, (n, v) => new { Type = iconsType, Name = n, Search = $"{iconsType.Name}.{n}".ToLower(), Value = v });
                 var matching = pairs.Where(p => p.Search.Contains(searchTerm)).ToList();
-                foreach (var pair in matching)
+
+                return matching;
+            }).ToList();
+
+            foreach (var pair in matchingIcons)
+            {
+                var iconViewModel = new ExploreIconViewModel()
                 {
-                    var iconViewModel = new ExploreIconViewModel()
-                    {
-                        Name = $"{iconsType.Name}.{pair.Name}",
-                        ImageSource = _extensionIconResolver.Resolve(new ExtensionMethodIcon(iconsType, pair.Value)),
-                        OnClickCommand = new Command(() => OnIconSelected(pair.Type, pair.Value))
-                    };
+                    Name = $"{pair.Type.Name}.{pair.Name}",
+                    ImageSource = _extensionIconResolver.Resolve(new ExtensionMethodIcon(pair.Type, pair.Value)),
+                    OnClickCommand = new Command(() => OnIconSelected(pair.Type, pair.Value))
+                };
 
-                    Icons.Add(iconViewModel);
-                    if (Icons.Count >= 100)
-                        break;
-                }
-
+                Icons.Add(iconViewModel);
                 if (Icons.Count >= 100)
                     break;
             }
 
-            SearchSummary = $"Showing {Icons.Count} of {ExtensionCatalogue.TotalIconsCount}";
+            SearchSummary = $"Showing {Icons.Count} of {matchingIcons.Count}";
         }
     }
 }

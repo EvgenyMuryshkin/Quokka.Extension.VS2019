@@ -11,6 +11,7 @@ namespace Quokka.Extension.Services
         public string Title;
 
         public string DisplayTitle => Title ?? $"{Class}.{Method}";
+        public string DisplayMethod => Title ?? Method;
 
         public override string ToString()
         {

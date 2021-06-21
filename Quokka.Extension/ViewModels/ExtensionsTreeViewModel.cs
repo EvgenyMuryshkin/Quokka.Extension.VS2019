@@ -11,59 +11,32 @@ namespace Quokka.Extension.ViewModels
     public class ExtensionsTreeViewModel : ViewModel
     {
         private readonly IExtensionsCacheService _ecs;
+        private readonly IExtensionNotificationService _ens;
         private readonly ExtensionsTreeViewModelBuilder _viewModelBuilder;
-        private readonly ExtensionMethodInvocationCommandViewModel.Factory _extensionMethodInvocationCommandViewModelFactory;
 
-        string _solutionPath = "Not Set";
-        public string SolutionPath
-        {
-            get => _solutionPath;
-            set
-            {
-                _solutionPath = value;
-                OnPropertyChanged();
-            }
-        }
-
+        public string SolutionPath => _ecs.Solution;
         public ObservableCollection<TreeItemViewModel> Roots { get; private set; } = new ObservableCollection<TreeItemViewModel>();
 
-        ICommand _reload;
-        public ICommand ReloadCommand
-        {
-            get => _reload;
-            set
-            {
-                _reload = value;
-                OnPropertyChanged();
-            }
-        }
-
         public ExtensionsTreeViewModel(
-            IExtensionsCacheService ecs, 
-            ExtensionsTreeViewModelBuilder viewModelBuilder,
-            ExtensionMethodInvocationCommandViewModel.Factory extensionMethodInvocationCommandViewModelFactory)
+            IExtensionsCacheService ecs,
+            IExtensionNotificationService ens,
+            ExtensionsTreeViewModelBuilder viewModelBuilder
+            )
         {
             _ecs = ecs;
+            _ens = ens;
             _viewModelBuilder = viewModelBuilder;
-            _extensionMethodInvocationCommandViewModelFactory = extensionMethodInvocationCommandViewModelFactory;
-            ReloadCommand = new Command(() => this.Reload());
+
+            _ens.OnSolutionChanged += (s, a) =>
+            {
+                Populate();
+            };
+            Populate();
         }
 
-        public void Init(string solutionPath)
+        void Populate()
         {
-            SolutionPath = solutionPath;
-            Reload();
-        }
-
-        public void Reload()
-        {
-            _ecs.Reload(SolutionPath);
-            _viewModelBuilder.PopulateViewModel(
-                this, 
-                (invokeParams) =>
-                {
-                    return _extensionMethodInvocationCommandViewModelFactory(invokeParams);
-                });
+            _viewModelBuilder.PopulateViewModel(this);
         }
     }
 }

@@ -13,12 +13,10 @@ namespace Quokka.Extension.Services
 {
     public class ExtensionsDiscoveryService : IExtensionsDiscoveryService
     {
-        private readonly IExtensionLogger _logger;
         private readonly Dictionary<string, Type> _iconsSet;
 
-        public ExtensionsDiscoveryService(IExtensionLogger logger)
+        public ExtensionsDiscoveryService()
         {
-            _logger = logger;
             _iconsSet = ExtensionCatalogue.IconTypes.ToDictionary(t => t.Name);
             _iconsSet[typeof(TopLevelIcon).Name] = typeof(TopLevelIcon);
         }
@@ -40,7 +38,7 @@ namespace Quokka.Extension.Services
 
         (Type, int) FetchIcon(AttributeSyntax m)
         {
-            var defaultIcon = (typeof(Grommet_Icons), (int)Grommet_Icons.GrTools);
+            var defaultIcon = (typeof(TopLevelIcon), (int)TopLevelIcon.Generic);
 
             if (m == null || m.ArgumentList == null)
                 return defaultIcon;
@@ -150,7 +148,6 @@ namespace Quokka.Extension.Services
                                 };
 
                                 extensions.Add(invokeParams);
-                                _logger.WriteLine($"Found extension method: {invokeParams.Class}.{invokeParams.Method}");
                             }
                         }
                     }
