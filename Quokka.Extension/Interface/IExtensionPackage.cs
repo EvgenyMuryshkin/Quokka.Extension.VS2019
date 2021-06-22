@@ -8,5 +8,6 @@ namespace Quokka.Extension.Interface
     {
         Task ShowToolWindowAsync(Type toolWindowType, int id, bool create);
         CancellationToken DisposalToken { get; }
+        Task<string> SolutionPathAsync();
     }
 }

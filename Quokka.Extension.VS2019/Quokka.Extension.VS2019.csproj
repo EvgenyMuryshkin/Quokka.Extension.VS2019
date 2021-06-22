@@ -66,7 +66,6 @@
     <Compile Include="Scaffolding\ExtensionBaseCommand.cs" />
     <Compile Include="Scaffolding\ExtensionCommand.cs" />
     <Compile Include="Scaffolding\ExtensionPart.cs" />
-    <Compile Include="Scaffolding\IExtensionPart.cs" />
     <Compile Include="Scaffolding\DynamicItemMenuCommandFactory.cs" />
     <Compile Include="Scaffolding\PathTools.cs" />
     <Compile Include="Services\ExtensionIconResolver.cs" />

@@ -1,7 +1,9 @@
 ﻿using Autofac;
 using Autofac.Features.ResolveAnything;
+using Microsoft.VisualStudio;
 using Microsoft.VisualStudio.ExtensionManager;
 using Microsoft.VisualStudio.Shell;
+using Microsoft.VisualStudio.Shell.Events;
 using Microsoft.VisualStudio.Shell.Interop;
 using Quokka.Extension.Interface;
 using Quokka.Extension.Interop;
@@ -41,6 +43,7 @@ namespace Quokka.Extension.VS2019
     [ProvideMenuResource("Menus.ctmenu", 1)]
     [ProvideAutoLoad(UIContextGuids80.SolutionExists, PackageAutoLoadFlags.BackgroundLoad)]
     [ProvideAutoLoad(UIContextGuids80.NoSolution, PackageAutoLoadFlags.BackgroundLoad)]
+    [ProvideAutoLoad(VSConstants.UICONTEXT.SolutionOpening_string, PackageAutoLoadFlags.BackgroundLoad)]
     [ProvideToolWindow(typeof(Quokka.Extension.VS2019.QuokkaExplorer))]
     public sealed class QuokkaExtensionVS2019Package : AsyncPackage, IExceptionHandler, IJoinableTaskFactory, IExtensionPackage
     {
@@ -133,6 +136,9 @@ namespace Quokka.Extension.VS2019
                     await instance.InitializeAsync();
                 }
 
+                var ecs = _container.Resolve<IExtensionsCacheService>();
+                await ecs.Reload();
+
                 CompleteInitialization(stopwatch.ElapsedMilliseconds);
             }
             catch (Exception ex)
@@ -151,6 +157,7 @@ namespace Quokka.Extension.VS2019
 
         IServiceProvider ServiceProvider => this;
         IVsOutputWindow OutputWindow => ServiceProvider.GetService<SVsOutputWindow, IVsOutputWindow>();
+        IVsSolution Solution => ServiceProvider.GetService<IVsSolution, IVsSolution>();
         IVsOutputWindowPane QuokkaPane { get; set; }
 
         void CompleteInitialization(long initTime)
@@ -200,6 +207,14 @@ namespace Quokka.Extension.VS2019
         public Task ShowToolWindowAsync(Type toolWindowType, int id, bool create)
         {
             return ShowToolWindowAsync(toolWindowType, id, create, DisposalToken);
+        }
+
+        public async Task<string> SolutionPathAsync()
+        {
+            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
+
+            Solution.GetSolutionInfo(out var dir, out var file, out var opts);
+            return file;
         }
     }
 }

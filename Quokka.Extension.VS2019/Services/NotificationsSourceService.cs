@@ -1,6 +1,6 @@
-﻿using EnvDTE;
-using Microsoft.VisualStudio.PlatformUI;
+﻿using Microsoft.VisualStudio.PlatformUI;
 using Microsoft.VisualStudio.Shell;
+using Microsoft.VisualStudio.Shell.Events;
 using Quokka.Extension.Interface;
 using Quokka.Extension.Scaffolding;
 using System.Threading.Tasks;
@@ -21,26 +21,43 @@ namespace Quokka.Extension.VS2019.Services
         {
             await TaskFactory.SwitchToMainThreadAsync();
 
-            VSColorTheme.ThemeChanged += (a) =>
+#pragma warning disable VSTHRD101 // Avoid unsupported async delegates
+            VSColorTheme.ThemeChanged += async (a) =>
             {
-                _ecs.Reload();
+                try
+                {
+                    await _ecs.Reload();
+                }
+                catch
+                {
+
+                }
             };
 
-#pragma warning disable VSTHRD010 // Invoke single-threaded types on Main thread
-            var dte = _serviceProvider.GetService(typeof(DTE)) as DTE;
-            if (dte != null)
+            SolutionEvents.OnAfterOpenSolution += async (s, a) =>
             {
-                dte.Events.SolutionEvents.Opened += () =>
+                try
                 {
-                    _ecs.Reload(dte.Solution.FullName);
-                };
+                    await _ecs.Reload();
+                }
+                catch
+                {
 
-                dte.Events.SolutionEvents.BeforeClosing += () =>
+                }
+            };
+
+            SolutionEvents.OnBeforeCloseSolution += async (s, a) =>
+            {
+                try
                 {
                     _ecs.Close();
-                };
-            }
-#pragma warning restore VSTHRD010 // Invoke single-threaded types on Main thread
+                }
+                catch
+                {
+
+                }
+            };
+#pragma warning restore VSTHRD101 // Avoid unsupported async delegates
         }
     }
 }

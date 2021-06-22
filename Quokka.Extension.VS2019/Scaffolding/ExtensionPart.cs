@@ -20,7 +20,8 @@ namespace Quokka.Extension.VS2019
         protected IVsSolution Solution => _serviceProvider.GetService<IVsSolution, IVsSolution>();
         protected OleMenuCommandService CommandService => _serviceProvider.GetService<IMenuCommandService, OleMenuCommandService>();
         protected IVsOutputWindow OutputWindow => _serviceProvider.GetService<SVsOutputWindow, IVsOutputWindow>();
-        
+        protected IExtensionNotificationService ExtensionNotificationService => _deps.ExtensionNotificationService;
+
         public ExtensionPart(ExtensionDeps deps)
         {
             _deps = deps;

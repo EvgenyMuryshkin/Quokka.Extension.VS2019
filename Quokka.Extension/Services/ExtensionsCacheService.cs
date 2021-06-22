@@ -1,7 +1,9 @@
 ﻿using Quokka.Extension.Interface;
 using Quokka.Extension.Interop;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace Quokka.Extension.Services
 {
@@ -10,14 +12,25 @@ namespace Quokka.Extension.Services
         private readonly IExtensionLogger _logger;
         private readonly IExtensionsDiscoveryService _eds;
         private readonly IExtensionNotificationService _ens;
+        private readonly IExtensionPackage _extensionPackage;
+        private readonly IInvocationCacheService _ics;
 
-        public ExtensionsCacheService(IExtensionLogger logger, IExtensionsDiscoveryService eds, IExtensionNotificationService ens)
+        public ExtensionsCacheService(
+            IExtensionLogger logger, 
+            IExtensionsDiscoveryService eds, 
+            IExtensionNotificationService ens,
+            IExtensionPackage extensionPackage,
+            IInvocationCacheService ics)
         {
             _logger = logger;
             _eds = eds;
             _ens = ens;
+            _extensionPackage = extensionPackage;
+            _ics = ics;
         }
+
         public string Solution { get; set; }
+        public bool HasExtensions => _mapIconToExtensions.Any();
 
         public List<ExtensionMethodInfo> Extensions { get; private set; } = new List<ExtensionMethodInfo>();
         Dictionary<string, List<ExtensionMethodInfo>> _mapIconToExtensions = new Dictionary<string, List<ExtensionMethodInfo>>();
@@ -28,22 +41,31 @@ namespace Quokka.Extension.Services
             return result ?? new List<ExtensionMethodInfo>();
         }
 
-        public void Reload(string solution = null, bool trace = false)
+        public async Task Reload(string solution = null, bool trace = false)
         {
-            Solution = solution ?? Solution;
-            Extensions = _eds.LoadFromDirectory(Solution);
-            _mapIconToExtensions = Extensions.GroupBy(e => e.Icon.ToString()).ToDictionary(k => k.Key, v => v.ToList());
-            
-            if (trace)
-                Extensions.ForEach(invokeParams => _logger.WriteLine($"Found extension method: {invokeParams.Class}.{invokeParams.Method}"));
+            Solution = solution ?? await _extensionPackage.SolutionPathAsync();
+            if (Solution == null)
+            {
+                Close();
+            }
+            else
+            {
+                Extensions = _eds.LoadFromDirectory(Solution);
+                _mapIconToExtensions = Extensions.GroupBy(e => e.Icon.ToString()).ToDictionary(k => k.Key, v => v.ToList());
 
-            _ens.RaiseSolutionChanged(Solution);
+                if (trace)
+                    Extensions.ForEach(invokeParams => _logger.WriteLine($"Found extension method: {invokeParams.Class}.{invokeParams.Method}"));
+
+                _ens.RaiseSolutionChanged(Solution);
+            }
         }
 
         public void Close()
         {
             Solution = "";
             Extensions.Clear();
+            _mapIconToExtensions.Clear();
+            _ics.Clear();
             _ens.RaiseSolutionChanged(Solution);
         }
     }

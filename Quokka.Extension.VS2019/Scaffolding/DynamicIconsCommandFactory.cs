@@ -57,12 +57,11 @@ namespace Quokka.Extension.VS2019
                     if (matchingMethods.Any())
                     {
                         DynamicItemMenuCommand dynamicMenuCommand = new DynamicItemMenuCommand(
+                            _extensionsCacheService,
                             _invocationService,
                             dynamicItemRootId,
                             cmdidMyDynamicStartCommand,
-                            matchingMethods,
-                            OnInvokedDynamicItem,
-                            OnBeforeQueryStatusDynamicItem
+                            matchingMethods
                             )
                         {
                             Visible = false
@@ -75,18 +74,6 @@ namespace Quokka.Extension.VS2019
             }
 
             return Task.CompletedTask;
-        }
-
-        private void OnInvokedDynamicItem(object sender, EventArgs args)
-        {
-            DynamicItemMenuCommand invokedCommand = (DynamicItemMenuCommand)sender;
-            invokedCommand.Invoke();
-        }
-
-        private void OnBeforeQueryStatusDynamicItem(object sender, EventArgs args)
-        {
-            DynamicItemMenuCommand matchedCommand = (DynamicItemMenuCommand)sender;
-            matchedCommand.OnBeforeQueryStatusDynamicItem();
         }
     }
 }

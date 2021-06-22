@@ -12,26 +12,50 @@ namespace Quokka.Extension.VS2019
 {
     class DynamicItemMenuCommand : OleMenuCommand
     {
+        private readonly IExtensionsCacheService _ecs;
         private readonly IExtensionInvocationService _invocationService;
         private readonly CommandID _commandId;
         private readonly int _cmdidMyDynamicStartCommand;
         List<ExtensionMethodInfo> _matchingMethods = new List<ExtensionMethodInfo>();
         private int _maxCount => _matchingMethods.Count;
-
+        private bool hasExtensions;
 
         public DynamicItemMenuCommand(
+            IExtensionsCacheService ecs,
             IExtensionInvocationService invocationService,
             CommandID rootId, 
             int cmdidMyDynamicStartCommand,
-            List<ExtensionMethodInfo> matchingMethods,
-            EventHandler invokeHandler, 
-            EventHandler beforeQueryStatusHandler)
-            : base(invokeHandler, null /*changeHandler*/, beforeQueryStatusHandler, rootId)
+            List<ExtensionMethodInfo> matchingMethods)
+            : base(OnInvokedDynamicItem, null /*changeHandler*/, OnBeforeQueryStatusDynamicItem, rootId)
         {
+            _ecs = ecs;
             _invocationService = invocationService;
             _commandId = rootId;
             _cmdidMyDynamicStartCommand = cmdidMyDynamicStartCommand;
             _matchingMethods = matchingMethods;
+        }
+
+        static void OnInvokedDynamicItem(object sender, EventArgs args)
+        {
+            DynamicItemMenuCommand invokedCommand = (DynamicItemMenuCommand)sender;
+            invokedCommand.Invoke();
+        }
+
+        static void OnBeforeQueryStatusDynamicItem(object sender, EventArgs args)
+        {
+            DynamicItemMenuCommand matchedCommand = (DynamicItemMenuCommand)sender;
+            matchedCommand.OnBeforeQueryStatusDynamicItem();
+        }
+
+        public void Update(List<ExtensionMethodInfo> matchingMethods)
+        {
+            hasExtensions = matchingMethods.Any();
+
+            if (matchingMethods.Any())
+                _matchingMethods = matchingMethods;
+
+            Enabled = !_invocationService.IsRunning && hasExtensions;
+            Visible = hasExtensions;
         }
 
         public override void Invoke()
@@ -86,8 +110,8 @@ namespace Quokka.Extension.VS2019
 
         internal void OnBeforeQueryStatusDynamicItem()
         {
-            Enabled = !_invocationService.IsRunning;
-            Visible = _matchingMethods.Any();
+            Enabled = !_invocationService.IsRunning && hasExtensions;
+            Visible = hasExtensions;
 
             var extensionMethodIndex = DynamicIndex;
             Text = $"Dynamic {extensionMethodIndex} ({MatchedCommandId})";

@@ -34,6 +34,12 @@ namespace Quokka.Extension.VS2019
             QuokkaPane = quokkaPane;
         }
 
+        public async Task Activate()
+        {
+            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
+            QuokkaPane?.Activate();
+        }
+
         public void Write(string message) => QuokkaPane?.OutputStringThreadSafe(message);
         public void WriteLine(string message) => Write($"{message}{Environment.NewLine}");
     }

@@ -36,6 +36,12 @@ namespace Quokka.Extension.Services
 
         public bool IsRunning => _runningProcess != null;
 
+        public void Clear()
+        {
+            CancelRun();
+            _invocationCache.Clear();
+        }
+
         public void CancelRun()
         {
             var proc = RunningProcess;
@@ -76,6 +82,7 @@ namespace Quokka.Extension.Services
 
                 var invoke = $"{_invokeParams.Class}.{_invokeParams.Method}";
 
+                await _logger.Activate();
                 _logger.WriteLine($"{invoke} started");
 
                 RunningProcess = Process.Start(new ProcessStartInfo()

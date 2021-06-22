@@ -52,23 +52,24 @@ namespace Quokka.Extension.VS2019
             // Add the DynamicItemMenuCommand for the expansion of the root item into N items at run time.
             CommandID dynamicItemRootId = new CommandID(_commandsSetId, (int)_cmdidMyDynamicStartCommand);
 
-            var existing = commandService.FindCommand(dynamicItemRootId);
-            if (existing != null)
-                commandService.RemoveCommand(existing);
-
             var matchingMethods = _extensionsCacheService.ExtensionsForIcon(_icon);
-            if (matchingMethods.Any())
+            var existing = commandService.FindCommand(dynamicItemRootId) as DynamicItemMenuCommand;
+            if (existing != null)
+            {
+                existing.Update(matchingMethods);
+            }
+            else
             {
                 DynamicItemMenuCommand dynamicMenuCommand = new DynamicItemMenuCommand(
+                    _extensionsCacheService,
                     _invocationService,
                     dynamicItemRootId,
                     _cmdidMyDynamicStartCommand,
-                    matchingMethods,
-                    OnInvokedDynamicItem,
-                    OnBeforeQueryStatusDynamicItem
+                    matchingMethods
                     )
                 {
-                    Visible = false
+                    Visible = false,
+                    Enabled = false
                 };
                 commandService.AddCommand(dynamicMenuCommand);
             }
@@ -78,19 +79,6 @@ namespace Quokka.Extension.VS2019
         {
             Reload();
             return Task.CompletedTask;
-        }
-
-        
-        private void OnInvokedDynamicItem(object sender, EventArgs args)
-        {
-            DynamicItemMenuCommand invokedCommand = (DynamicItemMenuCommand)sender;
-            invokedCommand.Invoke();
-        }
-
-        private void OnBeforeQueryStatusDynamicItem(object sender, EventArgs args)
-        {
-            DynamicItemMenuCommand matchedCommand = (DynamicItemMenuCommand)sender;
-            matchedCommand.OnBeforeQueryStatusDynamicItem();
         }
     }
 }

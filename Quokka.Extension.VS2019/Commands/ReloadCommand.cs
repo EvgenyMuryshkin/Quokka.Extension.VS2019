@@ -24,13 +24,7 @@ namespace Quokka.Extension.VS2019
         protected override async Task OnExecuteAsync()
         {
             await TaskFactory.SwitchToMainThreadAsync();
-
-            Solution.GetSolutionInfo(out var dir, out var file, out var opts);
-
-            _ecs.Reload(
-                solution: _ecs.Solution ?? file, 
-                trace: true
-            );
+            await _ecs.Reload(trace: true);
         }
     }
 }

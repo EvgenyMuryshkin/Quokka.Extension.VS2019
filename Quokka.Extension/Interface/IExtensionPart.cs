@@ -1,8 +1,8 @@
 ﻿using System.Threading.Tasks;
 
-namespace Quokka.Extension.VS2019
+namespace Quokka.Extension.Interface
 {
-    internal interface IExtensionPart
+    public interface IExtensionPart
     {
         Task InitializeAsync();
     }

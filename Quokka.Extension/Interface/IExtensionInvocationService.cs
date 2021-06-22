@@ -10,6 +10,7 @@ namespace Quokka.Extension.Interface
         Task RerunExtensionMethodAsync();
         Task InvokeExtensionMethodAsync(ExtensionMethodInfo _invokeParams, bool pushToMRU = true);
         void CancelRun();
+        void Clear();
         event EventHandler InvocationEvent;
     }
 }
