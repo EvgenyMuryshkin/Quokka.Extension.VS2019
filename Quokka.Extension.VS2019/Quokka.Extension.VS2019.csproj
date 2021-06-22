@@ -89,6 +89,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="links.txt" />
+    <Content Include="QuokkaLogo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Screenshot.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
     <EmbeddedResource Include="Resources\InvokeExtensionMethodCommand.png" />
     <EmbeddedResource Include="Resources\AntDesignIcons_0_254.png" />
     <EmbeddedResource Include="Resources\AntDesignIcons_255_509.png" />
