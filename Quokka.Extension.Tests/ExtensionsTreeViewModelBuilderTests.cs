@@ -1,4 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Moq;
+using Quokka.Extension.Interface;
+using Quokka.Extension.Services;
 
 namespace Quokka.Extension.Tests
 {
@@ -8,12 +11,10 @@ namespace Quokka.Extension.Tests
         [TestMethod]
         public void FromFolder()
         {
-            var viewModel = new ExtensionsTreeViewModel() { SolutionPath = @"C:\code\Quokka.Extension.VS2019" };
-            ExtensionsTreeViewModelBuilder.PopulateViewModel(viewModel, null);
-
-            Assert.AreEqual(1, viewModel.Projects.Count, "projects");
-            Assert.AreEqual(1, viewModel.Projects[0].Classes.Count, "classes");
-            Assert.AreEqual(2, viewModel.Projects[0].Classes[0].Methods.Count, "methods");
+            var logger = new Mock<IExtensionLogger>();
+            var svc = new ExtensionsDiscoveryService(logger.Object);
+            var extensions = svc.LoadFromDirectory(@"C:\code\Quokka.Extension.VS2019");
+            Assert.AreEqual(2, extensions.Count);
         }
     }
 }

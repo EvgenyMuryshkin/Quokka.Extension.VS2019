@@ -1,11 +1,21 @@
-﻿using Microsoft.VisualStudio.Shell;
+﻿using Autofac;
+using Autofac.Features.ResolveAnything;
+using Microsoft.VisualStudio;
+using Microsoft.VisualStudio.ExtensionManager;
+using Microsoft.VisualStudio.Shell;
+using Microsoft.VisualStudio.Shell.Events;
 using Microsoft.VisualStudio.Shell.Interop;
+using Quokka.Extension.Interface;
+using Quokka.Extension.Interop;
+using Quokka.Extension.Scaffolding;
+using Quokka.Extension.Services;
+using Quokka.Extension.VS2019.Scaffolding;
+using Quokka.Extension.VS2019.Services;
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.IO;
 using System.Runtime.InteropServices;
 using System.Threading;
+using System.Threading.Tasks;
 using Task = System.Threading.Tasks.Task;
 
 
@@ -29,20 +39,55 @@ namespace Quokka.Extension.VS2019
     /// </para>
     /// </remarks>
     [PackageRegistration(UseManagedResourcesOnly = true, AllowsBackgroundLoading = true)]
-    [Guid(QuokkaExtensionVS2019Package.PackageGuidString)]
+    [Guid(guidQuokkaExtensionVS2019PackageIds.PackageGuidString)]
     [ProvideMenuResource("Menus.ctmenu", 1)]
     [ProvideAutoLoad(UIContextGuids80.SolutionExists, PackageAutoLoadFlags.BackgroundLoad)]
-    public sealed class QuokkaExtensionVS2019Package : AsyncPackage, IExtensionLogger
+    [ProvideAutoLoad(UIContextGuids80.NoSolution, PackageAutoLoadFlags.BackgroundLoad)]
+    [ProvideAutoLoad(VSConstants.UICONTEXT.SolutionOpening_string, PackageAutoLoadFlags.BackgroundLoad)]
+    [ProvideToolWindow(typeof(Quokka.Extension.VS2019.QuokkaExplorer))]
+    public sealed class QuokkaExtensionVS2019Package : AsyncPackage, IExceptionHandler, IJoinableTaskFactory, IExtensionPackage
     {
         public static QuokkaExtensionVS2019Package Instance;
-        public static Guid QuokkaOutputWindowId = Guid.Parse("51db306c-dd34-4cdf-afa7-3b35946cb4e1");
+        private IContainer _container;
 
-        /// <summary>
-        /// Quokka.Extension.VS2019Package GUID string.
-        /// </summary>
-        public const string PackageGuidString = "d9ff7f11-8ffd-4154-9fb2-2d1857864b98";
+        public T Resolve<T>() => _container.Resolve<T>();
 
         #region Package Members
+
+        void ConfigureContainer()
+        {
+            var builder = new ContainerBuilder();
+            builder.RegisterSource(new AnyConcreteTypeNotAlreadyRegisteredSource());
+
+            // singletons
+            builder.RegisterInstance<AsyncPackage>(Instance)
+                .AsSelf()
+                .As<AsyncPackage>()
+                .As<IExceptionHandler>()
+                .As<IServiceProvider>()
+                .As<IJoinableTaskFactory>()
+                .As<IExtensionPackage>()
+                ;
+
+            builder.RegisterType<QuokkaOutputWindowExtensionPart>()
+                .SingleInstance()
+                .AsSelf()
+                .As<IExtensionLogger>()
+                ;
+
+            builder.RegisterType<ExtensionNotificationService>().AsImplementedInterfaces().SingleInstance();
+            builder.RegisterType<NotificationsSourceService>().SingleInstance();
+            builder.RegisterType<ExtensionIconResolver>().AsImplementedInterfaces().SingleInstance();
+            builder.RegisterType<DynamicIconsCommandFactory>().SingleInstance();
+            builder.RegisterType<ExtensionsCacheService>().AsImplementedInterfaces().SingleInstance();
+            builder.RegisterType<ExtensionInvocationService>().AsImplementedInterfaces().SingleInstance();
+            builder.RegisterType<InvocationCacheService>().AsImplementedInterfaces().SingleInstance();
+
+            // transient
+            builder.RegisterType<ExtensionsDiscoveryService>().AsImplementedInterfaces();
+
+            _container = builder.Build();
+        }
 
         /// <summary>
         /// Initialization of the package; this method is called right after the package is sited, so this is the place
@@ -53,124 +98,123 @@ namespace Quokka.Extension.VS2019
         /// <returns>A task representing the async work of package initialization, or an already completed task if there is none. Do not return null from this method.</returns>
         protected override async Task InitializeAsync(CancellationToken cancellationToken, IProgress<ServiceProgressData> progress)
         {
+            var stopwatch = new Stopwatch();
+            stopwatch.Start();
+
             Instance = this;
 
             // When initialized asynchronously, the current thread may be a background thread at this point.
             // Do any initialization that requires the UI thread after switching to the UI thread.
             await this.JoinableTaskFactory.SwitchToMainThreadAsync(cancellationToken);
-            SetupOutputWindow();
-            await Quokka.Extension.VS2019.InvokeExtensionMethodCommand.InitializeAsync(this);
-            await Quokka.Extension.VS2019.RerunExtensionMethodCommand.InitializeAsync(this);
-        }
-        #endregion
 
-        IServiceProvider ServiceProvider => this as IServiceProvider;
-        IVsOutputWindow OutputWindow => ServiceProvider.GetService<SVsOutputWindow, IVsOutputWindow>();
-        IVsOutputWindowPane QuokkaPane { get; set; }
-        void SetupOutputWindow()
-        {
-            ThreadHelper.ThrowIfNotOnUIThread();
-
-            OutputWindow.GetPane(ref QuokkaOutputWindowId, out var quokkaPane);
-            if (quokkaPane == null)
+            var commands = new[]
             {
-                OutputWindow.CreatePane(ref QuokkaOutputWindowId, "Quokka", 1, 1);
-                OutputWindow.GetPane(ref QuokkaOutputWindowId, out quokkaPane);
-                quokkaPane.Activate();
-            }
-
-            QuokkaPane = quokkaPane;
-            WriteLine("Quokka FPGA has initialized");
-        }
-
-        public void Write(string message)
-        {
-            QuokkaPane?.OutputStringThreadSafe(message);
-        }
-
-        public void WriteLine(string message)
-        {
-            Write($"{message}{Environment.NewLine}");
-        }
-
-        List<ExtensionMethodInvokeParams> invokeHistory = new List<ExtensionMethodInvokeParams>();
-
-        public async Task RerunExtensionMethodAsync()
-        {
-            if (invokeHistory.Count == 0)
-                return;
-
-            await InvokeExtensionMethodAsync(invokeHistory[0], false);
-        }
-
-        public async Task InvokeExtensionMethodAsync(ExtensionMethodInvokeParams _invokeParams, bool pushToMRU = true)
-        {
-            if (_invokeParams == null)
-                return;
+                typeof(NotificationsSourceService),
+                typeof(QuokkaOutputWindowExtensionPart),
+                typeof(ShowQuokkaExplorerCommand),
+                typeof(QuokkaExplorerMenuCommand),
+                typeof(RerunExtensionMethodCommand),
+                typeof(CancelRunMethodCommand),
+                typeof(ExploreCommand),
+                typeof(ReloadCommand),
+                typeof(TopLevelTranslateCommand),
+                typeof(TopLevelBitStreamCommand),
+                typeof(TopLevelProgramCommand),
+                typeof(TopLevelGenericCommand),
+                //typeof(DynamicIconsCommandFactory)
+            };
 
             try
             {
-                if (pushToMRU)
+                ConfigureContainer();
+
+                foreach (var commandType in commands)
                 {
-                    invokeHistory.RemoveAll(p => p.ToString() == _invokeParams.ToString());
-                    invokeHistory.Insert(0, _invokeParams);
+                    var instance = _container.Resolve(commandType) as IExtensionPart;
+                    if (instance == null) throw new Exception($"Type {commandType} is not extension part");
+
+                    await instance.InitializeAsync();
                 }
 
-                var invoke = $"{_invokeParams.Class}.{_invokeParams.Method}";
+                var ecs = _container.Resolve<IExtensionsCacheService>();
+                await ecs.Reload();
 
-                WriteLine($"{invoke} started");
-
-                var proc = Process.Start(new ProcessStartInfo()
-                {
-                    FileName = @"dotnet",
-                    Arguments = $"run -- {invoke}",
-                    UseShellExecute = false,
-                    WorkingDirectory = Path.GetDirectoryName(_invokeParams.Project),
-                    CreateNoWindow = true,
-                    RedirectStandardOutput = true,
-                    RedirectStandardError = true
-                });
-
-                proc.BeginOutputReadLine();
-                proc.OutputDataReceived += (s, a) =>
-                {
-                    WriteLine(a.Data);
-                };
-
-                proc.BeginErrorReadLine();
-                proc.ErrorDataReceived += (s, a) =>
-                {
-                    WriteLine(a.Data);
-                };
-
-                proc.WaitForExit();
-
-                if (proc.ExitCode == 0)
-                {
-                    WriteLine($"{invoke} finished");
-                }
-                else
-                {
-                    WriteLine($"{invoke} failed with code: {proc.ExitCode}");
-                }
+                CompleteInitialization(stopwatch.ElapsedMilliseconds);
             }
             catch (Exception ex)
             {
-                await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
-
-                var title = $"{_invokeParams.Class}.{_invokeParams.Method} failed";
                 VsShellUtilities.ShowMessageBox(
                     this,
+                    ex.ToString(),
                     ex.Message,
-                    $"{title}. See Quokka output window for details",
                     OLEMSGICON.OLEMSGICON_CRITICAL,
                     OLEMSGBUTTON.OLEMSGBUTTON_OK,
                     OLEMSGDEFBUTTON.OLEMSGDEFBUTTON_FIRST);
 
-                WriteLine(title);
-                WriteLine(ex.Message);
-                WriteLine(ex.StackTrace);
             }
+        }
+        #endregion
+
+        IServiceProvider ServiceProvider => this;
+        IVsOutputWindow OutputWindow => ServiceProvider.GetService<SVsOutputWindow, IVsOutputWindow>();
+        IVsSolution Solution => ServiceProvider.GetService<IVsSolution, IVsSolution>();
+        IVsOutputWindowPane QuokkaPane { get; set; }
+
+        void CompleteInitialization(long initTime)
+        {
+            OutputWindow.GetPane(ref guidQuokkaExtensionVS2019PackageIds.QuokkaOutputWindowId, out var quokkaPane);
+            QuokkaPane = quokkaPane;
+            WriteLine($"Quokka FPGA has initialized in {initTime} ms");
+        }
+
+        public void Write(string message) => QuokkaPane?.OutputStringThreadSafe(message);
+        public void WriteLine(string message) => Write($"{message}{Environment.NewLine}");
+
+        public async Task OnException(string title,Exception ex)
+        {
+            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
+
+            VsShellUtilities.ShowMessageBox(
+                this,
+                ex.Message,
+                $"{title}. See Quokka output window for details",
+                OLEMSGICON.OLEMSGICON_CRITICAL,
+                OLEMSGBUTTON.OLEMSGBUTTON_OK,
+                OLEMSGDEFBUTTON.OLEMSGDEFBUTTON_FIRST);
+
+            WriteLine(title);
+            WriteLine(ex.Message);
+            WriteLine(ex.StackTrace);
+        }
+
+        public T Run<T>(Func<Task<T>> asyncMethod)
+        {
+            return ThreadHelper.JoinableTaskFactory.Run(asyncMethod);
+        }
+
+        public Task RunAsync(Func<Task> asyncMethod)
+        {
+            return ThreadHelper.JoinableTaskFactory.RunAsync(asyncMethod).Task;
+        }
+
+        public MainThreadAwaitableWrapper SwitchToMainThreadAsync(CancellationToken cancellationToken = default)
+        {
+#pragma warning disable VSTHRD004 // Await SwitchToMainThreadAsync
+            return new MainThreadAwaitableWrapper(ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync(cancellationToken).GetAwaiter());
+#pragma warning restore VSTHRD004 // Await SwitchToMainThreadAsync
+        }
+
+        public Task ShowToolWindowAsync(Type toolWindowType, int id, bool create)
+        {
+            return ShowToolWindowAsync(toolWindowType, id, create, DisposalToken);
+        }
+
+        public async Task<string> SolutionPathAsync()
+        {
+            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
+
+            Solution.GetSolutionInfo(out var dir, out var file, out var opts);
+            return file;
         }
     }
 }

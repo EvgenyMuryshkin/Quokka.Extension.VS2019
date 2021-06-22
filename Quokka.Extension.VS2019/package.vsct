@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CommandTable xmlns="http://schemas.microsoft.com/VisualStudio/2005-10-18/CommandTable" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <Extern href="stdidcmd.h" />
+  <Extern href="vsshlids.h" />
+  <Symbols>
+    <!-- This is the package guid. -->
+    <GuidSymbol name="guidQuokkaExtensionVS2019Package" value="{d9ff7f11-8ffd-4154-9fb2-2d1857864b98}" />
+    <!-- This is the guid used to group the menu commands together -->
+    <GuidSymbol name="guidQuokkaExtensionVS2019PackageCmdSet" value="{4bb7016f-f3ce-4305-91c2-2493253e2325}">
+      <IDSymbol name="ShowQuokkaExplorerCommandId" value="0x0100" />
+      <IDSymbol name="QuokkaExplorerMenuCommandId" value="0x0101" />
+
+      <IDSymbol name="MyMenuGroup" value="0x1020" />
+      <IDSymbol name="DynamicMenuController" value="0x0103" />
+      <IDSymbol name="DynamicMenuControllerGroup" value="0x0104"/>
+      <IDSymbol name="DynamicMenuController_Translate" value="0x0105"/>
+      <IDSymbol name="DynamicMenuControllerGroup_Translate" value="0x0106"/>
+      
+      <IDSymbol name="DynamicMenuController_BitStream" value="0x0107"/>
+      <IDSymbol name="DynamicMenuControllerGroup_BitStream" value="0x0108"/>
+
+      <IDSymbol name="DynamicMenuController_Program" value="0x0109"/>
+      <IDSymbol name="DynamicMenuControllerGroup_Program" value="0x010A"/>
+
+      <IDSymbol name="DynamicMenuController_Generic" value="0x010B"/>
+      <IDSymbol name="DynamicMenuControllerGroup_Generic" value="0x010C"/>
+
+      <IDSymbol name="Toolbar" value="0x1000" />
+      <IDSymbol name="ToolbarLeadingGroup" value="0x1050" />
+      <IDSymbol name="ToolbarDynamicGroup" value="0x1051"/>
+      <IDSymbol name="ToolbarTailGroup" value="0x1052"/>
+      <IDSymbol name="cmdidCancelRunMethodCommand" value="0x1200" />
+      <IDSymbol name="cmdidRerunExtensionMethodCommand" value="0x1201" />
+      <IDSymbol name="cmdidExploreCommand" value="0x1202" />
+      <IDSymbol name="cmdidReloadCommand" value="0x1203" />
+      <IDSymbol name="MyMenuController" value="0x1024" />
+      <IDSymbol name="MyMenuControllerGroup" value="0x1025" />
+
+      <IDSymbol name="QuokkaExplorerToolbarId" value="0x1100" />
+      <IDSymbol name="QuokkaExplorerToolbarGroupId" value="0x1101" />
+
+
+      <IDSymbol name="cmdidMyDynamicStart_Translate" value="0x2000" />
+      <IDSymbol name="cmdidMyDynamicStart_BitStream" value="0x3000" />
+      <IDSymbol name="cmdidMyDynamicStart_Program" value="0x4000" />
+      <IDSymbol name="cmdidMyDynamicStart_Generic" value="0x5000" />
+
+    </GuidSymbol>
+  </Symbols>
+</CommandTable>

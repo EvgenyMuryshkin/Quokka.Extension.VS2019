@@ -1,0 +1,2 @@
+﻿https://docs.microsoft.com/en-us/dotnet/api/microsoft.visualstudio.shell.vsresourcekeys?view=visualstudiosdk-2019
+https://stackoverflow.com/questions/39053691/getting-theme-colors-in-visual-studio-classifier-extension
