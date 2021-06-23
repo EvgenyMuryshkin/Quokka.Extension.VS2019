@@ -2,6 +2,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using Quokka.Extension.Interface;
 using Quokka.Extension.Services;
+using System.Threading.Tasks;
 
 namespace Quokka.Extension.Tests
 {
@@ -9,11 +10,11 @@ namespace Quokka.Extension.Tests
     public class ExtensionsTreeViewModelBuilderTests
     {
         [TestMethod]
-        public void FromFolder()
+        public async Task FromFolder()
         {
             var logger = new Mock<IExtensionLogger>();
-            var svc = new ExtensionsDiscoveryService(logger.Object);
-            var extensions = svc.LoadFromDirectory(@"C:\code\Quokka.Extension.VS2019");
+            var svc = new ExtensionsDiscoveryService();
+            var extensions = await svc.LoadFromDirectoryAsync(@"C:\code\Quokka.Extension.VS2019");
             Assert.AreEqual(2, extensions.Count);
         }
     }

@@ -2,6 +2,7 @@
 using Quokka.Extension.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Windows.Input;
@@ -46,21 +47,24 @@ namespace Quokka.Extension.Services
     {
         private readonly IExtensionIconResolver _extensionIconResolver;
         private readonly IExtensionsDiscoveryService _eds;
+        private readonly IExtensionsCacheService _ecs;
         private readonly ExtensionMethodInvocationCommandViewModel.Factory _extensionMethodInvocationCommandViewModelFactory;
 
         public ExtensionsTreeViewModelBuilder(
             IExtensionIconResolver extensionIconResolver, 
             IExtensionsDiscoveryService eds,
+            IExtensionsCacheService ecs,
             ExtensionMethodInvocationCommandViewModel.Factory extensionMethodInvocationCommandViewModelFactory)
         {
             _extensionIconResolver = extensionIconResolver;
             _eds = eds;
+            _ecs = ecs;
             _extensionMethodInvocationCommandViewModelFactory = extensionMethodInvocationCommandViewModelFactory;
         }
 
         public void PopulateViewModel(ExtensionsTreeViewModel treeViewModel)
         {
-            var extensions = _eds.LoadFromDirectory(treeViewModel.SolutionPath);
+            var extensions = _ecs.Extensions;
 
             var path = treeViewModel.SolutionPath;
             if (File.Exists(path))
@@ -68,7 +72,7 @@ namespace Quokka.Extension.Services
 
             var state = new ExtensionsTreeViewModelState(treeViewModel);
 
-            treeViewModel.Roots.Clear();
+            var roots = new ObservableCollection<TreeItemViewModel>();
 
             var projectsGroup = extensions.GroupBy(p => p.Project);
             var hierarchy = new Stack<string>();
@@ -112,9 +116,11 @@ namespace Quokka.Extension.Services
                     hierarchy.Pop();
                 }
 
-                treeViewModel.Roots.Add(pItem);
+                roots.Add(pItem);
                 hierarchy.Pop();
             }
+
+            treeViewModel.Roots = roots;
         }
     }
 }

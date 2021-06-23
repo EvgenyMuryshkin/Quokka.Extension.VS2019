@@ -2,18 +2,16 @@
 
 namespace Quokka.Extension.Interface
 {
-    public class SolutionChangedEventArgs : EventArgs
-    {
-        public string Solution { get; private set; }
-        public SolutionChangedEventArgs(string solution)
-        {
-            Solution = solution;
-        }
-    }
-
     public interface IExtensionNotificationService
     {
-        event EventHandler<SolutionChangedEventArgs> OnSolutionChanged;
-        void RaiseSolutionChanged(string solution);
+        event EventHandler OnSolutionChanged;
+        event EventHandler OnSolutionClosed;
+        event EventHandler OnThemeChanged;
+        event EventHandler OnExtensionsReloaded;
+
+        void RaiseSolutionChanged();
+        void RaiseSolutionClosed();
+        void RaiseThemeChanged();
+        void RaiseExtensionsReloaded();
     }
 }

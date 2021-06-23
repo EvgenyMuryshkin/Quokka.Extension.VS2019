@@ -14,13 +14,13 @@ namespace Quokka.Extension.VS2019
 
         protected IExtensionLogger _logger => _deps.Logger;
         protected IServiceProvider _serviceProvider => _deps.ServiceProvider;
-        protected IJoinableTaskFactory TaskFactory => _deps.TaskFactory;
-        protected IExtensionPackage Package => _deps.Package;
+        protected IJoinableTaskFactory _taskFactory => _deps.TaskFactory;
+        protected IExtensionPackage _package => _deps.Package;
+        protected IExtensionNotificationService _ens => _deps.ExtensionNotificationService;
 
         protected IVsSolution Solution => _serviceProvider.GetService<IVsSolution, IVsSolution>();
         protected OleMenuCommandService CommandService => _serviceProvider.GetService<IMenuCommandService, OleMenuCommandService>();
         protected IVsOutputWindow OutputWindow => _serviceProvider.GetService<SVsOutputWindow, IVsOutputWindow>();
-        protected IExtensionNotificationService ExtensionNotificationService => _deps.ExtensionNotificationService;
 
         public ExtensionPart(ExtensionDeps deps)
         {

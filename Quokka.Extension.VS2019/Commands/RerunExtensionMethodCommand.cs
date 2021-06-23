@@ -20,7 +20,7 @@ namespace Quokka.Extension.VS2019
             _invocationCacheService = invocationCacheService;
 
             _invocationService.InvocationEvent += OnInvocationEvent;
-            ExtensionNotificationService.OnSolutionChanged += OnInvocationEvent;
+            _ens.OnExtensionsReloaded += OnInvocationEvent;
         }
 
         void OnInvocationEvent(object sender, EventArgs arg)

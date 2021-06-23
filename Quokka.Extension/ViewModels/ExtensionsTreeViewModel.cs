@@ -13,29 +13,49 @@ namespace Quokka.Extension.ViewModels
         private readonly IExtensionsCacheService _ecs;
         private readonly IExtensionNotificationService _ens;
         private readonly ExtensionsTreeViewModelBuilder _viewModelBuilder;
+        private readonly IJoinableTaskFactory _taskFactory;
 
         public string SolutionPath => _ecs.Solution;
-        public ObservableCollection<TreeItemViewModel> Roots { get; private set; } = new ObservableCollection<TreeItemViewModel>();
+
+        ObservableCollection<TreeItemViewModel> _roots = new ObservableCollection<TreeItemViewModel>();
+        public ObservableCollection<TreeItemViewModel> Roots
+        {
+            get => _roots;
+            set
+            {
+                _roots = value;
+                OnPropertyChanged();
+            }
+        }
 
         public ExtensionsTreeViewModel(
             IExtensionsCacheService ecs,
             IExtensionNotificationService ens,
+            IJoinableTaskFactory taskFactory,
             ExtensionsTreeViewModelBuilder viewModelBuilder
             )
         {
             _ecs = ecs;
             _ens = ens;
             _viewModelBuilder = viewModelBuilder;
+            _taskFactory = taskFactory;
 
-            _ens.OnSolutionChanged += (s, a) =>
+            _ens.OnExtensionsReloaded += (s, a) =>
             {
                 Populate();
             };
+
+            _ens.OnThemeChanged += (s, a) =>
+            {
+                Populate();
+            };
+
             Populate();
         }
 
-        void Populate()
+        async void Populate()
         {
+            await _taskFactory.SwitchToMainThreadAsync();
             _viewModelBuilder.PopulateViewModel(this);
         }
     }

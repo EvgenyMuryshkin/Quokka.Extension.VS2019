@@ -20,9 +20,9 @@ namespace Quokka.Extension.VS2019
 
         protected override async Task OnExecuteAsync()
         {
-            await TaskFactory.RunAsync(async delegate
+            await _taskFactory.RunAsync(async delegate
             {
-                await Package.ShowToolWindowAsync(typeof(QuokkaExplorer), 0, true);
+                await _package.ShowToolWindowAsync(typeof(QuokkaExplorer), 0, true);
             });
         }
     }

@@ -10,54 +10,16 @@ namespace Quokka.Extension.VS2019.Services
 {
     class NotificationsSourceService : ExtensionPart, IExtensionPart
     {
-        private readonly IExtensionsCacheService _ecs;
-
-        public NotificationsSourceService(ExtensionDeps deps, IExtensionsCacheService ecs) : base(deps)
+        public NotificationsSourceService(ExtensionDeps deps) : base(deps)
         {
-            _ecs = ecs;
         }
 
         protected override async Task OnInitializeAsync()
         {
-            await TaskFactory.SwitchToMainThreadAsync();
-
-#pragma warning disable VSTHRD101 // Avoid unsupported async delegates
-            VSColorTheme.ThemeChanged += async (a) =>
-            {
-                try
-                {
-                    await _ecs.Reload();
-                }
-                catch
-                {
-
-                }
-            };
-
-            SolutionEvents.OnAfterOpenSolution += async (s, a) =>
-            {
-                try
-                {
-                    await _ecs.Reload();
-                }
-                catch
-                {
-
-                }
-            };
-
-            SolutionEvents.OnBeforeCloseSolution += async (s, a) =>
-            {
-                try
-                {
-                    _ecs.Close();
-                }
-                catch
-                {
-
-                }
-            };
-#pragma warning restore VSTHRD101 // Avoid unsupported async delegates
+            await _taskFactory.SwitchToMainThreadAsync();
+            VSColorTheme.ThemeChanged += (a) => _ens.RaiseThemeChanged();
+            SolutionEvents.OnAfterOpenSolution += (s, a) => _ens.RaiseSolutionChanged();
+            SolutionEvents.OnBeforeCloseSolution += (s, a) => _ens.RaiseSolutionClosed();
         }
     }
 }

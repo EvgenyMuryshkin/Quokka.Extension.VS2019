@@ -2,6 +2,7 @@
 using Quokka.Extension.Interop;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -27,6 +28,14 @@ namespace Quokka.Extension.Services
             _ens = ens;
             _extensionPackage = extensionPackage;
             _ics = ics;
+
+            _ens.OnSolutionChanged += OnSolutionChanged;
+            _ens.OnSolutionClosed += OnSolutionChanged;
+        }
+
+        private void OnSolutionChanged(object sender, EventArgs e)
+        {
+            Task.Run(() => Reload(trace: true));
         }
 
         public string Solution { get; set; }
@@ -50,13 +59,17 @@ namespace Quokka.Extension.Services
             }
             else
             {
-                Extensions = _eds.LoadFromDirectory(Solution);
+                var sw = new Stopwatch();
+                sw.Start();
+
+                Extensions = await _eds.LoadFromDirectoryAsync(Solution);
                 _mapIconToExtensions = Extensions.GroupBy(e => e.Icon.ToString()).ToDictionary(k => k.Key, v => v.ToList());
 
                 if (trace)
                     Extensions.ForEach(invokeParams => _logger.WriteLine($"Found extension method: {invokeParams.Class}.{invokeParams.Method}"));
 
-                _ens.RaiseSolutionChanged(Solution);
+                _logger.WriteLine($"Extensions discovered in {sw.ElapsedMilliseconds} ms");
+                _ens.RaiseExtensionsReloaded();
             }
         }
 
@@ -66,7 +79,7 @@ namespace Quokka.Extension.Services
             Extensions.Clear();
             _mapIconToExtensions.Clear();
             _ics.Clear();
-            _ens.RaiseSolutionChanged(Solution);
+            _ens.RaiseExtensionsReloaded();
         }
     }
 }

@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Xml.Linq;
 
 namespace Quokka.Extension.Services
@@ -90,71 +91,82 @@ namespace Quokka.Extension.Services
             return null;
         }
 
-        public List<ExtensionMethodInfo> LoadFromDirectory(string solutionPath)
+        async Task<string> ReadAllTextAsync(string path)
         {
-            var extensions = new List<ExtensionMethodInfo>();
-
-            if (File.Exists(solutionPath))
-                solutionPath = Path.GetDirectoryName(solutionPath);
-
-            if (!Directory.Exists(solutionPath))
-                return extensions;
-
-            var projFiles = Directory.EnumerateFiles(solutionPath, "*.csproj", SearchOption.AllDirectories);
-
-            foreach (var proj in projFiles)
+            using (var reader = File.OpenText(path))
             {
-                var xProject = XDocument.Parse(File.ReadAllText(proj));
-                var refs = xProject.Root
-                    .Elements("ItemGroup")
-                    .SelectMany(g => g.Elements("PackageReference"))
-                    .Where(p => p.Attribute("Include")?.Value == "Quokka.Extension.Interop");
+                return await reader.ReadToEndAsync();
+            }
+        }
 
-                if (refs.Any())
+        public Task<List<ExtensionMethodInfo>> LoadFromDirectoryAsync(string solutionPath)
+        {
+            return Task.Run(() =>
+            {
+                var extensions = new List<ExtensionMethodInfo>();
+
+                if (File.Exists(solutionPath))
+                    solutionPath = Path.GetDirectoryName(solutionPath);
+
+                if (!Directory.Exists(solutionPath))
+                    return extensions;
+
+                var projFiles = Directory.EnumerateFiles(solutionPath, "*.csproj", SearchOption.AllDirectories);
+
+                foreach (var proj in projFiles)
                 {
-                    var sources = Directory.EnumerateFiles(Path.GetDirectoryName(proj), "*.cs", SearchOption.AllDirectories);
+                    var xProject = XDocument.Parse(File.ReadAllText(proj));
+                    var refs = xProject.Root
+                        .Elements("ItemGroup")
+                        .SelectMany(g => g.Elements("PackageReference"))
+                        .Where(p => p.Attribute("Include")?.Value == "Quokka.Extension.Interop");
 
-                    foreach (var source in sources)
+                    if (refs.Any())
                     {
-                        var sourceCode = File.ReadAllText(source);
-                        SyntaxTree tree = CSharpSyntaxTree.ParseText(sourceCode);
-                        var classDeclarations = tree
-                            .GetRoot()
-                            .DescendantNodes(n => true)
-                            .OfType<ClassDeclarationSyntax>()
-                            .Where(c => c.AttributeLists.Any(al => al.Attributes.Any(a => a.Name.ToString() == "ExtensionClass")));
+                        var sources = Directory.EnumerateFiles(Path.GetDirectoryName(proj), "*.cs", SearchOption.AllDirectories);
 
-                        foreach (var classDeclaration in classDeclarations)
+                        foreach (var source in sources)
                         {
-                            var className = classDeclaration.Identifier.ToString();
-
-                            var methodDeclarations = classDeclaration
+                            var sourceCode = File.ReadAllText(source);
+                            SyntaxTree tree = CSharpSyntaxTree.ParseText(sourceCode);
+                            var classDeclarations = tree
+                                .GetRoot()
                                 .DescendantNodes(n => true)
-                                .OfType<MethodDeclarationSyntax>()
-                                .Where(m => ExtensionMethodAttribute(m.AttributeLists) != null);
+                                .OfType<ClassDeclarationSyntax>()
+                                .Where(c => c.AttributeLists.Any(al => al.Attributes.Any(a => a.Name.ToString() == "ExtensionClass")));
 
-                            foreach (var methodDeclaration in methodDeclarations)
+                            foreach (var classDeclaration in classDeclarations)
                             {
-                                var methodAttr = ExtensionMethodAttribute(methodDeclaration.AttributeLists);
-                                var (iconType, iconValue) = FetchIcon(methodAttr);
+                                var className = classDeclaration.Identifier.ToString();
 
-                                var invokeParams = new ExtensionMethodInfo()
+                                var methodDeclarations = classDeclaration
+                                    .DescendantNodes(n => true)
+                                    .OfType<MethodDeclarationSyntax>()
+                                    .Where(m => ExtensionMethodAttribute(m.AttributeLists) != null);
+
+                                foreach (var methodDeclaration in methodDeclarations)
                                 {
-                                    Project = proj,
-                                    Class = className,
-                                    Method = methodDeclaration.Identifier.ToString(),
-                                    Icon = new ExtensionMethodIcon(iconType, iconValue),
-                                    Title = FetchTitle(methodAttr)
-                                };
+                                    var methodAttr = ExtensionMethodAttribute(methodDeclaration.AttributeLists);
+                                    var (iconType, iconValue) = FetchIcon(methodAttr);
 
-                                extensions.Add(invokeParams);
+                                    var invokeParams = new ExtensionMethodInfo()
+                                    {
+                                        Project = proj,
+                                        Class = className,
+                                        Method = methodDeclaration.Identifier.ToString(),
+                                        Icon = new ExtensionMethodIcon(iconType, iconValue),
+                                        Title = FetchTitle(methodAttr)
+                                    };
+
+                                    extensions.Add(invokeParams);
+                                }
                             }
                         }
                     }
                 }
-            }
 
-            return extensions;
+                return extensions;
+            });
         }
     }
 }

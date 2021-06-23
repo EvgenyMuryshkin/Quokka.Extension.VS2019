@@ -23,7 +23,7 @@ namespace Quokka.Extension.VS2019
 
         protected override async Task OnExecuteAsync()
         {
-            await TaskFactory.SwitchToMainThreadAsync();
+            await _taskFactory.SwitchToMainThreadAsync();
             await _ecs.Reload(trace: true);
         }
     }

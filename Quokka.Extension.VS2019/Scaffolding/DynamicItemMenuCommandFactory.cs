@@ -34,7 +34,7 @@ namespace Quokka.Extension.VS2019
             _cmdidMyDynamicStartCommand = cmdidMyDynamicStartCommand;
             _icon = icon;
 
-            ExtensionNotificationService.OnSolutionChanged += (s, a) =>
+            _ens.OnExtensionsReloaded += (s, a) =>
             {
                 Reload();
             };
@@ -42,10 +42,10 @@ namespace Quokka.Extension.VS2019
 
         void Reload()
         {
-            OleMenuCommandService commandService = ServiceProvider.GetService(typeof(IMenuCommandService)) as OleMenuCommandService;
+            OleMenuCommandService commandService = _serviceProvider.GetService(typeof(IMenuCommandService)) as OleMenuCommandService;
             if (commandService == null)
             {
-                Logger.WriteLine("OleMenuCommandService was not resolved");
+                _logger.WriteLine("OleMenuCommandService was not resolved");
                 return;
             }
 
