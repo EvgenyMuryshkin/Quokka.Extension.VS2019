@@ -1,0 +1,2319 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CommandTable xmlns="http://schemas.microsoft.com/VisualStudio/2005-10-18/CommandTable" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <Extern href="package.vsct" />
+  <Extern href="symbols.vsct" />
+  <Commands package="guidQuokkaExtensionVS2022Package">
+    <Buttons>
+      <Button guid="dynamicCommandIds" id="AntDesignIcons_AiFillAccountBook" priority="8192" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_AntDesignIcons_0_254" id="AiFillAccountBook" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>AiFillAccountBook</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="AntDesignIcons_AiFillAlert" priority="8193" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_AntDesignIcons_0_254" id="AiFillAlert" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>AiFillAlert</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="AntDesignIcons_AiFillAlipayCircle" priority="8194" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_AntDesignIcons_0_254" id="AiFillAlipayCircle" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>AiFillAlipayCircle</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="AntDesignIcons_AiFillAlipaySquare" priority="8195" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_AntDesignIcons_0_254" id="AiFillAlipaySquare" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>AiFillAlipaySquare</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="AntDesignIcons_AiFillAliwangwang" priority="8196" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_AntDesignIcons_0_254" id="AiFillAliwangwang" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>AiFillAliwangwang</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="AntDesignIcons_AiFillAmazonCircle" priority="8197" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_AntDesignIcons_0_254" id="AiFillAmazonCircle" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>AiFillAmazonCircle</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="AntDesignIcons_AiFillAmazonSquare" priority="8198" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_AntDesignIcons_0_254" id="AiFillAmazonSquare" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>AiFillAmazonSquare</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="AntDesignIcons_AiFillAndroid" priority="8199" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_AntDesignIcons_0_254" id="AiFillAndroid" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>AiFillAndroid</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="AntDesignIcons_AiFillApi" priority="8200" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_AntDesignIcons_0_254" id="AiFillApi" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>AiFillApi</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="AntDesignIcons_AiFillApple" priority="8201" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_AntDesignIcons_0_254" id="AiFillApple" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>AiFillApple</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="BootstrapIcons_BsFillAlarmFill" priority="8202" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_BootstrapIcons_0_254" id="BsFillAlarmFill" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>BsFillAlarmFill</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="BootstrapIcons_BsFillArchiveFill" priority="8203" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_BootstrapIcons_0_254" id="BsFillArchiveFill" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>BsFillArchiveFill</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="BootstrapIcons_BsFillAspectRatioFill" priority="8204" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_BootstrapIcons_0_254" id="BsFillAspectRatioFill" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>BsFillAspectRatioFill</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="BootstrapIcons_BsFillAwardFill" priority="8205" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_BootstrapIcons_0_254" id="BsFillAwardFill" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>BsFillAwardFill</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="BootstrapIcons_BsFillBackspaceFill" priority="8206" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_BootstrapIcons_0_254" id="BsFillBackspaceFill" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>BsFillBackspaceFill</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="BootstrapIcons_BsFillBackspaceReverseFill" priority="8207" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_BootstrapIcons_0_254" id="BsFillBackspaceReverseFill" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>BsFillBackspaceReverseFill</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="BootstrapIcons_BsFillBagFill" priority="8208" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_BootstrapIcons_0_254" id="BsFillBagFill" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>BsFillBagFill</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="BootstrapIcons_BsFillBarChartFill" priority="8209" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_BootstrapIcons_0_254" id="BsFillBarChartFill" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>BsFillBarChartFill</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="BootstrapIcons_BsFillBellFill" priority="8210" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_BootstrapIcons_0_254" id="BsFillBellFill" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>BsFillBellFill</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="BootstrapIcons_BsFillBookmarkFill" priority="8211" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_BootstrapIcons_0_254" id="BsFillBookmarkFill" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>BsFillBookmarkFill</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="BoxIcons_BiAbacus" priority="8212" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_BoxIcons_0_254" id="BiAbacus" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>BiAbacus</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="BoxIcons_BiAccessibility" priority="8213" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_BoxIcons_0_254" id="BiAccessibility" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>BiAccessibility</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="BoxIcons_BiAddToQueue" priority="8214" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_BoxIcons_0_254" id="BiAddToQueue" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>BiAddToQueue</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="BoxIcons_BiAdjust" priority="8215" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_BoxIcons_0_254" id="BiAdjust" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>BiAdjust</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="BoxIcons_BiAlarmAdd" priority="8216" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_BoxIcons_0_254" id="BiAlarmAdd" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>BiAlarmAdd</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="BoxIcons_BiAlarmExclamation" priority="8217" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_BoxIcons_0_254" id="BiAlarmExclamation" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>BiAlarmExclamation</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="BoxIcons_BiAlarmOff" priority="8218" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_BoxIcons_0_254" id="BiAlarmOff" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>BiAlarmOff</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="BoxIcons_BiAlarmSnooze" priority="8219" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_BoxIcons_0_254" id="BiAlarmSnooze" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>BiAlarmSnooze</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="BoxIcons_BiAlarm" priority="8220" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_BoxIcons_0_254" id="BiAlarm" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>BiAlarm</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="BoxIcons_BiAlbum" priority="8221" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_BoxIcons_0_254" id="BiAlbum" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>BiAlbum</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="Devicons_DiAndroid" priority="8222" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_Devicons_0_254" id="DiAndroid" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>DiAndroid</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="Devicons_DiAngularSimple" priority="8223" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_Devicons_0_254" id="DiAngularSimple" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>DiAngularSimple</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="Devicons_DiAppcelerator" priority="8224" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_Devicons_0_254" id="DiAppcelerator" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>DiAppcelerator</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="Devicons_DiApple" priority="8225" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_Devicons_0_254" id="DiApple" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>DiApple</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="Devicons_DiAppstore" priority="8226" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_Devicons_0_254" id="DiAppstore" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>DiAppstore</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="Devicons_DiAptana" priority="8227" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_Devicons_0_254" id="DiAptana" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>DiAptana</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="Devicons_DiAsterisk" priority="8228" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_Devicons_0_254" id="DiAsterisk" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>DiAsterisk</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="Devicons_DiAtlassian" priority="8229" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_Devicons_0_254" id="DiAtlassian" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>DiAtlassian</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="Devicons_DiAtom" priority="8230" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_Devicons_0_254" id="DiAtom" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>DiAtom</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="Devicons_DiAws" priority="8231" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_Devicons_0_254" id="DiAws" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>DiAws</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="Feather_FiActivity" priority="8232" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_Feather_0_254" id="FiActivity" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>FiActivity</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="Feather_FiAirplay" priority="8233" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_Feather_0_254" id="FiAirplay" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>FiAirplay</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="Feather_FiAlertCircle" priority="8234" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_Feather_0_254" id="FiAlertCircle" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>FiAlertCircle</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="Feather_FiAlertOctagon" priority="8235" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_Feather_0_254" id="FiAlertOctagon" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>FiAlertOctagon</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="Feather_FiAlertTriangle" priority="8236" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_Feather_0_254" id="FiAlertTriangle" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>FiAlertTriangle</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="Feather_FiAlignCenter" priority="8237" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_Feather_0_254" id="FiAlignCenter" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>FiAlignCenter</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="Feather_FiAlignJustify" priority="8238" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_Feather_0_254" id="FiAlignJustify" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>FiAlignJustify</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="Feather_FiAlignLeft" priority="8239" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_Feather_0_254" id="FiAlignLeft" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>FiAlignLeft</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="Feather_FiAlignRight" priority="8240" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_Feather_0_254" id="FiAlignRight" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>FiAlignRight</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="Feather_FiAnchor" priority="8241" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_Feather_0_254" id="FiAnchor" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>FiAnchor</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="FlatColorIcons_FcAbout" priority="8242" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_FlatColorIcons_0_254" id="FcAbout" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>FcAbout</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="FlatColorIcons_FcAcceptDatabase" priority="8243" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_FlatColorIcons_0_254" id="FcAcceptDatabase" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>FcAcceptDatabase</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="FlatColorIcons_FcAddColumn" priority="8244" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_FlatColorIcons_0_254" id="FcAddColumn" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>FcAddColumn</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="FlatColorIcons_FcAddDatabase" priority="8245" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_FlatColorIcons_0_254" id="FcAddDatabase" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>FcAddDatabase</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="FlatColorIcons_FcAddImage" priority="8246" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_FlatColorIcons_0_254" id="FcAddImage" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>FcAddImage</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="FlatColorIcons_FcAddRow" priority="8247" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_FlatColorIcons_0_254" id="FcAddRow" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>FcAddRow</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="FlatColorIcons_FcAddressBook" priority="8248" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_FlatColorIcons_0_254" id="FcAddressBook" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>FcAddressBook</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="FlatColorIcons_FcAdvance" priority="8249" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_FlatColorIcons_0_254" id="FcAdvance" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>FcAdvance</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="FlatColorIcons_FcAdvertising" priority="8250" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_FlatColorIcons_0_254" id="FcAdvertising" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>FcAdvertising</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="FlatColorIcons_FcAlarmClock" priority="8251" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_FlatColorIcons_0_254" id="FcAlarmClock" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>FcAlarmClock</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="FontAwesome_Fa500Px" priority="8252" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_FontAwesome_0_254" id="Fa500Px" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>Fa500Px</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="FontAwesome_FaAccessibleIcon" priority="8253" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_FontAwesome_0_254" id="FaAccessibleIcon" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>FaAccessibleIcon</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="FontAwesome_FaAccusoft" priority="8254" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_FontAwesome_0_254" id="FaAccusoft" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>FaAccusoft</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="FontAwesome_FaAcquisitionsIncorporated" priority="8255" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_FontAwesome_0_254" id="FaAcquisitionsIncorporated" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>FaAcquisitionsIncorporated</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="FontAwesome_FaAdn" priority="8256" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_FontAwesome_0_254" id="FaAdn" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>FaAdn</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="FontAwesome_FaAdobe" priority="8257" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_FontAwesome_0_254" id="FaAdobe" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>FaAdobe</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="FontAwesome_FaAdversal" priority="8258" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_FontAwesome_0_254" id="FaAdversal" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>FaAdversal</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="FontAwesome_FaAffiliatetheme" priority="8259" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_FontAwesome_0_254" id="FaAffiliatetheme" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>FaAffiliatetheme</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="FontAwesome_FaAirbnb" priority="8260" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_FontAwesome_0_254" id="FaAirbnb" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>FaAirbnb</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="FontAwesome_FaAlgolia" priority="8261" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_FontAwesome_0_254" id="FaAlgolia" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>FaAlgolia</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="GameIcons_Gi3DGlasses" priority="8262" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_GameIcons_0_254" id="Gi3DGlasses" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>Gi3DGlasses</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="GameIcons_Gi3DHammer" priority="8263" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_GameIcons_0_254" id="Gi3DHammer" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>Gi3DHammer</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="GameIcons_Gi3DMeeple" priority="8264" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_GameIcons_0_254" id="Gi3DMeeple" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>Gi3DMeeple</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="GameIcons_Gi3DStairs" priority="8265" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_GameIcons_0_254" id="Gi3DStairs" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>Gi3DStairs</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="GameIcons_GiAbacus" priority="8266" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_GameIcons_0_254" id="GiAbacus" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>GiAbacus</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="GameIcons_GiAbbotMeeple" priority="8267" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_GameIcons_0_254" id="GiAbbotMeeple" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>GiAbbotMeeple</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="GameIcons_GiAbstract001" priority="8268" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_GameIcons_0_254" id="GiAbstract001" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>GiAbstract001</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="GameIcons_GiAbstract002" priority="8269" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_GameIcons_0_254" id="GiAbstract002" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>GiAbstract002</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="GameIcons_GiAbstract003" priority="8270" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_GameIcons_0_254" id="GiAbstract003" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>GiAbstract003</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="GameIcons_GiAbstract004" priority="8271" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_GameIcons_0_254" id="GiAbstract004" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>GiAbstract004</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="GithubOcticonsicons_GoAlert" priority="8272" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_GithubOcticonsicons_0_254" id="GoAlert" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>GoAlert</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="GithubOcticonsicons_GoArchive" priority="8273" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_GithubOcticonsicons_0_254" id="GoArchive" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>GoArchive</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="GithubOcticonsicons_GoArrowBoth" priority="8274" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_GithubOcticonsicons_0_254" id="GoArrowBoth" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>GoArrowBoth</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="GithubOcticonsicons_GoArrowDown" priority="8275" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_GithubOcticonsicons_0_254" id="GoArrowDown" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>GoArrowDown</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="GithubOcticonsicons_GoArrowLeft" priority="8276" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_GithubOcticonsicons_0_254" id="GoArrowLeft" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>GoArrowLeft</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="GithubOcticonsicons_GoArrowRight" priority="8277" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_GithubOcticonsicons_0_254" id="GoArrowRight" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>GoArrowRight</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="GithubOcticonsicons_GoArrowSmallDown" priority="8278" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_GithubOcticonsicons_0_254" id="GoArrowSmallDown" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>GoArrowSmallDown</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="GithubOcticonsicons_GoArrowSmallLeft" priority="8279" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_GithubOcticonsicons_0_254" id="GoArrowSmallLeft" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>GoArrowSmallLeft</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="GithubOcticonsicons_GoArrowSmallRight" priority="8280" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_GithubOcticonsicons_0_254" id="GoArrowSmallRight" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>GoArrowSmallRight</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="GithubOcticonsicons_GoArrowSmallUp" priority="8281" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_GithubOcticonsicons_0_254" id="GoArrowSmallUp" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>GoArrowSmallUp</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="Grommet_Icons_GrAccessibility" priority="8282" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_Grommet_Icons_0_254" id="GrAccessibility" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>GrAccessibility</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="Grommet_Icons_GrAchievement" priority="8283" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_Grommet_Icons_0_254" id="GrAchievement" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>GrAchievement</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="Grommet_Icons_GrAction" priority="8284" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_Grommet_Icons_0_254" id="GrAction" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>GrAction</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="Grommet_Icons_GrActions" priority="8285" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_Grommet_Icons_0_254" id="GrActions" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>GrActions</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="Grommet_Icons_GrAd" priority="8286" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_Grommet_Icons_0_254" id="GrAd" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>GrAd</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="Grommet_Icons_GrAddCircle" priority="8287" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_Grommet_Icons_0_254" id="GrAddCircle" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>GrAddCircle</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="Grommet_Icons_GrAdd" priority="8288" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_Grommet_Icons_0_254" id="GrAdd" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>GrAdd</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="Grommet_Icons_GrAed" priority="8289" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_Grommet_Icons_0_254" id="GrAed" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>GrAed</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="Grommet_Icons_GrAggregate" priority="8290" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_Grommet_Icons_0_254" id="GrAggregate" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>GrAggregate</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="Grommet_Icons_GrAidOption" priority="8291" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_Grommet_Icons_0_254" id="GrAidOption" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>GrAidOption</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="Heroicons_HiAcademicCap" priority="8292" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_Heroicons_0_254" id="HiAcademicCap" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>HiAcademicCap</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="Heroicons_HiAdjustments" priority="8293" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_Heroicons_0_254" id="HiAdjustments" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>HiAdjustments</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="Heroicons_HiAnnotation" priority="8294" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_Heroicons_0_254" id="HiAnnotation" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>HiAnnotation</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="Heroicons_HiArchive" priority="8295" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_Heroicons_0_254" id="HiArchive" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>HiArchive</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="Heroicons_HiArrowCircleDown" priority="8296" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_Heroicons_0_254" id="HiArrowCircleDown" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>HiArrowCircleDown</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="Heroicons_HiArrowCircleLeft" priority="8297" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_Heroicons_0_254" id="HiArrowCircleLeft" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>HiArrowCircleLeft</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="Heroicons_HiArrowCircleRight" priority="8298" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_Heroicons_0_254" id="HiArrowCircleRight" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>HiArrowCircleRight</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="Heroicons_HiArrowCircleUp" priority="8299" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_Heroicons_0_254" id="HiArrowCircleUp" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>HiArrowCircleUp</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="Heroicons_HiArrowDown" priority="8300" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_Heroicons_0_254" id="HiArrowDown" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>HiArrowDown</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="Heroicons_HiArrowLeft" priority="8301" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_Heroicons_0_254" id="HiArrowLeft" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>HiArrowLeft</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="IcoMoonFree_ImHome" priority="8302" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_IcoMoonFree_0_254" id="ImHome" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>ImHome</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="IcoMoonFree_ImHome2" priority="8303" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_IcoMoonFree_0_254" id="ImHome2" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>ImHome2</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="IcoMoonFree_ImHome3" priority="8304" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_IcoMoonFree_0_254" id="ImHome3" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>ImHome3</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="IcoMoonFree_ImOffice" priority="8305" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_IcoMoonFree_0_254" id="ImOffice" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>ImOffice</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="IcoMoonFree_ImNewspaper" priority="8306" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_IcoMoonFree_0_254" id="ImNewspaper" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>ImNewspaper</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="IcoMoonFree_ImPencil" priority="8307" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_IcoMoonFree_0_254" id="ImPencil" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>ImPencil</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="IcoMoonFree_ImPencil2" priority="8308" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_IcoMoonFree_0_254" id="ImPencil2" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>ImPencil2</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="IcoMoonFree_ImQuill" priority="8309" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_IcoMoonFree_0_254" id="ImQuill" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>ImQuill</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="IcoMoonFree_ImPen" priority="8310" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_IcoMoonFree_0_254" id="ImPen" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>ImPen</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="IcoMoonFree_ImBlog" priority="8311" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_IcoMoonFree_0_254" id="ImBlog" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>ImBlog</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="Ionicons4_IoIosAddCircleOutline" priority="8312" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_Ionicons4_0_254" id="IoIosAddCircleOutline" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>IoIosAddCircleOutline</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="Ionicons4_IoIosAddCircle" priority="8313" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_Ionicons4_0_254" id="IoIosAddCircle" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>IoIosAddCircle</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="Ionicons4_IoIosAdd" priority="8314" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_Ionicons4_0_254" id="IoIosAdd" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>IoIosAdd</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="Ionicons4_IoIosAirplane" priority="8315" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_Ionicons4_0_254" id="IoIosAirplane" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>IoIosAirplane</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="Ionicons4_IoIosAlarm" priority="8316" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_Ionicons4_0_254" id="IoIosAlarm" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>IoIosAlarm</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="Ionicons4_IoIosAlbums" priority="8317" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_Ionicons4_0_254" id="IoIosAlbums" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>IoIosAlbums</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="Ionicons4_IoIosAlert" priority="8318" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_Ionicons4_0_254" id="IoIosAlert" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>IoIosAlert</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="Ionicons4_IoIosAmericanFootball" priority="8319" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_Ionicons4_0_254" id="IoIosAmericanFootball" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>IoIosAmericanFootball</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="Ionicons4_IoIosAnalytics" priority="8320" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_Ionicons4_0_254" id="IoIosAnalytics" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>IoIosAnalytics</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="Ionicons4_IoIosAperture" priority="8321" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_Ionicons4_0_254" id="IoIosAperture" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>IoIosAperture</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="Ionicons5_IoAccessibilityOutline" priority="8322" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_Ionicons5_0_254" id="IoAccessibilityOutline" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>IoAccessibilityOutline</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="Ionicons5_IoAccessibilitySharp" priority="8323" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_Ionicons5_0_254" id="IoAccessibilitySharp" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>IoAccessibilitySharp</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="Ionicons5_IoAccessibility" priority="8324" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_Ionicons5_0_254" id="IoAccessibility" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>IoAccessibility</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="Ionicons5_IoAddCircleOutline" priority="8325" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_Ionicons5_0_254" id="IoAddCircleOutline" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>IoAddCircleOutline</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="Ionicons5_IoAddCircleSharp" priority="8326" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_Ionicons5_0_254" id="IoAddCircleSharp" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>IoAddCircleSharp</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="Ionicons5_IoAddCircle" priority="8327" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_Ionicons5_0_254" id="IoAddCircle" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>IoAddCircle</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="Ionicons5_IoAddOutline" priority="8328" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_Ionicons5_0_254" id="IoAddOutline" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>IoAddOutline</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="Ionicons5_IoAddSharp" priority="8329" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_Ionicons5_0_254" id="IoAddSharp" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>IoAddSharp</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="Ionicons5_IoAdd" priority="8330" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_Ionicons5_0_254" id="IoAdd" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>IoAdd</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="Ionicons5_IoAirplaneOutline" priority="8331" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_Ionicons5_0_254" id="IoAirplaneOutline" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>IoAirplaneOutline</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="MaterialDesignicons_Md3DRotation" priority="8332" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_MaterialDesignicons_0_254" id="Md3DRotation" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>Md3DRotation</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="MaterialDesignicons_MdAccessibility" priority="8333" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_MaterialDesignicons_0_254" id="MdAccessibility" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>MdAccessibility</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="MaterialDesignicons_MdAccessible" priority="8334" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_MaterialDesignicons_0_254" id="MdAccessible" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>MdAccessible</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="MaterialDesignicons_MdAccountBalance" priority="8335" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_MaterialDesignicons_0_254" id="MdAccountBalance" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>MdAccountBalance</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="MaterialDesignicons_MdAccountBalanceWallet" priority="8336" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_MaterialDesignicons_0_254" id="MdAccountBalanceWallet" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>MdAccountBalanceWallet</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="MaterialDesignicons_MdAccountBox" priority="8337" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_MaterialDesignicons_0_254" id="MdAccountBox" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>MdAccountBox</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="MaterialDesignicons_MdAccountCircle" priority="8338" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_MaterialDesignicons_0_254" id="MdAccountCircle" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>MdAccountCircle</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="MaterialDesignicons_MdAddShoppingCart" priority="8339" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_MaterialDesignicons_0_254" id="MdAddShoppingCart" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>MdAddShoppingCart</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="MaterialDesignicons_MdAlarm" priority="8340" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_MaterialDesignicons_0_254" id="MdAlarm" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>MdAlarm</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="MaterialDesignicons_MdAlarmAdd" priority="8341" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_MaterialDesignicons_0_254" id="MdAlarmAdd" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>MdAlarmAdd</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="RemixIcon_RiAncientGateFill" priority="8342" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_RemixIcon_0_254" id="RiAncientGateFill" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>RiAncientGateFill</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="RemixIcon_RiAncientGateLine" priority="8343" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_RemixIcon_0_254" id="RiAncientGateLine" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>RiAncientGateLine</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="RemixIcon_RiAncientPavilionFill" priority="8344" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_RemixIcon_0_254" id="RiAncientPavilionFill" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>RiAncientPavilionFill</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="RemixIcon_RiAncientPavilionLine" priority="8345" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_RemixIcon_0_254" id="RiAncientPavilionLine" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>RiAncientPavilionLine</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="RemixIcon_RiBankFill" priority="8346" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_RemixIcon_0_254" id="RiBankFill" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>RiBankFill</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="RemixIcon_RiBankLine" priority="8347" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_RemixIcon_0_254" id="RiBankLine" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>RiBankLine</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="RemixIcon_RiBuilding2Fill" priority="8348" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_RemixIcon_0_254" id="RiBuilding2Fill" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>RiBuilding2Fill</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="RemixIcon_RiBuilding2Line" priority="8349" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_RemixIcon_0_254" id="RiBuilding2Line" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>RiBuilding2Line</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="RemixIcon_RiBuilding3Fill" priority="8350" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_RemixIcon_0_254" id="RiBuilding3Fill" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>RiBuilding3Fill</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="RemixIcon_RiBuilding3Line" priority="8351" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_RemixIcon_0_254" id="RiBuilding3Line" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>RiBuilding3Line</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="SimpleIcons_Si1001Tracklists" priority="8352" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_SimpleIcons_0_254" id="Si1001Tracklists" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>Si1001Tracklists</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="SimpleIcons_Si1Password" priority="8353" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_SimpleIcons_0_254" id="Si1Password" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>Si1Password</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="SimpleIcons_Si500Px" priority="8354" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_SimpleIcons_0_254" id="Si500Px" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>Si500Px</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="SimpleIcons_SiAFrame" priority="8355" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_SimpleIcons_0_254" id="SiAFrame" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>SiAFrame</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="SimpleIcons_SiAbbrobotstudio" priority="8356" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_SimpleIcons_0_254" id="SiAbbrobotstudio" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>SiAbbrobotstudio</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="SimpleIcons_SiAboutDotMe" priority="8357" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_SimpleIcons_0_254" id="SiAboutDotMe" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>SiAboutDotMe</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="SimpleIcons_SiAbstract" priority="8358" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_SimpleIcons_0_254" id="SiAbstract" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>SiAbstract</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="SimpleIcons_SiAcademia" priority="8359" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_SimpleIcons_0_254" id="SiAcademia" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>SiAcademia</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="SimpleIcons_SiAccusoft" priority="8360" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_SimpleIcons_0_254" id="SiAccusoft" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>SiAccusoft</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="SimpleIcons_SiAcm" priority="8361" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_SimpleIcons_0_254" id="SiAcm" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>SiAcm</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="Typicons_TiAdjustBrightness" priority="8362" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_Typicons_0_254" id="TiAdjustBrightness" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>TiAdjustBrightness</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="Typicons_TiAdjustContrast" priority="8363" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_Typicons_0_254" id="TiAdjustContrast" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>TiAdjustContrast</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="Typicons_TiAnchorOutline" priority="8364" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_Typicons_0_254" id="TiAnchorOutline" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>TiAnchorOutline</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="Typicons_TiAnchor" priority="8365" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_Typicons_0_254" id="TiAnchor" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>TiAnchor</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="Typicons_TiArchive" priority="8366" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_Typicons_0_254" id="TiArchive" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>TiArchive</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="Typicons_TiArrowBackOutline" priority="8367" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_Typicons_0_254" id="TiArrowBackOutline" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>TiArrowBackOutline</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="Typicons_TiArrowBack" priority="8368" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_Typicons_0_254" id="TiArrowBack" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>TiArrowBack</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="Typicons_TiArrowDownOutline" priority="8369" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_Typicons_0_254" id="TiArrowDownOutline" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>TiArrowDownOutline</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="Typicons_TiArrowDownThick" priority="8370" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_Typicons_0_254" id="TiArrowDownThick" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>TiArrowDownThick</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="Typicons_TiArrowDown" priority="8371" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_Typicons_0_254" id="TiArrowDown" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>TiArrowDown</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="VSCodeIcons_VscAccount" priority="8372" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_VSCodeIcons_0_254" id="VscAccount" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>VscAccount</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="VSCodeIcons_VscActivateBreakpoints" priority="8373" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_VSCodeIcons_0_254" id="VscActivateBreakpoints" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>VscActivateBreakpoints</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="VSCodeIcons_VscAdd" priority="8374" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_VSCodeIcons_0_254" id="VscAdd" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>VscAdd</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="VSCodeIcons_VscArchive" priority="8375" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_VSCodeIcons_0_254" id="VscArchive" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>VscArchive</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="VSCodeIcons_VscArrowBoth" priority="8376" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_VSCodeIcons_0_254" id="VscArrowBoth" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>VscArrowBoth</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="VSCodeIcons_VscArrowDown" priority="8377" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_VSCodeIcons_0_254" id="VscArrowDown" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>VscArrowDown</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="VSCodeIcons_VscArrowLeft" priority="8378" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_VSCodeIcons_0_254" id="VscArrowLeft" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>VscArrowLeft</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="VSCodeIcons_VscArrowRight" priority="8379" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_VSCodeIcons_0_254" id="VscArrowRight" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>VscArrowRight</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="VSCodeIcons_VscArrowSmallDown" priority="8380" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_VSCodeIcons_0_254" id="VscArrowSmallDown" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>VscArrowSmallDown</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="VSCodeIcons_VscArrowSmallLeft" priority="8381" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_VSCodeIcons_0_254" id="VscArrowSmallLeft" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>VscArrowSmallLeft</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="WeatherIcons_WiAlien" priority="8382" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_WeatherIcons_0_254" id="WiAlien" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>WiAlien</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="WeatherIcons_WiBarometer" priority="8383" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_WeatherIcons_0_254" id="WiBarometer" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>WiBarometer</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="WeatherIcons_WiCelsius" priority="8384" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_WeatherIcons_0_254" id="WiCelsius" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>WiCelsius</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="WeatherIcons_WiCloudDown" priority="8385" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_WeatherIcons_0_254" id="WiCloudDown" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>WiCloudDown</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="WeatherIcons_WiCloudRefresh" priority="8386" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_WeatherIcons_0_254" id="WiCloudRefresh" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>WiCloudRefresh</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="WeatherIcons_WiCloudUp" priority="8387" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_WeatherIcons_0_254" id="WiCloudUp" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>WiCloudUp</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="WeatherIcons_WiCloud" priority="8388" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_WeatherIcons_0_254" id="WiCloud" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>WiCloud</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="WeatherIcons_WiCloudyGusts" priority="8389" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_WeatherIcons_0_254" id="WiCloudyGusts" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>WiCloudyGusts</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="WeatherIcons_WiCloudyWindy" priority="8390" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_WeatherIcons_0_254" id="WiCloudyWindy" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>WiCloudyWindy</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="WeatherIcons_WiCloudy" priority="8391" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_WeatherIcons_0_254" id="WiCloudy" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>WiCloudy</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="css_gg_CgAbstract" priority="8392" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_css_gg_0_254" id="CgAbstract" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>CgAbstract</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="css_gg_CgAddR" priority="8393" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_css_gg_0_254" id="CgAddR" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>CgAddR</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="css_gg_CgAdd" priority="8394" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_css_gg_0_254" id="CgAdd" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>CgAdd</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="css_gg_CgAdidas" priority="8395" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_css_gg_0_254" id="CgAdidas" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>CgAdidas</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="css_gg_CgAirplane" priority="8396" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_css_gg_0_254" id="CgAirplane" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>CgAirplane</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="css_gg_CgAlarm" priority="8397" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_css_gg_0_254" id="CgAlarm" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>CgAlarm</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="css_gg_CgAlbum" priority="8398" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_css_gg_0_254" id="CgAlbum" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>CgAlbum</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="css_gg_CgAlignBottom" priority="8399" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_css_gg_0_254" id="CgAlignBottom" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>CgAlignBottom</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="css_gg_CgAlignCenter" priority="8400" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_css_gg_0_254" id="CgAlignCenter" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>CgAlignCenter</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="dynamicCommandIds" id="css_gg_CgAlignLeft" priority="8401" type="Button">
+        <Parent guid="guidQuokkaExtensionVS2022PackageCmdSet" id="DynamicMenuControllerGroup" />
+        <Icon guid="guid_css_gg_0_254" id="CgAlignLeft" />
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>CgAlignLeft</ButtonText>
+        </Strings>
+      </Button>
+    </Buttons>
+  </Commands>
+</CommandTable>

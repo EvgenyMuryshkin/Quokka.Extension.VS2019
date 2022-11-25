@@ -5,6 +5,6 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Quokka.Extension.Interop" Version="1.0.2.30" />
+    <PackageReference Include="Quokka.Extension.Interop" Version="1.0.3.31" />
   </ItemGroup>
 </Project>
